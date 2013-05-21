@@ -1,0 +1,36 @@
+has_layout: true
+
+layout:
+  default
+
+default:
+  title: Mark Heggie.
+
+  metas:
+    https:
+      content-type: text/html; charset=utf-8
+      content-language: en-US
+
+    name:
+      keywords: Mark, Heggie, Artist, Illustraitor, Painter, Tattoo, Detroit, Michigan, Utica, Ferndale
+      description: Mark Heggie's official website
+      robots: index, follow
+      viewport: width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.0, user-scalable=no
+
+  css:
+    site:
+      - bootstrap.min
+      - bootstrap-responsive.min
+      - main
+      - royalslider/royalslider
+
+  js:
+    cdn:
+
+
+    site:
+      - vendor/jquery-1.9.1.min
+      - vendor/bootstrap.min
+      - main
+      - royalslider/jquery.royalslider.min
+      

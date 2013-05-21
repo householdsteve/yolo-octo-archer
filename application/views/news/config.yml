@@ -1,0 +1,25 @@
+# actions
+# common settings for all actions in this controller
+common:
+  title: Mark Heggie. 
+  css:
+    site:
+      
+  js:
+    site:
+      
+# configs for each action
+index:
+  title: News on Mark Heggie straight from tumblr
+
+  metas:
+    name:
+      keywords: Mark, Heggie, Art, Tattoo, Illustrator, Painter, Artist
+      description: You've reached the complete Mark Heggie web experience. Come in please.
+
+  css:
+    site:
+
+  js:
+    site:
+      - news/index

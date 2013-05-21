@@ -1,0 +1,24 @@
+# actions
+# common settings for all actions in this controller
+common:
+  title: Mark Heggie. 
+  css:
+    site:
+      
+  js:
+    site:
+      
+# configs for each action
+index:
+  title: Mark Heggie - Tattoo
+
+  metas:
+    name:
+      description: A selection of Mark Heggie's tattoos from the past 10 years.
+
+  css:
+    site:
+
+  js:
+    site:
+      - news/index

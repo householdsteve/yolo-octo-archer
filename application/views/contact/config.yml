@@ -1,0 +1,24 @@
+# actions
+# common settings for all actions in this controller
+common:
+  title: Mark Heggie. 
+  css:
+    site:
+      
+  js:
+    site:
+      
+# configs for each action
+index:
+  title: Mark Heggie - Contact
+
+  metas:
+    name:
+      description: Contact Mark Heggie's.
+
+  css:
+    site:
+
+  js:
+    site:
+      - news/index

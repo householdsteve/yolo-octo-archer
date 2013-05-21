@@ -1,0 +1,9 @@
+application/cache
+application/config/config.php
+.htaccess
+assets/cache
+post-receive
+Makefile
+git-ftp.py
+git-ftp.1
+git-ftp-test.py
