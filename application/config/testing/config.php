@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://markheggie.com/site13/markheggie.com/';
+$config['base_url']	= 'http://beta.ono';
 
 /*
 |--------------------------------------------------------------------------

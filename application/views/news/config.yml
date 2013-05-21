@@ -1,7 +1,7 @@
 # actions
 # common settings for all actions in this controller
 common:
-  title: Mark Heggie. 
+  title: One Night Only
   css:
     site:
       
@@ -10,12 +10,10 @@ common:
       
 # configs for each action
 index:
-  title: News on Mark Heggie straight from tumblr
+  title: Giorgio Armani | One night only
 
   metas:
     name:
-      keywords: Mark, Heggie, Art, Tattoo, Illustrator, Painter, Artist
-      description: You've reached the complete Mark Heggie web experience. Come in please.
 
   css:
     site:

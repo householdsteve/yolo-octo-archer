@@ -4,6 +4,10 @@
    Author's custom styles
    ========================================================================== */
 
+@import "fonts.less";
+
+@base_grey: #eee;
+
 html, body {
   width:100%;
   height:100%;
@@ -21,17 +25,43 @@ h1 {
 }
 
 body {
-  background:black;
-  
-  font-family: Andale Mono, Menlo, monospace;
-  font-size:11px;
-  text-transform:uppercase;
-  color:#fff;
+  background:@base_grey;
+  font-family:'one_night_onlymedium';
+  font-size:14px;
+  color:#000;
   a {
-    color:#fff;
+    color:#000;
     &:hover, &:active, &:focus { color:#333; text-decoration:none; }
-    &.selected { color:yellow; text-decoration:line-through; }
+    &.selected { color:black;}
   }
+}
+
+nav {
+  ul {
+    text-transform:uppercase;
+    list-style:none;
+    a {
+      display:block;
+    }
+  }
+  
+  &.main {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    background:white;
+  }
+}
+
+
+#logo a {
+  background: url('../img/logo.png') no-repeat scroll top left;
+  width: 128px;
+  height: 172px;
+  text-indent:-9999em;
+  margin:0 0 0 0;
+  display:block;
 }
 
 .wrapper {
@@ -39,56 +69,7 @@ body {
   height:100%;
 }
 
-nav.main {
-  width:110px;
-  position:relative;
-  z-index:3000;
-  margin:0 0 0 25px;
-  padding:40px 15px 15px 15px;
-  background:black;
-}
 
-article.content {
-  margin:0 0 0 25px;
-  padding:5px 15px 15px 15px;
-  max-width:60%;
-  .base { 
-    margin:40px 0 0 0;
-    &:first-child {margin:0;}
-  }
-  &.bio {
-    strong { 
-      &:first-child {margin:0;}
-      display:block; 
-      margin:20px 0 0 0; 
-      }
-  }
-}
-
-#logo a {
-  background: url('../img/logo.png') no-repeat scroll top left;
-  width: 106px;
-  height: 32px;
-  text-indent:-9999em;
-  margin:0 0 10px 0;
-  display:block;
-}
-
-ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
-#maingallery {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0; /* height of thumbs (if not required set to 0) */
-  height: auto;
-  width: auto;
-}
 
 
 /* ==========================================================================
@@ -97,46 +78,21 @@ ul {
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   #logo a {
     background-image: url('../img/logo@2x.png');
-    background-size: 106px 32px;
+    background-size: 128px 172px;
   }
 }
 
 
 @media screen and (max-device-width: 480px) {
-  #maingallery {
-    position: absolute;
-    left: 0;
-    top: 180px;
-    right: 0;
-    bottom: 0; /* height of thumbs (if not required set to 0) */
-    height: auto;
-    width: auto;
-  }
   
-  article.content {
-    max-width:90%;
-    margin:0 0 0 25px;
-    padding:5px 15px 15px 15px;
-    &.news {
-      margin-left:0;
-      padding-left:0;
-      .base {
-        margin:0 0 0 25px;
-        padding:5px 15px 15px 15px;
-        &.photo {
-          margin:0;
-          padding:0;
-          .royalSlider {
-            width:400px;
-          }
-        }
-      }
-    }
-  }
 }
 
-/* copied from template site */
 
+
+
+
+
+/* ROYAL SLIDE TEMPLATE FILES */
 
 .rsUni, .rsUni .rsOverflow, .rsUni .rsSlide, .rsUni .rsVideoFrameHolder, .rsUni .rsThumbs {
 

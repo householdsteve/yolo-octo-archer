@@ -4,7 +4,7 @@ layout:
   default
 
 default:
-  title: Mark Heggie.
+  title: Giorgio Armani | One Night Only in Roma
 
   metas:
     https:
@@ -12,8 +12,8 @@ default:
       content-language: en-US
 
     name:
-      keywords: Mark, Heggie, Artist, Illustraitor, Painter, Tattoo, Detroit, Michigan, Utica, Ferndale
-      description: Mark Heggie's official website
+      keywords: Giorgio, Armani, One Night Only, Fashion, Festa, Show, Rome, Live, Event
+      description: The source for the biggest event of the year. See all of the One night only content here.
       robots: index, follow
       viewport: width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.0, user-scalable=no
 
