@@ -34,7 +34,9 @@
       <?php $this->view->partial('common/_nav'); ?>
 
       <section id="main">
+        <section class="principal">
         <?php echo $yield; ?>
+        </section>
       </section>
     <?php $this->view->asset('js'); ?>
   </body>

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class News extends CI_Controller{
+class Home extends CI_Controller{
   
   public function __construct()
   {
@@ -46,6 +46,17 @@ class News extends CI_Controller{
     //    //$this->_data['posts'] = $posts;
     //    $this->output->cache(43829);    
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+  }
+  
+  public function timer(){
+    	if( $this->input->is_ajax_request() )
+			{
+				// If form token matches
+			  $now = new DateTime(); 
+				echo json_encode( array("timer"=>$now->format("M j, Y H:i:s O")) );
+			}else{
+			  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+			}
   }
   
 }

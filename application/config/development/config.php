@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://beta.ono';
+$config['base_url']	= 'http://beta.ono/';
 
 /*
 |--------------------------------------------------------------------------

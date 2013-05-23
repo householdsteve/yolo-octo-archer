@@ -39,6 +39,7 @@ body {
 }
 body a {
   color: #000;
+  text-decoration: none;
 }
 body a:hover,
 body a:active,
@@ -49,31 +50,104 @@ body a:focus {
 body a.selected {
   color: black;
 }
+nav small {
+  font-size: 70%;
+  color: #cccccc;
+  position: relative;
+  top: 3px;
+}
 nav ul {
   text-transform: uppercase;
   list-style: none;
+  padding: 10px 0;
+  margin: 15px 50px;
+  border-top: 1px #000000 solid;
+  border-bottom: 1px #000000 solid;
 }
 nav ul a {
   display: block;
 }
+nav ul li {
+  margin: 15px 0 0 0;
+}
+nav ul li:first-child {
+  margin: 0;
+}
+nav ul ul {
+  margin: 0 0 0 10px;
+  padding: 0;
+  border: none;
+}
+nav ul ul li {
+  margin: 0;
+}
 nav.main {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   background: white;
+  width: 250px;
+}
+nav h1 {
+  font-size: 21px;
+  margin: 0 auto 6px auto;
+  text-align: center;
+}
+nav #main_countdown .countdown {
+  width: 170px;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+nav .countdown_show3 .countdown_section {
+  width: 55px;
 }
 #logo a {
   background: url('../img/logo.png') no-repeat scroll top left;
   width: 128px;
   height: 172px;
   text-indent: -9999em;
-  margin: 0 0 0 0;
+  margin: 20px auto 0 auto;
   display: block;
 }
 .wrapper {
   width: 100%;
   height: 100%;
+}
+.top-space {
+  margin-top: 40px;
+}
+section.principal {
+  margin: 0 0 0 250px;
+}
+section.principal h1 {
+  font-size: 140%;
+}
+section.principal h2 {
+  font-size: 110%;
+}
+.grid-row {
+  background: blue;
+}
+.grid-row .item-holder {
+  background: white;
+  float: left;
+  width: 25%;
+  margin: 0;
+}
+.grid-row .item-holder:first-child {
+  margin: 0;
+}
+.grid-row .item-holder .door {
+  background: green;
+  width: 100px;
+  height: 150px;
+  -webkit-border-top-left-radius: 200px;
+  -webkit-border-top-right-radius: 200px;
+  -moz-border-radius-topleft: 200px;
+  -moz-border-radius-topright: 200px;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
 }
 /* ==========================================================================
    Mobile styles
@@ -86,6 +160,52 @@ nav.main {
 }
 @media screen and (max-device-width: 480px) {
   
+}
+/* jQuery Countdown styles 1.6.2. */
+.countdown_rtl {
+  direction: rtl;
+}
+.countdown_holding span {
+  color: #888;
+}
+.countdown_row {
+  clear: both;
+  width: 100%;
+  padding: 0px 2px;
+  text-align: center;
+}
+.countdown_show1 .countdown_section {
+  width: 98%;
+}
+.countdown_show2 .countdown_section {
+  width: 48%;
+}
+.countdown_show3 .countdown_section {
+  width: 32.5%;
+}
+.countdown_show4 .countdown_section {
+  width: 24.5%;
+}
+.countdown_show5 .countdown_section {
+  width: 19.5%;
+}
+.countdown_show6 .countdown_section {
+  width: 16.25%;
+}
+.countdown_show7 .countdown_section {
+  width: 14%;
+}
+.countdown_section {
+  display: inline-block;
+  font-size: 75%;
+  text-align: center;
+}
+.countdown_amount {
+  font-size: 200%;
+}
+.countdown_descr {
+  display: block;
+  width: 100%;
 }
 /* ROYAL SLIDE TEMPLATE FILES */
 .rsUni .rsArrow {

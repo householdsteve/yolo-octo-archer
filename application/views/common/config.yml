@@ -31,6 +31,7 @@ default:
     site:
       - vendor/jquery-1.9.1.min
       - vendor/bootstrap.min
+      - vendor/jquery.countdown.min
       - main
       - royalslider/jquery.royalslider.min
       

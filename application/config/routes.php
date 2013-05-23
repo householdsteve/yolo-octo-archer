@@ -38,8 +38,8 @@
 |
 */
 $route['tumblrimport'] = 'tumblrimport';
-$route['news/(:any)'] = 'news/index/$1';
-$route['default_controller'] = "news";
+//$route['home/(:any)'] = 'home/index/$1';
+$route['default_controller'] = "home";
 $route['404_override'] = '';
 
 

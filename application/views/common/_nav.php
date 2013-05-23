@@ -15,14 +15,14 @@
     </li>
     <li>
       <small>The Exhibition</small>
-      <a class="<?php selected('exhibitions', $nav_selected); ?>" href="<?php echo site_url('tattoo'); ?>" title="Tattoo">Eccentrico</a>
+      <a class="<?php selected('eccentrico', $nav_selected); ?>" href="<?php echo site_url('eccentrico'); ?>" title="Eccentrico">Eccentrico</a>
       <?php
         $this->view->partial('common/_sub_nav', array(
           'sub_nav' => array(
-            array('title' => 'Milan', 'href' => site_url('exhibitions/milan'), 'nav_selected' => 'exhibitions'),
-            array('title' => 'Tokyo', 'href' => site_url('exhibitions/tokyo'), 'nav_selected' => 'exhibitions'),
-            array('title' => 'Hong Kong', 'href' => site_url('exhibitions/hong-kong'), 'nav_selected' => 'exhibitions'),
-            array('title' => 'Rome', 'href' => site_url('exhibitions/rome'), 'nav_selected' => 'exhibitions')            
+            array('title' => 'Milan', 'href' => site_url('eccentrico/milan'), 'nav_selected' => 'eccentrico'),
+            array('title' => 'Tokyo', 'href' => site_url('eccentrico/tokyo'), 'nav_selected' => 'eccentrico'),
+            array('title' => 'Hong Kong', 'href' => site_url('eccentrico/hong-kong'), 'nav_selected' => 'eccentrico'),
+            array('title' => 'Rome', 'href' => site_url('eccentrico/rome'), 'nav_selected' => 'eccentrico')            
         )));
       ?>
     </li>
@@ -31,4 +31,10 @@
       <a class="<?php selected('store', $nav_selected); ?>" href="<?php echo site_url('boutique'); ?>" title="GA Store opening">GA Store opening</a>
     </li>
   </ul>
+  <div id="main_countdown">
+    <h1>WATCH IT LIVE</h1>
+    <div class="countdown">
+      
+    </div>
+  </div>
 </nav>
