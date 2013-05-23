@@ -33,6 +33,7 @@ default:
       - vendor/bootstrap.min
       - vendor/jquery.countdown.min
       - vendor/jquery.imgpreload.min
+      - vendor/jquery.zoomooz.min
       - main
       - royalslider/jquery.royalslider.min
       

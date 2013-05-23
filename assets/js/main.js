@@ -61,18 +61,26 @@ $(function(){
    var o = availableHeight / rows;
    var amargin = (o * 0.10);
    var a = o - amargin;
-   var maxwidth = a*3;
+   var maxwidth = Math.floor(a*3);
    $(".item-holder").height(a).css({"margin-top":amargin});
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
    palace.css("max-width",maxwidth);
    
+   $(".zoomViewport").width(availableWidth)
    // temp work for background
    var bgprop,bgdimens;
-   $.imgpreload('http://www.ibiblio.org/wm/paint/auth/kandinsky/kandinsky.comp-8.jpg',function()
+   $.imgpreload('http://images2.alphacoders.com/219/219010.jpg',function()
    {
        bgdimens = $(this).data('attrs');
        tilebg();
    });
+   
+    // $(".item-holder").click(function(evt) {
+    //          $(this).zoomTo({targetsize:0.75, duration:600});
+    //          evt.stopPropagation();
+    //      });
+      
+       $(".item-holder").zoomTarget();
    
    function tilebg(){
      bgprop = bgdimens.width / bgdimens.height;
