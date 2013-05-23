@@ -7,7 +7,7 @@
     </div>
     
     <div class="item-holder">
-      <div class="door">
+      <div class="door test">
         <div class="date">May 29<sup>th</sup></div>
       </div>
     </div>

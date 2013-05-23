@@ -140,6 +140,36 @@ section.principal h2 {
   margin: 0 auto;
   height: 100%;
 }
+.grid-row {
+  /*  &:nth-child(1) {
+    .item-holder:nth-child(1) .door {background-position:0 0;}
+    .item-holder:nth-child(2) .door {background-position:25% 0;}
+    .item-holder:nth-child(3) .door {background-position:50% 0;}
+    .item-holder:nth-child(4) .door {background-position:75% 0;}
+  }
+  
+  &:nth-child(2) {
+    .item-holder:nth-child(1) .door {background-position:0 25%;}
+    .item-holder:nth-child(2) .door {background-position:25% 25%;}
+    .item-holder:nth-child(3) .door {background-position:50% 25%;}
+    .item-holder:nth-child(4) .door {background-position:75% 25%;}
+  }
+  
+  &:nth-child(3) {
+    .item-holder:nth-child(1) .door {background-position:0 50%;}
+    .item-holder:nth-child(2) .door {background-position:25% 50%;}
+    .item-holder:nth-child(3) .door {background-position:50% 50%;}
+    .item-holder:nth-child(4) .door {background-position:75% 50%;}
+  }
+   
+  &:nth-child(4) {
+    .item-holder:nth-child(1) .door {background-position:0 75%;}
+    .item-holder:nth-child(2) .door {background-position:25% 75%;}
+    .item-holder:nth-child(3) .door {background-position:50% 75%;}
+    .item-holder:nth-child(4) .door {background-position:75% 75%;}
+  }*/
+
+}
 .grid-row .item-holder {
   float: left;
   width: 25%;
@@ -159,58 +189,10 @@ section.principal h2 {
   border-top-left-radius: 200px;
   border-top-right-radius: 200px;
   margin: 0 auto;
-  background-image: url(http://www.ibiblio.org/wm/paint/auth/kandinsky/kandinsky.comp-8.jpg);
+  background: url(http://www.ibiblio.org/wm/paint/auth/kandinsky/kandinsky.comp-8.jpg) no-repeat;
 }
 .grid-row .item-holder .date {
   display: none;
-}
-.grid-row:nth-child(1) .item-holder:nth-child(1) .door {
-  background-position: 0 0;
-}
-.grid-row:nth-child(1) .item-holder:nth-child(2) .door {
-  background-position: 25% 0;
-}
-.grid-row:nth-child(1) .item-holder:nth-child(3) .door {
-  background-position: 50% 0;
-}
-.grid-row:nth-child(1) .item-holder:nth-child(4) .door {
-  background-position: 75% 0;
-}
-.grid-row:nth-child(2) .item-holder:nth-child(1) .door {
-  background-position: 0 25%;
-}
-.grid-row:nth-child(2) .item-holder:nth-child(2) .door {
-  background-position: 25% 25%;
-}
-.grid-row:nth-child(2) .item-holder:nth-child(3) .door {
-  background-position: 50% 25%;
-}
-.grid-row:nth-child(2) .item-holder:nth-child(4) .door {
-  background-position: 75% 25%;
-}
-.grid-row:nth-child(3) .item-holder:nth-child(1) .door {
-  background-position: 0 50%;
-}
-.grid-row:nth-child(3) .item-holder:nth-child(2) .door {
-  background-position: 25% 50%;
-}
-.grid-row:nth-child(3) .item-holder:nth-child(3) .door {
-  background-position: 50% 50%;
-}
-.grid-row:nth-child(3) .item-holder:nth-child(4) .door {
-  background-position: 75% 50%;
-}
-.grid-row:nth-child(4) .item-holder:nth-child(1) .door {
-  background-position: 0 75%;
-}
-.grid-row:nth-child(4) .item-holder:nth-child(2) .door {
-  background-position: 25% 75%;
-}
-.grid-row:nth-child(4) .item-holder:nth-child(3) .door {
-  background-position: 50% 75%;
-}
-.grid-row:nth-child(4) .item-holder:nth-child(4) .door {
-  background-position: 75% 75%;
 }
 #social-media-feed {
   height: 40px;

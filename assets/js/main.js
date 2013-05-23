@@ -48,7 +48,8 @@ $(function(){
       DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
       rows = 4,
       columns = 4,
-      availableHeight = WINH - socialH;
+      availableHeight = WINH - socialH
+      availableWidth = WINW - menuwidth;
   
   var palace = $("#palace-grid-holder"),
       sectionMain = $("section#main");
@@ -56,23 +57,43 @@ $(function(){
   sectionMain.css("min-height",WINH);
   palace.height(availableHeight);
   
-  // calculate heights
-
-  // var a = availableHeight * 0.15;
-  //   var amargin = (a * 0.10);
-  // 
-  //   $(".item-holder").height(a).css({"margin-top":amargin});
-  //   $(".door").height(a).width(a*0.5).css({"border-top-left-radius": a*0.5, "border-top-right-radius": a*0.5});
-  //   palace.css("max-width",a*3);
   
-  var o = availableHeight / 4;
+   var o = availableHeight / rows;
    var amargin = (o * 0.10);
    var a = o - amargin;
+   var maxwidth = a*3;
    $(".item-holder").height(a).css({"margin-top":amargin});
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
-   palace.css("max-width",a*3);
+   palace.css("max-width",maxwidth);
    
-   $(".door").each(function(i,v){
-     //$(this).css({"background-position-x":i,"background-position-y":});
+   // temp work for background
+   var bgprop,bgdimens;
+   $.imgpreload('http://www.ibiblio.org/wm/paint/auth/kandinsky/kandinsky.comp-8.jpg',function()
+   {
+       bgdimens = $(this).data('attrs');
+       tilebg();
    });
+   
+   function tilebg(){
+     bgprop = bgdimens.width / bgdimens.height;
+     
+      var bgwith = Math.ceil(availableHeight * bgprop);
+      $(".door, section.principal").css({"background-size": bgwith+"px "+ availableHeight +"px"});
+      
+      var p = (Math.abs(availableWidth - bgwith) / 2);
+      console.log(p)
+      console.log($(".door.test").offset())
+      
+      $("section.principal").css("background-position", p + "px "+ 0 +"px");
+      
+      $(".door").each(function(i,v){
+        var t = $(this)
+        console.log(t.offset().left)
+        t.css("background-position", ((p+menuwidth)-t.offset().left) + "px "+ (-t.offset().top) +"px")
+        
+      });
+   }
+
 });
+
+
