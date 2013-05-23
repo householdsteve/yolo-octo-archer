@@ -44,7 +44,27 @@ class Home extends CI_Controller{
     //    
     //    
     //    //$this->_data['posts'] = $posts;
-    //    $this->output->cache(43829);    
+    //    $this->output->cache(43829);
+    $this->_data['rows'] = 4;
+    $this->_data['columns'] = 4;
+    $this->_data['events'] = array();
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,5,29,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,5,30,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,5,31,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,1,2013),"image"=>"xxxx","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,2,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,3,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,4,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,5,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,6,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,7,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,8,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,9,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,10,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,11,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,12,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,13,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
+    
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
