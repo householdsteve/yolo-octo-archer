@@ -31,6 +31,9 @@ h1 {
   font-size: 25px;
   line-height: 26px;
 }
+section {
+  position: relative;
+}
 body {
   background: #eeeeee;
   font-family: 'one_night_onlymedium';
@@ -49,6 +52,9 @@ body a:focus {
 }
 body a.selected {
   color: black;
+}
+nav {
+  position: relative;
 }
 nav small {
   font-size: 70%;
@@ -88,6 +94,7 @@ nav.main {
   height: 100%;
   background: white;
   width: 250px;
+  z-index: 3000;
 }
 nav h1 {
   font-size: 21px;
@@ -126,28 +133,96 @@ section.principal h1 {
 section.principal h2 {
   font-size: 110%;
 }
-.grid-row {
-  background: blue;
+#palace-grid-holder {
+  overflow: hidden;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  height: 100%;
 }
 .grid-row .item-holder {
-  background: white;
   float: left;
   width: 25%;
   margin: 0;
+  overflow: hidden;
 }
 .grid-row .item-holder:first-child {
   margin: 0;
 }
 .grid-row .item-holder .door {
-  background: green;
-  width: 100px;
-  height: 150px;
+  width: 200px;
+  height: 340px;
   -webkit-border-top-left-radius: 200px;
   -webkit-border-top-right-radius: 200px;
   -moz-border-radius-topleft: 200px;
   -moz-border-radius-topright: 200px;
   border-top-left-radius: 200px;
   border-top-right-radius: 200px;
+  margin: 0 auto;
+  background-image: url(http://www.ibiblio.org/wm/paint/auth/kandinsky/kandinsky.comp-8.jpg);
+}
+.grid-row .item-holder .date {
+  display: none;
+}
+.grid-row:nth-child(1) .item-holder:nth-child(1) .door {
+  background-position: 0 0;
+}
+.grid-row:nth-child(1) .item-holder:nth-child(2) .door {
+  background-position: 25% 0;
+}
+.grid-row:nth-child(1) .item-holder:nth-child(3) .door {
+  background-position: 50% 0;
+}
+.grid-row:nth-child(1) .item-holder:nth-child(4) .door {
+  background-position: 75% 0;
+}
+.grid-row:nth-child(2) .item-holder:nth-child(1) .door {
+  background-position: 0 25%;
+}
+.grid-row:nth-child(2) .item-holder:nth-child(2) .door {
+  background-position: 25% 25%;
+}
+.grid-row:nth-child(2) .item-holder:nth-child(3) .door {
+  background-position: 50% 25%;
+}
+.grid-row:nth-child(2) .item-holder:nth-child(4) .door {
+  background-position: 75% 25%;
+}
+.grid-row:nth-child(3) .item-holder:nth-child(1) .door {
+  background-position: 0 50%;
+}
+.grid-row:nth-child(3) .item-holder:nth-child(2) .door {
+  background-position: 25% 50%;
+}
+.grid-row:nth-child(3) .item-holder:nth-child(3) .door {
+  background-position: 50% 50%;
+}
+.grid-row:nth-child(3) .item-holder:nth-child(4) .door {
+  background-position: 75% 50%;
+}
+.grid-row:nth-child(4) .item-holder:nth-child(1) .door {
+  background-position: 0 75%;
+}
+.grid-row:nth-child(4) .item-holder:nth-child(2) .door {
+  background-position: 25% 75%;
+}
+.grid-row:nth-child(4) .item-holder:nth-child(3) .door {
+  background-position: 50% 75%;
+}
+.grid-row:nth-child(4) .item-holder:nth-child(4) .door {
+  background-position: 75% 75%;
+}
+#social-media-feed {
+  height: 40px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#social-media-feed h3 {
+  text-align: center;
+  margin: 0;
+  font-size: 15px;
+  line-height: 40px;
 }
 /* ==========================================================================
    Mobile styles
@@ -159,7 +234,9 @@ section.principal h2 {
   }
 }
 @media screen and (max-device-width: 480px) {
-  
+  .grid-row .item-holder:nth-child(3) {
+    clear: both;
+  }
 }
 /* jQuery Countdown styles 1.6.2. */
 .countdown_rtl {

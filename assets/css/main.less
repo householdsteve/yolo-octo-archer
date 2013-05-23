@@ -11,6 +11,7 @@
 @dark: #000;
 
 @menuwidth: 250px;
+@socialheight: 40px;
 
 html, body {
   width:100%;
@@ -28,6 +29,8 @@ h1 {
   line-height:26px;
 }
 
+section {position:relative;}
+
 body {
   background:@base_grey;
   font-family:'one_night_onlymedium';
@@ -42,6 +45,7 @@ body {
 }
 
 nav {
+  position:relative;
   small {
     font-size:70%;
     color:@med_grey;
@@ -77,6 +81,7 @@ nav {
     height:100%;
     background:white;
     width:@menuwidth;
+    z-index:3000;
   }
   
   h1 {
@@ -124,26 +129,79 @@ section.principal {
 }
 
 
+#palace-grid-holder {
+  overflow:hidden;
+  width:100%;
+  max-width:480px;
+  margin:0 auto;
+  height:100%;
+}
+
 .grid-row {
-  background:blue;
+  //background:blue;
   .item-holder {
-    background:white;
+    //background:white;
     float:left;
     width:25%;
     margin:0;
-    &:first-child { margin:0; }
+    overflow:hidden;
+    &:first-child { margin:0; }   
    .door {
-     background:green;
-     width:100px;
-     height:150px;
+     //background:green;
+     width:200px;
+     height:340px;
      -webkit-border-top-left-radius: 200px;
      -webkit-border-top-right-radius: 200px;
      -moz-border-radius-topleft: 200px;
      -moz-border-radius-topright: 200px;
      border-top-left-radius: 200px;
      border-top-right-radius: 200px;
-   } 
-   .date {}
+     margin:0 auto;
+     background-image: url(http://www.ibiblio.org/wm/paint/auth/kandinsky/kandinsky.comp-8.jpg);     
+   }
+
+   .date {display:none;}
+  }
+  
+  &:nth-child(1) {
+    .item-holder:nth-child(1) .door {background-position:0 0;}
+    .item-holder:nth-child(2) .door {background-position:25% 0;}
+    .item-holder:nth-child(3) .door {background-position:50% 0;}
+    .item-holder:nth-child(4) .door {background-position:75% 0;}
+  }
+  
+  &:nth-child(2) {
+    .item-holder:nth-child(1) .door {background-position:0 25%;}
+    .item-holder:nth-child(2) .door {background-position:25% 25%;}
+    .item-holder:nth-child(3) .door {background-position:50% 25%;}
+    .item-holder:nth-child(4) .door {background-position:75% 25%;}
+  }
+  
+  &:nth-child(3) {
+    .item-holder:nth-child(1) .door {background-position:0 50%;}
+    .item-holder:nth-child(2) .door {background-position:25% 50%;}
+    .item-holder:nth-child(3) .door {background-position:50% 50%;}
+    .item-holder:nth-child(4) .door {background-position:75% 50%;}
+  }
+   
+  &:nth-child(4) {
+    .item-holder:nth-child(1) .door {background-position:0 75%;}
+    .item-holder:nth-child(2) .door {background-position:25% 75%;}
+    .item-holder:nth-child(3) .door {background-position:50% 75%;}
+    .item-holder:nth-child(4) .door {background-position:75% 75%;}
+  }
+}
+
+#social-media-feed {
+  height:@socialheight;
+  width:100%;
+  margin:0;
+  padding:0;
+  h3 {
+    text-align:center;
+    margin:0;
+    font-size:15px;
+    line-height:40px;
   }
 }
 
@@ -160,7 +218,13 @@ section.principal {
 
 
 @media screen and (max-device-width: 480px) {
-  
+  .grid-row {
+    .item-holder {
+      &:nth-child(3){
+        clear:both;
+      }    
+    }
+  }
 }
 
 
