@@ -32,7 +32,8 @@
             scope = $el,
             scopeData = scope.data();
             items = $(options.element,scope),
-            itemCount = items.length;
+            itemCount = items.length,
+            isOver = false;
             
             
             // without this is internal function
@@ -44,6 +45,7 @@
             function createHover(ele){
               var _s = $(ele.currentTarget);
               
+              isOver = true;
               
               if(!_s.data('bgcached')){
                 $.imgpreload(_s.data('bgImage'),function()
@@ -57,7 +59,17 @@
             }
             
             function removeHover(ele){
-              items.trigger('bghide');
+              isOver = false;
+              setTimeout(function(){
+                if(!testTime()){
+                  items.trigger('bghide');
+                }
+              },300);
+              
+            }
+            
+            function testTime(){
+              return isOver;
             }
             
             function calculateBackground(ele){
