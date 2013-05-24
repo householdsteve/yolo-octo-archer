@@ -74,12 +74,12 @@ $(function(){
    palace.height(availableHeight).css("max-width",maxwidth).data({'containerHeight':availableHeight,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
    
    
-   // $.ajax({url: '/home/countdown/may-29',  
-   //        success: function(d) { 
-   //           console.log(d)
-   //        }, error: function(http, message, exc) { 
-   //          console.log(message)
-   //    }});
+   $.ajax({url: '/home/countdown/may-29',  
+       success: function(d) { 
+          console.log(d)
+       }, error: function(http, message, exc) { 
+         console.log(message)
+   }});
 
 });
 

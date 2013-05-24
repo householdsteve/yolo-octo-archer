@@ -68,8 +68,8 @@ class Home extends CI_Controller{
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
-  public function countdown($pg){
-    $this->load->view("home/".$pg.".php");
+  public function countdown($id){
+    echo json_encode( array("html"=>$this->load->view("home/".$id.".php", '', true)) );
   }
   
   public function timer(){
