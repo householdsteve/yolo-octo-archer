@@ -1,5 +1,6 @@
 var socialH = 40; // height of social media bar
 var menuwidth = 250; // width of menu
+var countdownDiv = []; // element to load contents into
 
 // get server time
 
@@ -65,22 +66,42 @@ $(function(){
    var maxwidth = Math.floor(a*3);
    
    
-   $(".item-holder").height(a).css({"margin-top":amargin}).zoomTarget({targetsize: 3,closeclick: true});
+   $(".item-holder").each(function(i,v){
+     var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
+     $(this).height(a).css({"margin-top":amargin}).zoomTarget({targetsize: 3,closeclick: true, animationendcallback: loadPage, onclick: function(){loadCountdownPage(_ddata.link)}});
+   });
+   
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
 
-   $(".zoomViewport").width(availableWidth);
+   $(".zoomViewport").width(availableWidth-20);
    
    // give the palace some values
    palace.height(availableHeight).css("max-width",maxwidth).data({'containerHeight':availableHeight,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
-   
-   
-   $.ajax({url: '/home/countdown/may-29',  
-       success: function(d) { 
-          console.log(d)
-       }, error: function(http, message, exc) { 
-         console.log(message)
-   }});
 
+   
+   var pageCall;
+   
+   function loadCountdownPage(l){
+     pageCall = $.ajax({url: l, dataType:"json"});
+   }
+
+   function loadPage(html){
+     
+     if(countdownDiv.length < 1){
+         countdownDiv = $("<div/>",{"class":"cd-page"}).width(availableWidth).height(WINH).hide();
+         countdownDiv.appendTo($("section.principal"));
+       }else{
+         countdownDiv.empty().width(availableWidth).height(WINH).hide();
+       }
+
+       pageCall.always(function(data){
+          countdownDiv.html(data.html).delay(500).show();
+       });
+   }
+   
+   function showPage(){
+     //countdownDiv.show();
+   }
 });
 
 

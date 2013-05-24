@@ -33,7 +33,7 @@ default:
       - vendor/bootstrap.min
       - vendor/jquery.countdown.min
       - vendor/jquery.imgpreload.min
-      - vendor/jquery.zoomooz.min
+      - vendor/jquery.zoomooz
       - vendor/jquery.bgswitcher
       - vendor/jquery.transit.min
       - main
