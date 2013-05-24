@@ -160,6 +160,17 @@ section.principal {
      background: no-repeat;
      position:relative;
      -webkit-backface-visibility: hidden;
+     -webkit-box-shadow: inset rgba(155,155,155,0.5) 4.5px 2px 0px;
+     box-shadow: inset rgba(155,155,155,0.5) 4.5px 2px 0px;
+     &.event {
+       -webkit-box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
+        box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
+        .door {
+          -webkit-box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
+            box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
+         }
+     }
+     
      div.cover {
       background-color: rgba(238,238,238,1);
       width:100%;
