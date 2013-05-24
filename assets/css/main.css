@@ -126,6 +126,7 @@ nav .countdown_show3 .countdown_section {
 }
 section.principal {
   margin: 0 0 0 250px;
+  background: no-repeat;
 }
 section.principal h1 {
   font-size: 140%;
@@ -143,11 +144,8 @@ section.principal h2 {
 .grid-row .item-holder {
   float: left;
   width: 25%;
-  margin: 0;
+  margin: 20px 0 0 0;
   overflow: hidden;
-}
-.grid-row .item-holder:first-child {
-  margin: 0;
 }
 .grid-row .item-holder .door {
   width: 100px;
@@ -159,15 +157,24 @@ section.principal h2 {
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
   margin: 0 auto;
-  background: url(http://images2.alphacoders.com/219/219010.jpg) no-repeat;
+  background: no-repeat;
+  position: relative;
+  -webkit-backface-visibility: hidden;
+}
+.grid-row .item-holder .door div.cover {
+  background-color: #eeeeee;
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 .grid-row .item-holder .date {
   text-transform: uppercase;
   position: absolute;
-  bottom: 5px;
+  z-index: 3;
+  bottom: 8px;
   width: 100%;
   text-align: center;
+  color: #cccccc;
 }
 .grid-row .item-holder .date sup {
   top: -3px;

@@ -17,6 +17,9 @@ function serverTime() {
 
 
 $(function(){
+  if (!$.support.transition)
+    $.fn.transition = $.fn.animate;
+    
   $(".countdown").countdown({ 
       until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
   
@@ -40,7 +43,7 @@ $(function(){
           b  =  (Math.abs(sx) + Math.abs(sy)) * 0.2;
 
           $('.door:not(.event)').css('box-shadow', "inset rgba(155,155,155,0.5) "+ sx +"px "+ sy + "px " + b+20 + "px");
-          $('.door.event').css('box-shadow', "inset rgba(255,0,0,1) "+ sx +"px "+ sy + "px ");
+          $('.door.event, .door.event .door').css('box-shadow', "inset rgba(255,0,0,1) "+ sx +"px "+ sy + "px ");
 
       });
       
@@ -62,42 +65,21 @@ $(function(){
    var maxwidth = Math.floor(a*3);
    
    
-   $(".item-holder").height(a).css({"margin-top":amargin});
+   $(".item-holder").height(a).css({"margin-top":amargin}).zoomTarget({targetsize: 3,closeclick: true});
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
+
+   $(".zoomViewport").width(availableWidth);
    
    // give the palace some values
-   palace.height(availableHeight).css("max-width",maxwidth).data('containerHeight',availableHeight);
+   palace.height(availableHeight).css("max-width",maxwidth).data({'containerHeight':availableHeight,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
    
-   $(".zoomViewport").width(availableWidth)
-   // temp work for background
-   var bgprop,bgdimens;
-   $.imgpreload('http://images2.alphacoders.com/219/219010.jpg',function()
-   {
-       bgdimens = $(this).data('attrs');
-       tilebg();
-   });
-
-      
-   $(".item-holder").zoomTarget();
    
-   function tilebg(){
-     bgprop = bgdimens.width / bgdimens.height;
-     
-      var bgwith = Math.ceil(availableHeight * bgprop);
-      $(".door, section.principal").css({"background-size": bgwith+"px "+ availableHeight +"px"});
-      
-      var p = (Math.abs(availableWidth - bgwith) / 2);
-      
-      $("section.principal").css("background-position", p + "px "+ 0 +"px");
-      
-      $(".door").each(function(i,v){
-        var t = $(this)
-        t.css("background-position", ((p+menuwidth)-t.offset().left) + "px "+ (-t.offset().top) +"px")
-        
-      });
-   }
-   
-   palace.bgSwitcher({element:"div.door"});
+   // $.ajax({url: '/home/countdown/may-29',  
+   //        success: function(d) { 
+   //           console.log(d)
+   //        }, error: function(http, message, exc) { 
+   //          console.log(message)
+   //    }});
 
 });
 

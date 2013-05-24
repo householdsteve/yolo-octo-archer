@@ -44,6 +44,7 @@
             function createHover(ele){
               var _s = $(ele.currentTarget);
               
+              
               if(!_s.data('bgcached')){
                 $.imgpreload(_s.data('bgImage'),function()
                  {
@@ -55,12 +56,19 @@
               }
             }
             
+            function removeHover(ele){
+              items.trigger('bghide');
+            }
+            
             function calculateBackground(ele){
               var _s = $(ele.currentTarget), _d = _s.data();
               
-              var bgprop = _d.bgdimens.width / _d.bgdimens.height;
-              var bgwidth = Math.ceil(scopeData.containerHeight * bgprop);
-              var bgorigin = (Math.abs(scopeData.containerHeight - bgwidth) / 2);
+              var bgprop, bgwidth, bgheight = scopeData.containerHeight, bgorigin;
+
+                  
+              bgwidth  = (bgheight / _d.bgdimens.height) * _d.bgdimens.width;
+              bgorigin = (Math.abs((winWidth - scopeData.menuwidth) - bgwidth) / 2);
+                      
               _s.data({"bgprop":bgprop,"bgwidth":bgwidth,"bgorigin":bgorigin});
               
               // call animation of bg image and load for all
@@ -70,20 +78,35 @@
             
             function setCurrentBackground(ele,activeObject){
               var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.offset();
-              console.log(offset)
                   _s.css({
                             "background-image":"url("+_d.bgImage+")",
                             "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
-                            "background-position": ((_d.bgorigin+(winWidth - scopeData.containerHeight))-offset.left) + "px "+ (-offset.top) +"px"
+                            "background-position": ((_d.bgorigin+(scopeData.menuwidth))-offset.left) + "px "+ (-offset.top) +"px"
                         });
-                              
+                  var _c = $('.cover',_s);
+                  _c.transition({opacity:0},300,function(){});           
+            }
+            
+            function hideBackground(ele){
+              var _s = $(ele.currentTarget);
+              
+              var _c = $('.cover',_s);
+              _c.transition({opacity:1},300,function(){
+                 _s.css({
+                            "background-image":"none",
+                        });
+              });
+             
             }
             // start all calls here !!!
 
             items.each(function(i,v){
               var _s = $(this);
+              _s.append($('<div/>').addClass('cover door').css({opacity:1}));
               
               _s.on("mouseenter", createHover);
+              _s.on("mouseleave", removeHover);
+              _s.on("bghide", hideBackground);
               _s.on("bgcomplete", calculateBackground);
               _s.on("bgset", setCurrentBackground);
             

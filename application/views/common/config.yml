@@ -35,6 +35,7 @@ default:
       - vendor/jquery.imgpreload.min
       - vendor/jquery.zoomooz.min
       - vendor/jquery.bgswitcher
+      - vendor/jquery.transit.min
       - main
       - royalslider/jquery.royalslider.min
       
