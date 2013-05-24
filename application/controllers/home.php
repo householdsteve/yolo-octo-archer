@@ -50,12 +50,12 @@ class Home extends CI_Controller{
     $this->_data['events'] = array();
     $this->_data['events'][] = array("date"=>mktime(0,0,0,5,29,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
     $this->_data['events'][] = array("date"=>mktime(0,0,0,5,30,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
-    $this->_data['events'][] = array("date"=>mktime(0,0,0,5,31,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
-    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,1,2013),"image"=>"xxxx","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,5,31,2013),"image"=>"http://st.gdefon.ru/wallpapers_original/actors/74936_byanka-balti_or_bianca-balti_1600x1200_%28www.GdeFon.ru%29.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,1,2013),"image"=>"http://www.theplace2.ru/archive/bianca_balti/img/bianca_balti-guerlain-01.jpg","link"=>"/");
     $this->_data['events'][] = array("date"=>mktime(0,0,0,6,2,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
     $this->_data['events'][] = array("date"=>mktime(0,0,0,6,3,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
     $this->_data['events'][] = array("date"=>mktime(0,0,0,6,4,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
-    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,5,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
+    $this->_data['events'][] = array("date"=>mktime(0,0,0,6,5,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/","classes"=>"event","custom-date"=>"LIVE");
     $this->_data['events'][] = array("date"=>mktime(0,0,0,6,6,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");
     $this->_data['events'][] = array("date"=>mktime(0,0,0,6,7,2013),"image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg","link"=>"/");
     $this->_data['events'][] = array("date"=>mktime(0,0,0,6,8,2013),"image"=>"http://images2.alphacoders.com/219/219010.jpg","link"=>"/");

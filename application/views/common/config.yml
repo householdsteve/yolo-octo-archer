@@ -34,6 +34,7 @@ default:
       - vendor/jquery.countdown.min
       - vendor/jquery.imgpreload.min
       - vendor/jquery.zoomooz.min
+      - vendor/jquery.bgswitcher
       - main
       - royalslider/jquery.royalslider.min
       
