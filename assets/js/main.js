@@ -76,8 +76,11 @@ $(function(){
    $(".zoomViewport").width(availableWidth-20);
    
    // give the palace some values
-   palace.height(availableHeight).css("max-width",maxwidth).data({'containerHeight':availableHeight,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
-
+   palace.height(availableHeight+15).css("max-width",maxwidth).data({'containerHeight':availableHeight,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
+   
+   
+   $(document).pjax('[data-pjax] a', '#main section.principal');
+   
    
    var pageCall;
    

@@ -1,6 +1,6 @@
 <nav class="main">
   <div id="logo"><a href="<?php echo base_url(); ?>">Home</a></div>
-  <ul class="clearfix">
+  <ul class="clearfix" data-pjax >
     <li>
       <small>The Event</small>
       <a class="<?php selected('event', $nav_selected); ?>" href="<?php echo site_url('events/roma'); ?>" title="One night only">One night only</a>

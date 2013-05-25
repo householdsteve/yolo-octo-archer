@@ -13,7 +13,14 @@ class Eccentrico extends CI_Controller{
   
   public function index($start="")
   {
-    $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+    if( $this->input->is_ajax_request() )
+		{
+		  $this->load->view("eccentrico/index");
+		}else{
+		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+		}
+		
+  
   }
   
   

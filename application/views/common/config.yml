@@ -36,6 +36,7 @@ default:
       - vendor/jquery.zoomooz
       - vendor/jquery.bgswitcher
       - vendor/jquery.transit.min
+      - vendor/jquery.pjax
       - main
       - royalslider/jquery.royalslider.min
       
