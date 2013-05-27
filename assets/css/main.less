@@ -31,6 +31,10 @@ h1 {
 
 section {position:relative;}
 
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+a:focus, a.active:focus {outline:none;}
+a::-moz-focus-inner {border:0;}
 
 body {
   background:@base_grey;
@@ -287,7 +291,7 @@ section.principal {
 	width: 100%;
 }
 
-
+#map-canvas { height: 100%; width:100% }
 
 
 

@@ -14,7 +14,9 @@
     <?php if (ENVIRONMENT == 'production' || ENVIRONMENT == 'testing'): ?>
 
     <?php endif; ?>
-    
+    <script type="text/javascript" charset="utf-8">
+      var PageAttr = [];
+    </script>
   </head>
   <body>
 

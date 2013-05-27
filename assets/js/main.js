@@ -16,6 +16,32 @@ function serverTime() {
     return time; 
 }
 
+function loadMaps(){
+  var mapOptions = {
+    zoom: 14,
+    center: new google.maps.LatLng(41.890519800000000000, 12.494248599999992000),
+    mapTypeId: google.maps.MapTypeId.SATELLITE
+  }
+  if($('#map-canvas').length > 0){
+    
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(41.898552400000000000,12.473210999999992000),
+        title:"GA Super store"
+    });
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    // To add the marker to the map, call setMap();
+    marker.setMap(map);
+  }
+}
+
+function loadMapMain() {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyAtiEkSR9a6K2Ih-avv8Meu_N8SpEgOK9g&sensor=true&callback=loadMaps";
+  document.body.appendChild(script);
+}
+
+window.onload = loadMapMain;
 
 $(function(){
   if (!$.support.transition)
@@ -57,6 +83,7 @@ $(function(){
   
   var palace = $("#palace-grid-holder"),
       sectionMain = $("section#main");
+      sectionPrincipal = $("section.principal",sectionMain);
   
       sectionMain.css("min-height",WINH);
   
@@ -65,6 +92,8 @@ $(function(){
    var a = o - amargin;
    var maxwidth = Math.floor(a*3);
    
+   if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu)
+   sectionPrincipal.height(WINH).width(availableWidth);
    
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
@@ -81,6 +110,9 @@ $(function(){
    
    $(document).pjax('[data-pjax] a', '#main section.principal');
    
+   $(document).on('pjax:complete', function() {
+     console.log('done loading')
+   })
    
    var pageCall;
    
@@ -92,7 +124,7 @@ $(function(){
      
      if(countdownDiv.length < 1){
          countdownDiv = $("<div/>",{"class":"cd-page"}).width(availableWidth).height(WINH).hide();
-         countdownDiv.appendTo($("section.principal"));
+         countdownDiv.appendTo(sectionPrincipal);
        }else{
          countdownDiv.empty().width(availableWidth).height(WINH).hide();
        }
