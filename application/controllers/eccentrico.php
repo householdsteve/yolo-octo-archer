@@ -19,8 +19,17 @@ class Eccentrico extends CI_Controller{
 		}else{
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
-		
+  }
   
+  public function hong_kong($start="")
+  {
+    $this->_data['sub_nav_selected'] = 'hong-kong';
+    if( $this->input->is_ajax_request() )
+		{
+		  $this->load->view("eccentrico/hong_kong");
+		}else{
+		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+		}
   }
   
   

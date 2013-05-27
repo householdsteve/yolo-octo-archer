@@ -18,7 +18,7 @@ function serverTime() {
 
 function loadMaps(){
   var mapOptions = {
-    zoom: 14,
+    zoom: 15,
     center: new google.maps.LatLng(41.890519800000000000, 12.494248599999992000),
     mapTypeId: google.maps.MapTypeId.SATELLITE
   }
@@ -111,7 +111,8 @@ $(function(){
    $(document).pjax('[data-pjax] a', '#main section.principal');
    
    $(document).on('pjax:complete', function() {
-     console.log('done loading')
+     if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu)
+      sectionPrincipal.height(WINH).width(availableWidth);
    })
    
    var pageCall;

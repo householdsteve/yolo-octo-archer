@@ -289,6 +289,13 @@ section.principal h2 {
   height: 100%;
   width: 100%;
 }
+#mapDiv img,
+#map-canvas img {
+  max-width: none;
+}
+section .row-fluid .span12 {
+  max-width: 1280px;
+}
 /* ROYAL SLIDE TEMPLATE FILES */
 .rsUni .rsArrow {
   cursor: pointer;
