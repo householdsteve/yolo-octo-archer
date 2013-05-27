@@ -56,8 +56,8 @@ class Instagram_api {
     	'post_like'					=> 'https://api.instagram.com/v1/media/%s/likes?access_token=%s',
         'remove_like'				=> 'https://api.instagram.com/v1/media/%s/likes?access_token=%s',
         'tags'						=> 'https://api.instagram.com/v1/tags/%s?access_token=%s',
-        'tags_recent'				=> 'https://api.instagram.com/v1/tags/%s/media/recent?max_id=%s&min_id=%s&access_token=%s',
-        'tags_search'				=> 'https://api.instagram.com/v1/tags/search?q=%s&access_token=%s',
+        'tags_recent'				=> 'https://api.instagram.com/v1/tags/%s/media/recent?max_id=%s&min_id=%s&client_id=%s',
+        'tags_search'				=> 'https://api.instagram.com/v1/tags/search?q=%s&client_id=%s',
         'locations'					=> 'https://api.instagram.com/v1/locations/%d?access_token=%s',
         'locations_recent'			=> 'https://api.instagram.com/v1/locations/%d/media/recent/?max_id=%s&min_id=%s&max_timestamp=%s&min_timestamp=%s&access_token=%s',
         'locations_search'			=> 'https://api.instagram.com/v1/locations/search?lat=%s&lng=%s&foursquare_id=%s&distance=%s&access_token=%s'
@@ -438,7 +438,7 @@ class Instagram_api {
      */
     function tagsRecent($tag, $max_id = null, $min_id = null) {
     
-    	$tags_recent_request_url = sprintf($this->api_urls['tags_recent'], $tag, $max_id, $min_id, $this->access_token);
+    	$tags_recent_request_url = sprintf($this->api_urls['tags_recent'], $tag, $max_id, $min_id, $this->codeigniter_instance->config->item('instagram_client_id'));
     	
     	return $this->__apiCall($tags_recent_request_url);
     
@@ -451,7 +451,7 @@ class Instagram_api {
      */
     function tagsSearch($tag) {
     
-    	$tags_search_request_url = sprintf($this->api_urls['tags_search'], $tag, $this->access_token);
+    	$tags_search_request_url = sprintf($this->api_urls['tags_search'], $tag, $this->codeigniter_instance->config->item('instagram_client_id'));
     	
     	return $this->__apiCall($tags_search_request_url);
     

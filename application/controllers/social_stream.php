@@ -16,11 +16,27 @@ class Social_stream extends CI_Controller{
   
   public function index($start="")
   { 
+		$this->load->model('social_stream_model');
+    $this->_data['data'] = $this->social_stream_model->get_all();
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
   public function find($cachetime=null){
     $this->twitterlib->search($cachetime);
+  }
+  
+  public function instagram(){
+    $this->load->library('instagram_api');
+    $tags_search_data = $this->instagram_api->tagsRecent('framesoflife');
+		
+		$this->load->model('social_stream_model');
+		
+		foreach($tags_search_data->data as $key => $item){
+		  $this->social_stream_model->insert($item);
+		}
+		
+		$this->_data['ig'] = $tags_search_data;
+		$this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
   

@@ -318,7 +318,7 @@ class Twitterlib {
 			if( isset($user_id) )
 			{
 				// set input
-				$input=array( 'tweet_id' =>  $tweet_id, 'user_id' => $user_id, 'body' => $data['text']);
+				$input=array( 'tweet_id' =>  $tweet_id, 'user_id' => $user_id, 'body' => $data['text'], 'capture' => serialize($data),'date'=> $data['created_at']);
 				// save tweet in db
 				$result=$this->CI->db->insert('tweets',$input);
 			}
