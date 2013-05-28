@@ -1,6 +1,8 @@
-<?php $this->load->helper('date'); ?>
-<div class="social content">
-  <h1><?php echo $content;?></h1>
-  <h2><?php echo $username;?></h2>
-  <h3><?php echo timespan($date, time() ) . "ago";?></h3>  
+<?php $this->load->helper('custom'); ?>
+<div class="social content twitter">
+  <img src="/assets/img/placeholder.png" width="612" height="612" alt="Twitter">
+  <div class="above">
+    <p><?php echo $content;?></p>
+    <h2><?php echo $username;?> <span><?php echo time_elapsed_string($date, time() );?></span></h2>
+  </div>
 </div>

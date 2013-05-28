@@ -47,6 +47,8 @@ $(function(){
   if (!$.support.transition)
     $.fn.transition = $.fn.animate;
     
+  $(".social.content h3").fitText(1.5);
+    
   $(".countdown").countdown({ 
       until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
   

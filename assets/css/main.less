@@ -294,8 +294,81 @@ section.principal {
 #map-canvas { height: 100%; width:100% }
 #mapDiv img, #map-canvas img { max-width: none; }
 
-section .row-fluid .span12 {
+section .row-fluid .span12, section .row-fluid-social .span12 {
   max-width:1280px;
+  margin:0;
+  word-wrap: break-word;
+  &:first-child{margin:0};
+  [class*="span"] {
+    word-wrap: break-word;
+  }
+}
+
+section .row-fluid-social .span12 {
+  &:nth-child(odd){
+    .span3:nth-child(even) {
+      background:black;
+      color:white; 
+    }
+    .span3:nth-child(odd) {
+      background:@base_grey;
+      color:black; 
+    }
+  }
+  &:nth-child(even){
+    .span3:nth-child(odd) {
+      background:black;
+      color:white; 
+    }
+    .span3:nth-child(even) {
+      background:@med_grey;
+      color:black; 
+    }
+  }
+}
+
+.social.content {
+  height:100%;
+  width:100%;
+  position:relative;
+  .above {
+    padding:2.45%;
+    max-width:95%;
+    height:95%;
+    width:95%;
+    position:absolute;
+    top:0;
+    p {
+      top:20%;
+      position:relative;
+      word-wrap: break-word;
+    }
+    h2 {
+      bottom:2%;
+      position:absolute;
+      line-height:15px;
+      font-size:15px;
+    }
+  }
+  &.twitter{
+    
+  }
+  &.instagram{
+      .above{
+        position:absolute;
+        bottom:0;
+        top:auto;
+      }
+      h2 {
+       color:white !important; 
+      }
+  }
+  &.custom {
+    background:black !important;
+    color:white;
+    h3 { width:100%; word-wrap: normal; font-size:15px; position:relative; top:20%}
+    word-wrap: normal;
+  }
 }
 
 

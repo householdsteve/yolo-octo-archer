@@ -19,6 +19,7 @@ default:
 
   css:
     site:
+      - bootstrap-social
       - bootstrap.min
       - bootstrap-responsive.min
       - main
@@ -37,6 +38,7 @@ default:
       - vendor/jquery.bgswitcher
       - vendor/jquery.transit.min
       - vendor/jquery.pjax
+      - vendor/jquery.fittext
       - main
       - royalslider/jquery.royalslider.min
       
