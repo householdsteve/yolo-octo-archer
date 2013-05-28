@@ -1,5 +1,5 @@
 <div class="row-fluid">
-  <div class="span12"><img src="/assets/img/testing/masthead.jpg" width="1171" height="481" alt="Masthead"></div>
+  <div class="span12"><img src="/assets/img/testing/ono-tokyo.jpg" width="1171" height="481" alt="Masthead"></div>
 </div>
 <div class="row-fluid top-space">
   <div class="span12">
@@ -22,8 +22,8 @@
   <div class="span7 offset1">
     <div class="row-fluid">
       <div class="span10">
-        <h1>ROME</h1>
-        <p>Da Press Release</p>
+        <h1>TOKYO</h1>
+        <p>“The idea behind One Night Only at Budokan is to create an evening reflecting the same sense of energy and excitement that Ginza now represents. Over the last few years Ginza has become one of the worldʼs unique fashion retail destinations, quickly joining the likes of New Yorkʼs Fifth Avenue, Londonʼs Bond Street, Milanʼs Via Montenapoleone and Parisʼs Avenue Montaigne as a fashion and luxury shopping destination.” says Giorgio Armani.</p>
         </div>
       </div>
     </div>

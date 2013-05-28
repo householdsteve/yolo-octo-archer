@@ -9,7 +9,7 @@ index:
   metas:
     name:
       
-roma:
+rome:
   title: Giorgio Armani | One night only Roma
 
   metas:
@@ -17,6 +17,18 @@ roma:
       
 beijing:
   title: Giorgio Armani | One night only Beijing
+
+  metas:
+    name:
+
+london:
+  title: Giorgio Armani | One night only London
+
+  metas:
+    name:
+
+tokyo:
+  title: Giorgio Armani | One night only Tokyo
 
   metas:
     name:
