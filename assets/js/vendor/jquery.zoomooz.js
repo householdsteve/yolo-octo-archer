@@ -1089,6 +1089,8 @@ if(!$.zoomooz) {
             if(settings.animationendcallback) {
                 animationendcallback = function() {
                     settings.animationendcallback.call(elem[0]);
+                    settings.onanimationcomplete.call(elem[0]);
+                    console.log('animation callback')
                 };
             }
 
@@ -1475,6 +1477,13 @@ if(!$.zoomooz) {
             setupClickHandler($(this),$(this),settings);
         });
     };
+    
+    
+    $.fn.zoomTargetOut = function(baseSettings) {
+        this.each(function() {
+            $(this).trigger('click');
+        });
+    };
 
     //**********************************//
     //***  Helper functions          ***//
@@ -1524,12 +1533,15 @@ if(!$.zoomooz) {
         }
 
         clickTarget.on("click", function(evt) {
-
+          
             // closeclick not available here...
             if(settings.closeclick && zoomTarget.hasClass("selectedZoomTarget")) {
                 settings.root.click();
+                console.log('zoomed out')
+                if(typeof settings.zoomout == 'function') settings.zoomout.apply();
             } else {
                 zoomTarget.zoomTo(settings);
+                console.log('zoomed in')
             }
             evt.stopPropagation();
         });
@@ -1767,6 +1779,7 @@ if(!$.zoomooz) {
             if($selected.length===0) {
                 $selected = displayList.first();
             }
+          
 
             if(settings.type.indexOf("prev")===0) {
                 target = displayList.prev($selected[0]);

@@ -118,7 +118,10 @@ class Home extends CI_Controller{
   }
   
   public function countdown($id){
-    echo json_encode( array("html"=>$this->load->view("home/".$id.".php", '', true)) );
+    parse_str($_SERVER['QUERY_STRING'], $_GET);
+    $this->_data['w'] = $_GET['w'];
+    $this->_data['h'] = $_GET['h'];    
+    echo json_encode( array("html"=>$this->load->view("home/".$id.".php", $this->_data, true)) );
   }
   
   public function timer(){

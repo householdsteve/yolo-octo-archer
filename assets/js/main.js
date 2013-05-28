@@ -1,6 +1,7 @@
 var socialH = 60; // height of social media bar
 var menuwidth = 250; // width of menu
 var countdownDiv = []; // element to load contents into
+var activePage = [];
 
 // get server time
 
@@ -106,7 +107,7 @@ $(function(){
    
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
-     $(this).height(a).css({"margin-top":amargin}).zoomTarget({targetsize: 3,closeclick: true, animationendcallback: loadPage, onclick: function(){loadCountdownPage(_ddata.link)}});
+     $(this).height(a).css({"margin-top":amargin}).zoomTarget({targetsize: 3,closeclick: true,onanimationcomplete:loadPage, zoomout: function(){console.log('closed');}, onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)}});
    });
    
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
@@ -138,7 +139,7 @@ $(function(){
    var pageCall;
    
    function loadCountdownPage(l){
-     pageCall = $.ajax({url: l, dataType:"json"});
+     pageCall = $.ajax({url: l, dataType:"json", data:{w:availableWidth,h:WINH}});
    }
 
    function loadPage(html){
@@ -151,6 +152,9 @@ $(function(){
        }
 
        pageCall.always(function(data){
+         $iframe = $(data.html).find('iframe');
+         $iframe.width(availableWidth).height(WINH);
+         console.log($iframe)
           countdownDiv.html(data.html).delay(500).show();
        });
    }
@@ -158,6 +162,16 @@ $(function(){
    function showPage(){
      //countdownDiv.show();
    }
+   
+   $("body").keyup(function(e){ 
+       var code = e.which; // recommended to use e.which, it's normalized across browsers
+       if(code==13)e.preventDefault();
+       if(code==32||code==13||code==188||code==186){
+           console.log($(this).val());
+           countdownDiv.hide();
+           activePage.zoomTargetOut();
+       } // missing closing if brace
+   });
 });
 
 

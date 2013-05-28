@@ -40,6 +40,5 @@ default:
       - vendor/jquery.pjax
       - vendor/jquery.fittext
       - vendor/jquery.scrollTo.min
-      - main
       - royalslider/jquery.royalslider.min
-      
+      - main
