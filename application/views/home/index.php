@@ -34,7 +34,8 @@
   
 </div>
 </div>
+</div>
 
 <div id="social-media-feed">
-  <h3>#ONENIGHTONLYROMA IN SOCIAL</h3>
+  <h3 class="title"><a href="/social-stream" class="">#ONENIGHTONLYROMA IN SOCIAL</a></h3>
 </div>

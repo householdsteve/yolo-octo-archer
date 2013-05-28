@@ -3,6 +3,6 @@
   <img src="/assets/img/placeholder.png" width="612" height="612" alt="Twitter">
   <div class="above">
     <p><?php echo $content;?></p>
-    <h2><?php echo $username;?> <span><?php echo time_elapsed_string($date, time() );?></span></h2>
+    <h2>@<?php echo $username;?> <span><?php echo time_elapsed_string($date, time() );?></span></h2>
   </div>
 </div>

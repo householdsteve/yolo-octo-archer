@@ -11,7 +11,7 @@
 @dark: #000;
 
 @menuwidth: 250px;
-@socialheight: 40px;
+@socialheight: 60px;
 
 html, body {
   width:100%;
@@ -197,15 +197,18 @@ section.principal {
 }
 
 #social-media-feed {
-  height:@socialheight;
   width:100%;
   margin:0;
   padding:0;
-  h3 {
+  position:absolute;
+  top:0;
+  display:none;
+  h3.title {
+    height:@socialheight;
     text-align:center;
     margin:0;
     font-size:14px;
-    line-height:40px;
+    line-height:@socialheight;
   }
 }
 

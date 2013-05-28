@@ -1,4 +1,4 @@
-var socialH = 40; // height of social media bar
+var socialH = 60; // height of social media bar
 var menuwidth = 250; // width of menu
 var countdownDiv = []; // element to load contents into
 
@@ -18,14 +18,14 @@ function serverTime() {
 
 function loadMaps(){
   var mapOptions = {
-    zoom: 15,
-    center: new google.maps.LatLng(41.890519800000000000, 12.494248599999992000),
+    zoom: 19,
+    center: new google.maps.LatLng(41.9054485, 12.481257700000015),
     mapTypeId: google.maps.MapTypeId.SATELLITE
   }
   if($('#map-canvas').length > 0){
     
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(41.898552400000000000,12.473210999999992000),
+        position: new google.maps.LatLng(41.9054485,12.481257700000015),
         title:"GA Super store"
     });
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -85,17 +85,24 @@ $(function(){
   
   var palace = $("#palace-grid-holder"),
       sectionMain = $("section#main");
-      sectionPrincipal = $("section.principal",sectionMain);
-  
-      sectionMain.css("min-height",WINH);
+      sectionPrincipal = $("section.principal",sectionMain),
+      socialMediaFeed = $("#social-media-feed");
   
    var o = availableHeight / rows;
    var amargin = (o * 0.10);
    var a = o - amargin;
    var maxwidth = Math.floor(a*3);
    
-   if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu)
-   sectionPrincipal.height(WINH).width(availableWidth);
+  // SET UP DIFFERENT PAGE HEIGHTS
+   sectionMain.css("min-height",WINH).height(WINH);
+   socialMediaFeed.css({"top":availableHeight,opacity:0}).show().transition({opacity:1},300);
+ 
+   if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu){
+     sectionPrincipal.height(WINH).width(availableWidth);
+    }else if(PageAttr.ShowBottomMenu){
+     sectionPrincipal.height(availableHeight).width(availableWidth);
+    }
+  
    
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
@@ -111,6 +118,17 @@ $(function(){
    
    
    $(document).pjax('[data-pjax] a', '#main section.principal');
+   
+   socialMediaFeed.find('a').click(function(e){
+     var smf = $.ajax({url: this.href});
+     smf.always(function(data){
+         socialMediaFeed.append(data);
+         setTimeout(function(){
+           $('body').scrollTo(availableHeight, 800, {easing:'linear'});
+         },300);
+      });
+      return false;
+   });
    
    $(document).on('pjax:complete', function() {
      if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu)

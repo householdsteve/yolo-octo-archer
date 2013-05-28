@@ -6,9 +6,9 @@ class Social_stream_model extends CI_Model {
 		$this->load->database();
 	}
 	
-	public function get_all(){
+	public function get_all($ct){
 	  $this->db->order_by("unixdate", "asc");
-	  $query = $this->db->get('content');
+	  $query = $this->db->get('content',$ct, 0);
 	  if($query->result_array()){
 	    return $query->result_array();
     }else{

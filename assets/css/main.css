@@ -204,16 +204,19 @@ section.principal h2 {
   left: 1px;
 }
 #social-media-feed {
-  height: 40px;
   width: 100%;
   margin: 0;
   padding: 0;
+  position: absolute;
+  top: 0;
+  display: none;
 }
-#social-media-feed h3 {
+#social-media-feed h3.title {
+  height: 60px;
   text-align: center;
   margin: 0;
   font-size: 14px;
-  line-height: 40px;
+  line-height: 60px;
 }
 .cd-page {
   position: absolute;
