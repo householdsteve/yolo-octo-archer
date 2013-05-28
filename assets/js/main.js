@@ -154,7 +154,8 @@ $(function(){
   
    $(document).on('pjax:click', function(e) {
       currentSelectedMenuItem.removeClass('selected');
-      currentSelectedMenuItem = $(e.delegateTarget.activeElement);
+      currentSelectedMenuItem = $(e.target);
+      console.log(e.target)
       currentSelectedMenuItem.addClass('selected');
      $('nav.main ul > li').trigger('mouseleave');
     })
