@@ -79,6 +79,17 @@ if ( ! function_exists('selected'))
 	}
 }
 
+if ( ! function_exists('selectedBoth'))
+{
+	function selectedBoth($target, $value,$t2,$v2)
+	{
+		if($target == $value && $t2 == $v2)
+		{
+			echo 'selected';
+		}
+	}
+}
+
 
 /* End of file application_helper.php */
 /* Location: ./app/helpers/application_helper.php */

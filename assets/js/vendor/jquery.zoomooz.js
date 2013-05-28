@@ -1089,8 +1089,9 @@ if(!$.zoomooz) {
             if(settings.animationendcallback) {
                 animationendcallback = function() {
                     settings.animationendcallback.call(elem[0]);
+                    
+                    // this is our custom callback function
                     settings.onanimationcomplete.call(elem[0]);
-                    console.log('animation callback')
                 };
             }
 
@@ -1537,11 +1538,13 @@ if(!$.zoomooz) {
             // closeclick not available here...
             if(settings.closeclick && zoomTarget.hasClass("selectedZoomTarget")) {
                 settings.root.click();
-                console.log('zoomed out')
+                
+                // this is where the file zooms out. added call back for zoom out
                 if(typeof settings.zoomout == 'function') settings.zoomout.apply();
+                
             } else {
+                // this is where the zoom in occurs, gets called many times
                 zoomTarget.zoomTo(settings);
-                console.log('zoomed in')
             }
             evt.stopPropagation();
         });

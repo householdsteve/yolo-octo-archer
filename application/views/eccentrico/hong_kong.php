@@ -9,6 +9,7 @@
           <h2>EXPLORE THE EXHIBITS:</h2>
           <?php
             $this->view->partial('common/_sub_nav', array(
+              'parent' => 'eccentrico',
               'sub_nav' => array(
                 array('title' => 'Milan', 'href' => site_url('eccentrico/milan'), 'nav_selected' => 'eccentrico'),
                 array('title' => 'Tokyo', 'href' => site_url('eccentrico/tokyo'), 'nav_selected' => 'eccentrico'),

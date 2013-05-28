@@ -3,14 +3,15 @@
   <ul class="clearfix" data-pjax >
     <li>
       <small>The Event</small>
-      <a class="<?php selected('event', $nav_selected); ?>" href="<?php echo site_url('events/rome'); ?>" title="One night only">One night only</a>
+      <a class="<?php selected('events', $nav_selected); ?>" href="<?php echo site_url('events/rome'); ?>" title="One night only">One night only</a>
       <?php
         $this->view->partial('common/_sub_nav', array(
+          'parent' => 'events',
           'sub_nav' => array(
-            array('title' => 'London', 'href' => site_url('events/london'), 'nav_selected' => 'event'),
-            array('title' => 'Tokyo', 'href' => site_url('events/tokyo'), 'nav_selected' => 'event'),
-            array('title' => 'Beijing', 'href' => site_url('events/beijing'), 'nav_selected' => 'event'),
-            array('title' => 'Rome', 'href' => site_url('events/rome'), 'nav_selected' => 'event')        
+            array('title' => 'London', 'href' => site_url('events/london'), 'nav_selected' => 'london'),
+            array('title' => 'Tokyo', 'href' => site_url('events/tokyo'), 'nav_selected' => 'tokyo'),
+            array('title' => 'Beijing', 'href' => site_url('events/beijing'), 'nav_selected' => 'beijing'),
+            array('title' => 'Rome', 'href' => site_url('events/rome'), 'nav_selected' => 'rome')        
         )));
       ?>
     </li>
@@ -19,11 +20,12 @@
       <a class="<?php selected('eccentrico', $nav_selected); ?>" href="<?php echo site_url('eccentrico'); ?>" title="Eccentrico">Eccentrico</a>
       <?php
         $this->view->partial('common/_sub_nav', array(
+          'parent' => 'eccentrico',
           'sub_nav' => array(
-            array('title' => 'Milan', 'href' => site_url('eccentrico/milan'), 'nav_selected' => 'eccentrico'),
-            array('title' => 'Tokyo', 'href' => site_url('eccentrico/tokyo'), 'nav_selected' => 'eccentrico'),
-            array('title' => 'Hong Kong', 'href' => site_url('eccentrico/hong-kong'), 'nav_selected' => 'eccentrico'),
-            array('title' => 'Rome', 'href' => site_url('eccentrico/rome'), 'nav_selected' => 'eccentrico')            
+            array('title' => 'Milan', 'href' => site_url('eccentrico/milan'), 'nav_selected' => 'milan'),
+            array('title' => 'Tokyo', 'href' => site_url('eccentrico/tokyo'), 'nav_selected' => 'tokyo'),
+            array('title' => 'Hong Kong', 'href' => site_url('eccentrico/hong-kong'), 'nav_selected' => 'hong-kong'),
+            array('title' => 'Rome', 'href' => site_url('eccentrico/rome'), 'nav_selected' => 'rome')            
         )));
       ?>
     </li>

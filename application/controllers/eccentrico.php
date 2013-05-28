@@ -13,9 +13,10 @@ class Eccentrico extends CI_Controller{
   
   public function index($start="")
   {
+    $this->_data['sub_nav_selected'] = '';
     if( $this->input->is_ajax_request() )
 		{
-		  $this->load->view("eccentrico/index");
+		  $this->load->view("eccentrico/index",$this->_data);
 		}else{
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
@@ -26,7 +27,7 @@ class Eccentrico extends CI_Controller{
     $this->_data['sub_nav_selected'] = 'hong-kong';
     if( $this->input->is_ajax_request() )
 		{
-		  $this->load->view("eccentrico/hong_kong");
+		  $this->load->view("eccentrico/hong_kong",$this->_data);
 		}else{
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}

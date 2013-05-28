@@ -66,6 +66,12 @@ nav {
     border-bottom:1px @dark solid;
     a {
       display:block;
+      &:hover {
+        color:@med_grey;
+      }
+      &.selected {
+        color:red;
+      }
     }
     li {
       margin:15px 0 0 0;
@@ -76,6 +82,9 @@ nav {
       padding:0;
       border:none;
       li { margin:0; }
+      &.subnav {
+        overflow:hidden;
+      }
     }
   }
   

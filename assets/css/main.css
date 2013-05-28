@@ -86,6 +86,12 @@ nav ul {
 nav ul a {
   display: block;
 }
+nav ul a:hover {
+  color: #cccccc;
+}
+nav ul a.selected {
+  color: red;
+}
 nav ul li {
   margin: 15px 0 0 0;
 }
@@ -99,6 +105,9 @@ nav ul ul {
 }
 nav ul ul li {
   margin: 0;
+}
+nav ul ul.subnav {
+  overflow: hidden;
 }
 nav.main {
   position: fixed;
