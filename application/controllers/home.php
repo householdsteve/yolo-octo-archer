@@ -114,6 +114,7 @@ class Home extends CI_Controller{
                                       "image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg",
                                       "link"=>"/home/countdown");
     
+    $this->_data['sub_nav_selected'] = '';
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   

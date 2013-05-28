@@ -13,9 +13,10 @@ class Boutique extends CI_Controller{
   
   public function index($start="")
   {
+    $this->_data['sub_nav_selected'] = '';
     if( $this->input->is_ajax_request() )
 		{
-		  $this->load->view("boutique/index");
+		  $this->load->view("boutique/index",$this->_data);
 		}else{
 		  $this->_data['nonasync'] = true;
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
