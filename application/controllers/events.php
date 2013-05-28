@@ -43,6 +43,17 @@ class Events extends CI_Controller{
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
+
+  public function london($start="")
+    {
+      $this->_data['sub_nav_selected'] = 'london';
+      if( $this->input->is_ajax_request() )
+  		{
+  		  $this->load->view("events/london",$this->_data);
+  		}else{
+  		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+  		}
+    }
   
   
 }

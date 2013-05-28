@@ -209,7 +209,34 @@ $(function(){
       });
       return false;
    });
-   
+ $(".royalSlider.rsUni").royalSlider({
+       	// general options go gere
+       	loop:true,
+       	autoHeight:false,
+       	imageAlignCenter:true,
+       	imageScaleMode: 'fit',
+       	autoScaleSlider: false,
+       	keyboardNavEnabled: true,
+           fullscreen: {
+           enabled: true,
+           nativeFS: true
+           },
+           controlNavigation: 'thumbnails',
+           thumbs: {
+               		// thumbnails options go gere
+               		spacing: 10,
+               		arrowsAutoHide: true,
+               		orientation: 'vertical',
+                  paddingBottom: 4,
+                  appendSpan: true
+                  },
+            transitionType:'fade',
+            deeplinking: {
+                		// deep linking options go gere
+                		enabled: true,
+                		prefix: 'slider-'
+                	}
+       });  
 });
 
 

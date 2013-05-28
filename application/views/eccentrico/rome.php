@@ -1,7 +1,5 @@
 <div class="row-fluid">
-  <div class="span12">
-    <object type="application/x-shockwave-flash" data="http://youtube.com/v/tzz3XOanJy8?version=3&amp;color=white&amp;vq=hd720&amp;rel=0&amp;start=0:43&amp;width=100%&amp;height=480" width="100%" height="476" allowfullscreen="true"><param name="movie" value="http://youtube.com/v/tzz3XOanJy8?version=3&amp;color=white&amp;vq=hd720&amp;rel=0&amp;start=0:43&amp;width=100%&amp;height=480"></object>
-  </div>
+  <div class="span12"><img src="/assets/img/testing/ecc-roma.jpg" width="1171" height="481" alt="Masthead"></div>
 </div>
 <div class="row-fluid top-space">
   <div class="span12">
@@ -24,9 +22,7 @@
   <div class="span7 offset1">
     <div class="row-fluid">
       <div class="span10">
-        <h1>HONG KONG</h1>
-         <p>For the first time, the exhibition also includes a selection of unique cosmetics, from Maestro Fusion Make Up to Lip Maestro or Rouge d’Armani. Exclusive fragrances are also displayed as a tribute to the craftsmanship of Haute Parfumerie, including Crystal and the limited edition Armani Privé collections. The 2012 Year of the Dragon limited edition watch collection was also be showcased.</p>
-
+        <p>TESTO PRESS RELEASE ROME</p>
         </div>
       </div>
     </div>

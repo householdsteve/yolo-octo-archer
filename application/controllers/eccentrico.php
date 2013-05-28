@@ -33,6 +33,39 @@ class Eccentrico extends CI_Controller{
 		}
   }
   
+  public function milan($start="")
+  {
+    $this->_data['sub_nav_selected'] = 'milan';
+    if( $this->input->is_ajax_request() )
+		{
+		  $this->load->view("eccentrico/milan",$this->_data);
+		}else{
+		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+		}
+  }
+  
+  public function tokyo($start="")
+  {
+    $this->_data['sub_nav_selected'] = 'tokyo';
+    if( $this->input->is_ajax_request() )
+		{
+		  $this->load->view("eccentrico/tokyo",$this->_data);
+		}else{
+		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+		}
+  }
+  
+  public function rome($start="")
+  {
+    $this->_data['sub_nav_selected'] = 'rome';
+    if( $this->input->is_ajax_request() )
+		{
+		  $this->load->view("eccentrico/rome",$this->_data);
+		}else{
+		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+		}
+  }
+  
   
 }
 // End of About class
