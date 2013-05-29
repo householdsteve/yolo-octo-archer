@@ -31,8 +31,12 @@ function loadMaps(){
         title:"GA Super store"
     });
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    // To add the marker to the map, call setMap();
-    marker.setMap(map);
+    var image = '/assets/img/pin0.png';
+  var GAmarker = new google.maps.Marker({
+      position: new google.maps.LatLng(41.9054485,12.481257700000015),
+      map: map,
+      icon: image
+  });
   }
 }
 
@@ -58,7 +62,7 @@ function delegateSubActions(atag){
 
 function internalCountdown(){
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
-  $("#countdown-holder h1").fitText(0.8);
+  $("#countdown-holder h1").fitText(0.5);
 }
 
 $(function(){
