@@ -196,8 +196,10 @@ $(function(){
   
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
-     if(!checkInternetExplorer()){
-       $(this).height(a).css({"margin-top":amargin}).zoomTarget({
+     _s.height(a).css({"margin-top":amargin});
+     console.log(_ddata.contentAvailable)
+     if(!checkInternetExplorer() && _ddata.contentAvailable){
+       _s.zoomTarget({
               targetsize: 3,
               closeclick: true,
               onanimationcomplete:loadPage, 
@@ -221,8 +223,8 @@ $(function(){
    loadHolder = $("<div/>",{id:"loader"});
    loadHolder.appendTo($('body'));
    spinner = new Spinner(opts).spin(loadHolder[0]);
-   
-   $( ":data(contentenabled)", palace).each(function() {
+
+   $( ":data(content-enabled)", palace).each(function() {
    var element = $( this );
     bgImagesPreload.push($( this ).data('bgImage'));
    });
