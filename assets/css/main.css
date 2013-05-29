@@ -421,11 +421,6 @@ html.lt-ie9 .cd-close {
     background-size: 128px 172px;
   }
 }
-@media screen and (max-device-width: 480px) {
-  .grid-row .item-holder:nth-child(3) {
-    clear: both;
-  }
-}
 /* jQuery Countdown styles 1.6.2. */
 .countdown_rtl {
   direction: rtl;
