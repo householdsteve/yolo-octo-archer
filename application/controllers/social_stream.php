@@ -16,6 +16,7 @@ class Social_stream extends CI_Controller{
   
   public function index($start="")
   { 
+    $this->_data['sub_nav_selected'] = '';    
 		$this->load->model('social_stream_model');
     $this->_data['data'] = $this->social_stream_model->get_all(19);
     

@@ -47,6 +47,10 @@ a.active:focus {
 a::-moz-focus-inner {
   border: 0;
 }
+.full_width_height {
+  width: 100%;
+  height: 100%;
+}
 body {
   background: #eeeeee;
   font-family: 'one_night_onlymedium';
@@ -131,6 +135,23 @@ nav #main_countdown .countdown {
 nav .countdown_show3 .countdown_section {
   width: 55px;
 }
+blockquote {
+  position: relative;
+  display: inline-block;
+}
+blockquote:before {
+  content: open-quote;
+  font-size: 24px;
+  position: absolute;
+  top: 5px;
+  left: 0px;
+}
+blockquote:after {
+  content: close-quote;
+  font-size: 24px;
+  position: absolute;
+  bottom: -3px;
+}
 #logo a {
   background: url('../img/logo.png') no-repeat scroll top left;
   width: 128px;
@@ -149,6 +170,7 @@ nav .countdown_show3 .countdown_section {
 section.principal {
   margin: 0 0 0 250px;
   background: no-repeat;
+  height: 100%;
 }
 section.principal h1 {
   font-size: 140%;
@@ -236,6 +258,36 @@ section.principal h2 {
   height: 100%;
   background: white;
   z-index: 1000;
+}
+/* ==========================================================================
+   page contents
+   ========================================================================== */
+.rome-countdown {
+  background: url('/assets/img/contents/rome-countdown.jpg') top left no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+#countdown-holder {
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  margin-left: -300px;
+  margin-top: -150px;
+  color: white;
+  text-transform: uppercase;
+}
+#countdown-holder h1 {
+  font-size: 72px;
+  width: 100%;
+}
+#countdown-holder .countdown_section {
+  display: block;
+  float: left;
+  font-size: 20px;
+  text-align: center;
 }
 /* ==========================================================================
    Mobile styles

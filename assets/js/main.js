@@ -45,14 +45,30 @@ function loadMapMain() {
 
 window.onload = loadMapMain;
 
+
+function delegateSubActions(atag){
+  var parts = atag.href.split("/");
+  var compare = parts[parts.length-2]+"/"+parts[parts.length-1];
+  switch(compare){
+    case "events/rome":
+      internalCountdown();
+    break;
+  }
+}
+
+function internalCountdown(){
+  $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
+  $("#countdown-holder h1").fitText(0.8);
+}
+
 $(function(){
   if (!$.support.transition)
     $.fn.transition = $.fn.animate;
     
   $(".social.content h3").fitText(1.5);
     
-  $(".countdown").countdown({ 
-      until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
+  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
+  internalCountdown();
   
       $('body').mousemove(function(event) {
 
@@ -155,14 +171,15 @@ $(function(){
    $(document).on('pjax:click', function(e) {
       currentSelectedMenuItem.removeClass('selected');
       currentSelectedMenuItem = $(e.target);
-      console.log(e.target)
       currentSelectedMenuItem.addClass('selected');
      $('nav.main ul > li').trigger('mouseleave');
     })
      
-   $(document).on('pjax:complete', function() {
+   $(document).on('pjax:complete', function(e) {
      if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu)
       sectionPrincipal.height(WINH).width(availableWidth);
+      
+      delegateSubActions(e.relatedTarget);
    })
    
    var pageCall;
