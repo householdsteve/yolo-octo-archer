@@ -38,6 +38,7 @@ function loadMaps(){
       position: new google.maps.LatLng(41.9054485,12.481257700000015),
       map: map,
       icon: image
+
   });
   }
 }
@@ -64,7 +65,7 @@ function delegateSubActions(atag){
 
 function internalCountdown(){
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
-  $("#countdown-holder h1").fitText(0.5);
+  $("#countdown-holder h1").fitText(0.8);
 }
 
 $(function(){
