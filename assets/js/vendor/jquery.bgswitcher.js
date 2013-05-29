@@ -33,7 +33,8 @@
             scopeData = scope.data();
             items = $(options.element,scope),
             itemCount = items.length,
-            isOver = false;
+            isOver = false,
+            activeItem = [];
             
             
             // without this is internal function
@@ -46,6 +47,7 @@
               var _s = $(ele.currentTarget);
               
               isOver = true;
+              activeItem = _s;
               
               if(!_s.data('bgcached')){
                 $.imgpreload(_s.data('bgImage'),function()
@@ -56,15 +58,16 @@
                 // call animation of bg image and load for all
                 items.trigger('bgset',[_s]);
               }
+              console.log(activeItem)
             }
             
             function removeHover(ele){
               isOver = false;
-              setTimeout(function(){
-                if(!testTime()){
+              //setTimeout(function(){
+                //if(!testTime()){
                   items.trigger('bghide');
-                }
-              },300);
+              //  }
+             // },300);
               
             }
             
@@ -103,10 +106,15 @@
               var _s = $(ele.currentTarget);
               
               var _c = $('.cover',_s);
+              activeItem = [];
               _c.transition({opacity:1},300,function(){
                  _s.css({
                             "background-image":"none",
                         });
+                  if(activeItem.length > 0){
+                    console.log('hover still availabe')
+                    items.trigger('bgset',[activeItem]);
+                  }
               });
              
             }
