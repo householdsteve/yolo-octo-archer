@@ -108,6 +108,7 @@
             }
             
             function removeHover(ele){
+              
             console.log('mouse out first called')
             isOver = false;
             console.log(testTime()+" this is test time before")
@@ -190,7 +191,7 @@
                       
                      var _c = $('.cover',_s);
                       if(_c.is(":visible")){
-                        _c.transition({opacity:0},500,function(){});
+                        _c.transition({opacity:0,"z-index":99999},500,function(){});
                       }
                   
                   _s.data('dateEle').hide();
