@@ -216,7 +216,7 @@ $(function(){
               targetsize: 3,
               closeclick: true,
               onanimationcomplete:loadPage, 
-              zoomout: function(){console.log('closed');}, // enable mouse over
+              zoomout: function(){}, // enable mouse over
               onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
         });
       }
