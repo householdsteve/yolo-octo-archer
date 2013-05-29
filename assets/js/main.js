@@ -5,9 +5,35 @@ var countdownContent = [];
 var countdownClose = [];
 var activePage = [];
 var currentSelectedMenuItem = [];
+var isInternetExplorer = false;
+var bgImagesPreload = ['http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg'];
+
+var opts = {
+  lines: 13, // The number of lines to draw
+  length: 0, // The length of each line
+  width: 10, // The line thickness
+  radius: 60, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#000', // #rgb or #rrggbb
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: 'auto', // Top position relative to parent in px
+  left: 'auto' // Left position relative to parent in px
+};
+
+var spinner,
+loadHolder;
 
 // get server time
-
+function checkInternetExplorer(){
+  return isInternetExplorer;
+}
 function serverTime() { 
     var time = null; 
     $.ajax({url: PageAttr.baseUrl+'home/timer', 
@@ -88,6 +114,8 @@ $(function(){
   if (!$.support.transition)
     $.fn.transition = $.fn.animate;
     
+  if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
+    
   $(".social.content h3").fitText(1.5);
     
   $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
@@ -136,7 +164,7 @@ $(function(){
    
   // SET UP DIFFERENT PAGE HEIGHTS
    sectionMain.css("min-height",WINH).height(WINH);
-   socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300);
+   
  
    if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu){
      sectionPrincipal.height(WINH).width(availableWidth);
@@ -166,25 +194,46 @@ $(function(){
     }
   }); 
   
-   
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
-     $(this).height(a).css({"margin-top":amargin}).zoomTarget({
-            targetsize: 3,
-            closeclick: true,
-            onanimationcomplete:loadPage, 
-            zoomout: function(){console.log('closed');}, // enable mouse over
-            onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
-      });
+     if(!checkInternetExplorer()){
+       $(this).height(a).css({"margin-top":amargin}).zoomTarget({
+              targetsize: 3,
+              closeclick: true,
+              onanimationcomplete:loadPage, 
+              zoomout: function(){console.log('closed');}, // enable mouse over
+              onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
+        });
+      }
    });
    
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
 
    $(".zoomViewport").width(availableWidth-3);
    
-   // give the palace some values
-   palace.height(availableHeight+15).css("max-width",maxwidth).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
+   // do some fading in:
+   $('nav#mainnav').delay(300).transition({left:0},700);
    
+   // give the palace some values
+   palace.hide().height(availableHeight+15).css({opacity:0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
+   
+   //contentEnabled
+   loadHolder = $("<div/>",{id:"loader"});
+   loadHolder.appendTo($('body'));
+   spinner = new Spinner(opts).spin(loadHolder[0]);
+   
+   $( ":data(contentenabled)", palace).each(function() {
+   var element = $( this );
+    bgImagesPreload.push($( this ).data('bgImage'));
+   });
+   
+   $.imgpreload(bgImagesPreload,function()
+   {         // check for success with: $(this[i]).data('loaded')
+     loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide(); });
+     spinner.stop();
+     palace.show().transition({opacity:1},700);
+     socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300)
+   });
    
    // pjax calls for jax page laoding
    currentSelectedMenuItem = $('nav.main ul a.selected');
@@ -220,7 +269,8 @@ $(function(){
          countdownClose.on("click",function(e){
             countdownDiv.transition({opacity:0},300,function(){countdownDiv.hide()});
             countdownContent.empty();
-            activePage.zoomTargetOut();
+            
+            if(!checkInternetExplorer()) activePage.zoomTargetOut();
          });
          countdownClose.hover(function(){
            $(this).transition({opacity:1},500);
@@ -239,44 +289,19 @@ $(function(){
        });
    }
    
-   socialMediaFeed.find('a').click(function(e){
-     var smf = $.ajax({url: this.href});
-     smf.always(function(data){
-         socialMediaFeed.append(data);
-         setTimeout(function(){
-           $('body').scrollTo(availableHeight, 800, {easing:'linear'});
-         },300);
-      });
-      return false;
-   });
- $(".royalSlider.rsUni").royalSlider({
-       	// general options go gere
-       	loop:true,
-       	autoHeight:false,
-       	imageAlignCenter:true,
-       	imageScaleMode: 'fit',
-       	autoScaleSlider: false,
-       	keyboardNavEnabled: true,
-           fullscreen: {
-           enabled: true,
-           nativeFS: true
-           },
-           controlNavigation: 'thumbnails',
-           thumbs: {
-               		// thumbnails options go gere
-               		spacing: 10,
-               		arrowsAutoHide: true,
-               		orientation: 'vertical',
-                  paddingBottom: 4,
-                  appendSpan: true
-                  },
-            transitionType:'fade',
-            deeplinking: {
-                		// deep linking options go gere
-                		enabled: true,
-                		prefix: 'slider-'
-                	}
-       });  
+   if(!checkInternetExplorer()){
+       socialMediaFeed.find('a').click(function(e){
+         var smf = $.ajax({url: this.href});
+         smf.always(function(data){
+             socialMediaFeed.append(data);
+             setTimeout(function(){
+               $('body').scrollTo(availableHeight, 800, {easing:'linear'});
+             },300);
+          });
+          return false;
+       });
+    }
+
 });
 
 

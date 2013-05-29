@@ -23,6 +23,10 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
+jQuery.browser={};(function(){jQuery.browser.msie=false;
+jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)\./)){
+jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;}})();
+
 var Sylvester = {
   version: '0.1.3',
   precision: 1e-6
@@ -296,6 +300,7 @@ Matrix.I = function(n) {
     CssMatrix.prototype.setMatrixValue = function(transString) {
         var mtr = Matrix.I(3);
         var items;
+        if (! $.browser.msie ) {
         while((items = regexp_trans_splitter.exec(transString)) !== null) {
             var action = items[1].toLowerCase();
             var val = items[2].split(",");
@@ -333,7 +338,7 @@ Matrix.I = function(n) {
 
             mtr = mtr.multiply(trans);
         }
-
+      }
         this.m = mtr;
     };
 
@@ -1003,6 +1008,7 @@ if(!$.zoomooz) {
     /* setup css styles in javascript to not need an extra zoomooz.css file for the user to load.
        having the styles here helps also at keeping the css requirements minimal. */
     function setupCssStyles() {
+        if (! $.browser.msie ) {
         var style = document.createElement('style');
         style.type = 'text/css';
 
@@ -1023,7 +1029,7 @@ if(!$.zoomooz) {
             var scrollBarWidth = window.innerWidth - $("body").width();
             style.innerHTML += "body.noScroll,html.noScroll body{margin-right:"+scrollBarWidth+"px;}";
         });
-
+      }
     }
 
     function constructDefaultSettings() {
@@ -1557,6 +1563,7 @@ if(!$.zoomooz) {
     /* setup css styles in javascript to not need an extra zoomooz.css file for the user to load.
        having the styles here helps also at keeping the css requirements minimal. */
     function setupCssStyles() {
+        
         var style = document.createElement('style');
         style.type = 'text/css';
 
@@ -1567,7 +1574,8 @@ if(!$.zoomooz) {
             },true);
             return selectionString;
         }
-
+        
+        if (! $.browser.msie ) {
         // FIXME: how to remove the html height requirement?
         // FIXME: how to remove the transform origin?
         style.innerHTML = ".zoomTarget{"+setupSelectionCss(false)+"}"+
@@ -1578,6 +1586,7 @@ if(!$.zoomooz) {
                           ".zoomContainer{position:relative;padding:1px;margin:-1px;}";
 
         document.getElementsByTagName('head')[0].appendChild(style);
+      }
     }
 
     //**********************************//

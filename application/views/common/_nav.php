@@ -1,4 +1,4 @@
-<nav class="main">
+<nav class="main" id="mainnav">
   <div id="logo"><a href="<?php echo base_url(); ?>">Home</a></div>
   <ul class="clearfix" data-pjax >
     <li>

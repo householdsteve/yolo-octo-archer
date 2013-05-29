@@ -84,6 +84,7 @@
               }
               
               globalHoverContainer.show().delay(400).transition({opacity:options.hoverOpacity},700,function(){}); 
+              if(activeHoverChild.length > 0) activeHoverChild.hide();
               activeHoverChild = _s.data('hoverRef');
               activeHoverChild.show();
             }
@@ -95,12 +96,16 @@
               if(testHoverAble()){
               isOver = false;
               lastHoverChild = activeHoverChild;
-              lastHoverChild.hide();
+              if(lastHoverChild.length > 0) lastHoverChild.hide();
               
                  setTimeout(function(){
                  if(!testTime()){
                       items.trigger('bghide');
                       globalHoverContainer.delay(0).transition({opacity:0},500,function(){globalHoverContainer.hide()});
+                      if(activeHoverChild.length > 0) activeHoverChild.hide();
+                      if(lastHoverChild.length > 0) lastHoverChild.hide();
+                      lastHoverChild = [];
+                      activeHoverChild = []
                    }
                   },300);
                }
@@ -193,7 +198,7 @@
           
           function releaseHoverControl(e){
             _global.enableHover();
-            activeItem.trigger('mouseleave');
+            if(activeItem.length > 0) activeItem.trigger('mouseleave');
           }
           
           // this functions are available via data api
