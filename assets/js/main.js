@@ -38,6 +38,7 @@ function loadMaps(){
       position: new google.maps.LatLng(41.9054485,12.481257700000015),
       map: map,
       icon: image
+
   });
   }
 }

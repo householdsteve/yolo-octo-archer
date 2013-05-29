@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <div class="span12">
-    <iframe src="http://youtube.com/embed/IS8tFgfXCmw?autohide=1&amp;color=white&amp;vq=hd720&amp;iv_load_policy=3&amp;rel=0&amp;width=100%&amp;height=480" width="100%" height="446" frameborder="0" allowfullscreen=""></iframe>
+    <iframe src="http://youtube.com/embed/IS8tFgfXCmw?rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="446" frameborder="0" allowfullscreen=""></iframe>
   </div>
 </div>
 <div class="row-fluid top-space">
