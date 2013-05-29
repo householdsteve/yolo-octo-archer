@@ -7,7 +7,7 @@ class Social_stream_model extends CI_Model {
 	}
 	
 	public function get_all($ct){
-	  $this->db->order_by("unixdate", "asc");
+	  $this->db->order_by("unixdate", "desc");
 	  $query = $this->db->get('content',$ct, 0);
 	  if($query->result_array()){
 	    return $query->result_array();
@@ -24,7 +24,7 @@ class Social_stream_model extends CI_Model {
 	  $twitter = $this->db->get('tweets');
 	  if($twitter->result_array()){
 	    foreach($twitter->result_array() as $row){
-	      if($row['deleted'] == 0){
+	      if($row['deleted'] == 0 && !preg_match("/\brt\b/i", $row['body'])){
 	        $data = unserialize($row['capture']);
   	      $d = array(
   	       "lid"=> $row['id'],

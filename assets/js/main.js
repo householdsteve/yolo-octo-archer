@@ -1,6 +1,8 @@
 var socialH = 60; // height of social media bar
 var menuwidth = 250; // width of menu
 var countdownDiv = []; // element to load contents into
+var countdownContent = [];
+var countdownClose = [];
 var activePage = [];
 var currentSelectedMenuItem = [];
 
@@ -117,7 +119,7 @@ $(function(){
    
   // SET UP DIFFERENT PAGE HEIGHTS
    sectionMain.css("min-height",WINH).height(WINH);
-   socialMediaFeed.css({"top":availableHeight,opacity:0}).show().transition({opacity:1},300);
+   socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300);
  
    if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu){
      sectionPrincipal.height(WINH).width(availableWidth);
@@ -161,10 +163,10 @@ $(function(){
    
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
 
-   $(".zoomViewport").width(availableWidth-20);
+   $(".zoomViewport").width(availableWidth-3);
    
    // give the palace some values
-   palace.height(availableHeight+15).css("max-width",maxwidth).data({'containerHeight':availableHeight,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
+   palace.height(availableHeight+15).css("max-width",maxwidth).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
    
    
    // pjax calls for jax page laoding
@@ -196,29 +198,29 @@ $(function(){
      
      if(countdownDiv.length < 1){
          countdownDiv = $("<div/>",{"class":"cd-page"}).width(availableWidth).height(WINH).hide();
-         countdownDiv.appendTo(sectionPrincipal);
+         countdownContent = $("<div/>",{"class":"cd-content"});
+         countdownClose = $("<div/>",{"class":"cd-close"}).text('X').css({"opacity":0.5});
+         countdownClose.on("click",function(e){
+            countdownDiv.transition({opacity:0},300,function(){countdownDiv.hide()});
+            countdownContent.empty();
+            activePage.zoomTargetOut();
+         });
+         countdownClose.hover(function(){
+           $(this).transition({opacity:1},500);
+         },function(){
+           $(this).transition({opacity:0.5},500);           
+         });
+         countdownDiv.append(countdownContent,countdownClose).appendTo(sectionPrincipal);
        }else{
-         countdownDiv.empty().width(availableWidth).height(WINH).hide();
+         countdownContent.empty();
+         countdownDiv.width(availableWidth).height(WINH).hide();
        }
 
        pageCall.always(function(data){
-         $iframe = $(data.html).find('iframe');
-         $iframe.width(availableWidth).height(WINH);
-         console.log($iframe)
-          countdownDiv.html(data.html).delay(500).show();
+          countdownContent.html(data.html);
+          countdownDiv.delay(500).css({opacity:0}).show().transition({opacity:1},500);
        });
    }
-   
-   
-   $("body").keyup(function(e){ 
-       var code = e.which; // recommended to use e.which, it's normalized across browsers
-       if(code==13)e.preventDefault();
-       if(code==32||code==13||code==188||code==186){
-           console.log($(this).val());
-           countdownDiv.hide();
-           activePage.zoomTargetOut();
-       } // missing closing if brace
-   });
    
    socialMediaFeed.find('a').click(function(e){
      var smf = $.ajax({url: this.href});
