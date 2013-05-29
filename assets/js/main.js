@@ -7,6 +7,9 @@ var activePage = [];
 var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
 var bgImagesPreload = ['http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg'];
+var advise,
+    spinner,
+    loadHolder;
 
 var opts = {
   lines: 13, // The number of lines to draw
@@ -27,8 +30,7 @@ var opts = {
   left: 'auto' // Left position relative to parent in px
 };
 
-var spinner,
-loadHolder;
+
 
 // get server time
 function checkInternetExplorer(){
@@ -115,6 +117,14 @@ $(function(){
     $.fn.transition = $.fn.animate;
     
   if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
+  
+  if(checkInternetExplorer()){
+    advise = $("<div/>",{"class":"tellexplorer"}).append($("<div/>",{"class":"advice"}).html("get a new browser"));
+    advise.appendTo($('body'));
+    advise.click(function(){
+      $(this).remove();
+    });
+  }
     
   $(".social.content h3").fitText(1.5);
     
@@ -208,7 +218,7 @@ $(function(){
       }
       if(checkInternetExplorer() && _ddata.contentAvailable){
         _s.on("click",function(e){
-          window.location = _ddata.link;
+          window.location = PageAttr.baseUrl+_ddata.link;
         });
       }
    });
