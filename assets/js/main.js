@@ -72,7 +72,7 @@ function loadMaps(){
       '<div id="siteNotice"style="overflow-y:hidden !important;">'+
       '</div>'+
       // '<h1 id="firstHeading" class="firstHeading">Giorgio Armani Boutique</h1>'+
-      '<div id="bodyContent"style="height:57px;overflow-y:hidden 1important;">'+ '<img src="/assets/img/ga-logo.png" width="247" height="37" alt="Ga Logo">' +
+      '<div id="bodyContent"style="height:57px;overflow-y:hidden 1important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="Ga Logo">' +
       '<p>Via Condotti 77-79 • Rome</p>'+
       '</div>'+
       '</div>';
@@ -118,7 +118,7 @@ $(function(){
     
   if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
   
-  if(checkInternetExplorer()){
+  if(!checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
     advise = $("<div/>",{"class":"tellexplorer"})
     .append($("<div/>",{"class":"advice"}).html(
       "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
@@ -127,6 +127,8 @@ $(function(){
     advise.click(function(){
       $(this).remove();
     });
+    
+    $.cookie('_saw_ie_message_', true, { expires: 7 });
   }
     
   $(".social.content h3").fitText(1.5);
