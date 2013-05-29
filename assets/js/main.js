@@ -192,7 +192,7 @@ $(function(){
    var pageCall;
    
    function loadCountdownPage(l){
-     pageCall = $.ajax({url: l, dataType:"json", data:{w:availableWidth,h:WINH}});
+     pageCall = $.ajax({url: PageAttr.baseUrl+l, dataType:"json", data:{w:availableWidth,h:WINH}});
    }
 
    function loadPage(html){
@@ -224,7 +224,7 @@ $(function(){
    }
    
    socialMediaFeed.find('a').click(function(e){
-     var smf = $.ajax({url: this.href});
+     var smf = $.ajax({url: PageAttr.baseUrl+this.href});
      smf.always(function(data){
          socialMediaFeed.append(data);
          setTimeout(function(){
