@@ -224,7 +224,7 @@ $(function(){
    }
    
    socialMediaFeed.find('a').click(function(e){
-     var smf = $.ajax({url: PageAttr.baseUrl+this.href});
+     var smf = $.ajax({url: this.href});
      smf.always(function(data){
          socialMediaFeed.append(data);
          setTimeout(function(){
