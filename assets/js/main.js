@@ -118,7 +118,7 @@ $(function(){
     
   if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
   
-  if(!checkInternetExplorer()){
+  if(checkInternetExplorer()){
     advise = $("<div/>",{"class":"tellexplorer"})
     .append($("<div/>",{"class":"advice"}).html(
       "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
@@ -177,7 +177,6 @@ $(function(){
    
   // SET UP DIFFERENT PAGE HEIGHTS
    sectionMain.css("min-height",WINH).height(WINH);
-   
  
    if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu){
      sectionPrincipal.height(WINH).width(availableWidth);
