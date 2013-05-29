@@ -8,7 +8,9 @@ var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
 
 // get server time
-
+function checkInternetExplorer(){
+  return isInternetExplorer;
+}
 function serverTime() { 
     var time = null; 
     $.ajax({url: PageAttr.baseUrl+'home/timer', 
@@ -153,10 +155,10 @@ $(function(){
     }
   }); 
   
-   
+   alert(checkInternetExplorer())
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
-     if(!isInternetExplorer){
+     if(!checkInternetExplorer()){
        $(this).height(a).css({"margin-top":amargin}).zoomTarget({
               targetsize: 3,
               closeclick: true,
@@ -213,7 +215,7 @@ $(function(){
             countdownDiv.transition({opacity:0},300,function(){countdownDiv.hide()});
             countdownContent.empty();
             
-            if(!isInternetExplorer) activePage.zoomTargetOut();
+            if(!checkInternetExplorer()) activePage.zoomTargetOut();
          });
          countdownClose.hover(function(){
            $(this).transition({opacity:1},500);
