@@ -8,3 +8,4 @@ Makefile
 git-ftp.py
 git-ftp.1
 git-ftp-test.py
+.DS_Store
