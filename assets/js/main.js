@@ -206,7 +206,7 @@ $(function(){
               onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
         });
       }
-      if(checkInternetExplorer()){
+      if(checkInternetExplorer() && _ddata.contentAvailable){
         _s.on("click",function(e){
           window.location = _ddata.link;
         });
