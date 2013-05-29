@@ -7,6 +7,7 @@ class Home extends CI_Controller{
     parent::__construct();
     // add class 'selected' to navigation menu 
     $this->_data['nav_selected'] = 'news';
+    $this->_data['sub_nav_selected'] = '';
     // do not do $this->view->render(); here
     // otherwise the 404 error may not work
   }
@@ -195,15 +196,24 @@ class Home extends CI_Controller{
                                       "subtitle"=>"13.6.2013",
                                       "type"=>"video");
     
-    $this->_data['sub_nav_selected'] = '';
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
   public function countdown($id){
-    parse_str($_SERVER['QUERY_STRING'], $_GET);
-    $this->_data['w'] = $_GET['w'];
-    $this->_data['h'] = $_GET['h'];    
-    echo json_encode( array("html"=>$this->load->view("home/".$id.".php", $this->_data, true)) );
+    if( $this->input->is_ajax_request() )
+		{
+      parse_str($_SERVER['QUERY_STRING'], $_GET);
+      $this->_data['w'] = $_GET['w'];
+      $this->_data['h'] = $_GET['h'];    
+      echo json_encode( array("html"=>$this->load->view("home/".$id.".php", $this->_data, true)) );
+    }else{
+      $this->_data['w'] = "100%"; // incase internet explorer gets it
+      $this->_data['h'] = "100%";
+      $this->_data['id'] = $id;
+      $this->_data['data'] = $this->_data;      
+      //$this->load->view("home/".$id.".php", $this->_data);
+      $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+    }  
   }
   
   public function timer(){
