@@ -300,6 +300,7 @@ Matrix.I = function(n) {
     CssMatrix.prototype.setMatrixValue = function(transString) {
         var mtr = Matrix.I(3);
         var items;
+        if (! $.browser.msie ) {
         while((items = regexp_trans_splitter.exec(transString)) !== null) {
             var action = items[1].toLowerCase();
             var val = items[2].split(",");
@@ -337,7 +338,7 @@ Matrix.I = function(n) {
 
             mtr = mtr.multiply(trans);
         }
-
+      }
         this.m = mtr;
     };
 

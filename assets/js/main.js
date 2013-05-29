@@ -155,7 +155,6 @@ $(function(){
     }
   }); 
   
-   alert(checkInternetExplorer())
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
      if(!checkInternetExplorer()){

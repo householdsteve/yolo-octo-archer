@@ -95,7 +95,7 @@
               if(testHoverAble()){
               isOver = false;
               lastHoverChild = activeHoverChild;
-              lastHoverChild.hide();
+              if(lastHoverChild.length > 0) lastHoverChild.hide();
               
                  setTimeout(function(){
                  if(!testTime()){
@@ -193,7 +193,7 @@
           
           function releaseHoverControl(e){
             _global.enableHover();
-            activeItem.trigger('mouseleave');
+            if(activeItem.length > 0) activeItem.trigger('mouseleave');
           }
           
           // this functions are available via data api
