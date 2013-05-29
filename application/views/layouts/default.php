@@ -1,3 +1,4 @@
+<?php $this->load->helper('url');?>
 <?php echo doctype('html5'); ?>
   <head>
     <?php $this->view->metas(); ?>
@@ -15,7 +16,7 @@
 
     <?php endif; ?>
     <script type="text/javascript" charset="utf-8">
-      var PageAttr = [];
+      var PageAttr = {baseUrl:"<?php echo base_url();?>"};
     </script>
   </head>
   <body>

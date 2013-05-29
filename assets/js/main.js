@@ -10,7 +10,7 @@ var currentSelectedMenuItem = [];
 
 function serverTime() { 
     var time = null; 
-    $.ajax({url: '/home/timer', 
+    $.ajax({url: PageAttr.baseUrl+'home/timer', 
         async: false, dataType: 'text', 
         success: function(d) { 
             time = new Date(d.timer); 
@@ -33,7 +33,7 @@ function loadMaps(){
         title:"GA Super store"
     });
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    var image = '/assets/img/pin0.png';
+    var image = PageAttr.baseUrl+'assets/img/pin0.png';
   var GAmarker = new google.maps.Marker({
       position: new google.maps.LatLng(41.9054485,12.481257700000015),
       map: map,
