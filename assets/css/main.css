@@ -12,6 +12,9 @@
   font-weight: normal;
   font-style: normal;
 }
+html {
+  overflow-y: scroll;
+}
 html,
 body {
   width: 100%;
@@ -189,7 +192,7 @@ section.principal h2 {
 }
 #globalHoverContainer {
   background: white;
-  width: 100%;
+  width: auto;
   height: 100%;
   position: absolute;
   left: 0;
@@ -208,7 +211,7 @@ section.principal h2 {
 }
 #globalHoverContainer-internal h1 {
   font-size: 60px;
-  margin-top: 60px;
+  margin-top: 100px;
 }
 #globalHoverContainer-internal h3 {
   font-size: 35px;
@@ -276,6 +279,7 @@ section.principal h2 {
   padding: 0;
   position: absolute;
   top: 0;
+  left: 0;
   display: none;
 }
 #social-media-feed h3.title {
@@ -294,6 +298,18 @@ section.principal h2 {
   height: 100%;
   background: white;
   z-index: 1000;
+}
+.cd-close {
+  cursor: pointer;
+  background: url('/assets/img/icon-back.png') no-repeat top left;
+  background-size: 70px 100px;
+  width: 70px;
+  height: 100px;
+  text-indent: -9999em;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: block;
 }
 /* ==========================================================================
    page contents

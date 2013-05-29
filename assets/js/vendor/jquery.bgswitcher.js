@@ -42,7 +42,7 @@
             activeHoverChild = [],
             globalHoverContainerInternal = $("<div/>",{'id':'globalHoverContainer-internal'}),
             globalHoverContainer = $("<div/>",{"id":"globalHoverContainer"})
-                                    .height(winHeight/2.5).css({opacity:0,"top":(winHeight/2)- ((winHeight/2.5)/2)})
+                                    .height(winHeight/2.5).width(scopeData.containerWidth).css({opacity:0,"top":(winHeight/2)- ((winHeight/2.5)/2)})
                                     .append(globalHoverContainerInternal).hide();
             
             
