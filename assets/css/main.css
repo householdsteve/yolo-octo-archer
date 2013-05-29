@@ -332,14 +332,21 @@ section.principal h2 {
   text-transform: uppercase;
 }
 #countdown-holder h1 {
-  font-size: 72px;
+  font-size: 90px;
   width: 100%;
+  text-shadow: 2px 2px 0px #000;
+        filter: dropshadow(color=#000, offx=1, offy=1);
+  margin-bottom:60px;
+  text-align:center;
 }
 #countdown-holder .countdown_section {
   display: block;
   float: left;
-  font-size: 20px;
+  font-size: 25px !important;
+  line-height: 40px;
   text-align: center;
+  text-shadow: 2px 2px 0px #000;
+        filter: dropshadow(color=#000, offx=1, offy=1);
 }
 /* ==========================================================================
    Mobile styles
