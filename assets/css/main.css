@@ -128,7 +128,7 @@ nav ul ul.subnav {
 nav.main {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -250px;
   height: 100%;
   background: white;
   width: 250px;
@@ -239,6 +239,7 @@ section.principal h2 {
   -moz-border-radius-topright: 100px;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
+  behavior: url(border-radius.htc);
   margin: 0 auto;
   background: no-repeat;
   position: relative;

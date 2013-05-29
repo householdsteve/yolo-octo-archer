@@ -5,6 +5,7 @@ var countdownContent = [];
 var countdownClose = [];
 var activePage = [];
 var currentSelectedMenuItem = [];
+var isInternetExplorer = false;
 
 // get server time
 
@@ -71,6 +72,8 @@ function internalCountdown(){
 $(function(){
   if (!$.support.transition)
     $.fn.transition = $.fn.animate;
+    
+  if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
     
   $(".social.content h3").fitText(1.5);
     
@@ -153,18 +156,23 @@ $(function(){
    
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
-     $(this).height(a).css({"margin-top":amargin}).zoomTarget({
-            targetsize: 3,
-            closeclick: true,
-            onanimationcomplete:loadPage, 
-            zoomout: function(){console.log('closed');}, // enable mouse over
-            onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
-      });
+     if(!isInternetExplorer){
+       $(this).height(a).css({"margin-top":amargin}).zoomTarget({
+              targetsize: 3,
+              closeclick: true,
+              onanimationcomplete:loadPage, 
+              zoomout: function(){console.log('closed');}, // enable mouse over
+              onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
+        });
+      }
    });
    
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
 
    $(".zoomViewport").width(availableWidth-3);
+   
+   // do some fading in:
+   $('nav#mainnav').delay(300).transition({left:0},700);
    
    // give the palace some values
    palace.height(availableHeight+15).css("max-width",maxwidth).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
@@ -204,7 +212,8 @@ $(function(){
          countdownClose.on("click",function(e){
             countdownDiv.transition({opacity:0},300,function(){countdownDiv.hide()});
             countdownContent.empty();
-            activePage.zoomTargetOut();
+            
+            if(!isInternetExplorer) activePage.zoomTargetOut();
          });
          countdownClose.hover(function(){
            $(this).transition({opacity:1},500);
