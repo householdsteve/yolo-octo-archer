@@ -49,56 +49,56 @@ class Home extends CI_Controller{
     $this->_data['columns'] = 4;
     $this->_data['events'] = array();
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,29,2013),
-                                      "image"=>"http://beta.ono/assets/img/backgrounds/may_29.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/may_29.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,30,2013),
-                                      "image"=>"http://beta.ono/assets/img/backgrounds/onenightonly-roma.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"2 this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,31,2013),
-                                      "image"=>"http://st.gdefon.ru/wallpapers_original/actors/74936_byanka-balti_or_bianca-balti_1600x1200_%28www.GdeFon.ru%29.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"3 this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"interview");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,1,2013),
-                                      "image"=>"http://media.onsugar.com/files/2011/01/04/2/166/1668379/53955aef672f76ba_52e0652460b07610_108298718_10.preview.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,2,2013),
-                                      "image"=>"http://images2.alphacoders.com/219/219010.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,3,2013),
-                                      "image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,4,2013),
-                                      "image"=>"http://images2.alphacoders.com/219/219010.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,5,2013),
-                                      "image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/",
                                       "classes"=>"event",
                                       "custom-date"=>"LIVE",
@@ -107,56 +107,56 @@ class Home extends CI_Controller{
                                       "type"=>"countdown");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,6,2013),
-                                      "image"=>"http://images2.alphacoders.com/219/219010.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,7,2013),
-                                      "image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,8,2013),
-                                      "image"=>"http://images2.alphacoders.com/219/219010.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,9,2013),
-                                      "image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,10,2013),
-                                      "image"=>"http://images2.alphacoders.com/219/219010.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,11,2013),
-                                      "image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,12,2013),
-                                      "image"=>"http://images2.alphacoders.com/219/219010.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
                                       "type"=>"video");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,13,2013),
-                                      "image"=>"http://www.eftekasat.net/pmg/pix_edadasastew/2788/Bianca_Balti_035.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/home/countdown",
                                       "title"=>"this is a title",
                                       "subtitle"=>"my subtitle",
