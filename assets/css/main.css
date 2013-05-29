@@ -12,6 +12,9 @@
   font-weight: normal;
   font-style: normal;
 }
+html {
+  overflow-y: scroll;
+}
 html,
 body {
   width: 100%;
@@ -194,6 +197,33 @@ section.principal h2 {
   margin: 0 auto;
   height: 100%;
 }
+#globalHoverContainer {
+  background: white;
+  width: auto;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 3000;
+  text-transform: uppercase;
+}
+#globalHoverContainer-internal {
+  height: 100%;
+  margin: 0 auto;
+}
+#globalHoverContainer-internal h1,
+#globalHoverContainer-internal h3,
+#globalHoverContainer-internal small {
+  display: block;
+  text-align: center;
+}
+#globalHoverContainer-internal h1 {
+  font-size: 60px;
+  margin-top: 100px;
+}
+#globalHoverContainer-internal h3 {
+  font-size: 35px;
+  margin-top: 30px;
+}
 .grid-row .item-holder {
   float: left;
   width: 25%;
@@ -249,6 +279,7 @@ section.principal h2 {
   padding: 0;
   position: absolute;
   top: 0;
+  left: 0;
   display: none;
 }
 #social-media-feed h3.title {
