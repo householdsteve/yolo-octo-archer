@@ -148,7 +148,7 @@ $(function(){
    
   // SET UP DIFFERENT PAGE HEIGHTS
    sectionMain.css("min-height",WINH).height(WINH);
-   socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300);
+   
  
    if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu){
      sectionPrincipal.height(WINH).width(availableWidth);
@@ -202,7 +202,7 @@ $(function(){
    palace.hide().height(availableHeight+15).css({opacity:0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
    
    //contentEnabled
-   var loadHolder = $("<div/>",{id:"loader"});
+   loadHolder = $("<div/>",{id:"loader"});
    loadHolder.appendTo($('body'));
    spinner = new Spinner(opts).spin(loadHolder[0]);
    
@@ -212,13 +212,11 @@ $(function(){
    });
    
    $.imgpreload(bgImagesPreload,function()
-   {
+   {         // check for success with: $(this[i]).data('loaded')
      loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide(); });
      spinner.stop();
      palace.show().transition({opacity:1},700);
-       // this = array of dom image objects
-       // check for success with: $(this[i]).data('loaded')
-       // callback executes when all images are loaded
+     socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300)
    });
    
    // pjax calls for jax page laoding
@@ -275,16 +273,18 @@ $(function(){
        });
    }
    
-   socialMediaFeed.find('a').click(function(e){
-     var smf = $.ajax({url: this.href});
-     smf.always(function(data){
-         socialMediaFeed.append(data);
-         setTimeout(function(){
-           $('body').scrollTo(availableHeight, 800, {easing:'linear'});
-         },300);
-      });
-      return false;
-   });
+   if(!checkInternetExplorer()){
+       socialMediaFeed.find('a').click(function(e){
+         var smf = $.ajax({url: this.href});
+         smf.always(function(data){
+             socialMediaFeed.append(data);
+             setTimeout(function(){
+               $('body').scrollTo(availableHeight, 800, {easing:'linear'});
+             },300);
+          });
+          return false;
+       });
+    }
 
 });
 
