@@ -55,8 +55,8 @@ class Home extends CI_Controller{
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "title"=>"GIORGIO ARMANI",
-                                      "subtitle"=>"PRELUDE",
-                                      "type"=>"WATCH THE VIDEO");
+                                      "subtitle"=>"A Tribute to Rome",
+                                      "type"=>"WATCH NOW");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,31,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Tornatore.jpg",
