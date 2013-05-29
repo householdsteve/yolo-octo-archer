@@ -374,6 +374,9 @@ html.lt-ie9 .grid-row .door {
   display: block;
   z-index: 7000;
 }
+html.lt-ie9 .cd-close {
+  background: url('../img/icon-back-ie.png') no-repeat top left;
+}
 /* ==========================================================================
    page contents
    ========================================================================== */
