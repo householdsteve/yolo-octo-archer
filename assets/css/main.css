@@ -282,6 +282,9 @@ section.principal h2 {
   font-size: 35px;
   margin-top: 30px;
 }
+html.lt-ie9 .grid-row .door {
+  border: solid 1px #cccccc;
+}
 .grid-row .item-holder {
   float: left;
   width: 25%;
