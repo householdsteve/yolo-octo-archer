@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://armanissl.com/amor-ono';
+$config['base_url']	= 'http://armanissl.com/amor-ono/';
 
 /*
 |--------------------------------------------------------------------------
