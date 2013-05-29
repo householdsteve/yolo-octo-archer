@@ -59,13 +59,29 @@ function loadMaps(){
         title:"GA Boutique"
     });
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    var image = PageAttr.baseUrl+'assets/img/pin0.png';
+    var image = PageAttr.baseUrl+'assets/img/pin7.png';
   var GAmarker = new google.maps.Marker({
       position: new google.maps.LatLng(41.9054485,12.481257700000015),
       map: map,
       icon: image
+	});
+	
+	var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Giorgio Armani Boutique</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Via Condotti 77-79 • Rome</p>'+
+      '</div>'+
+      '</div>';
 
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
   });
+	
+	google.maps.event.addListener(GAmarker, 'click', function() {
+	    infowindow.open(map,GAmarker);
+	  });
   }
 }
 

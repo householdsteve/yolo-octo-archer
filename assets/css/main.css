@@ -80,7 +80,7 @@ ul a:hover {
   color: #cccccc;
 }
 ul a.selected {
-  color: red;
+  color: black;
 }
 nav {
   position: relative;
@@ -98,6 +98,7 @@ nav ul {
   margin: 15px 50px;
   border-top: 1px #a1a1a1 solid;
   border-bottom: 1px #a1a1a1 solid;
+  color: #a1a1a1;
 }
 nav ul a {
   display: block;
