@@ -9,12 +9,12 @@
         <h2>DISCOVER THE EVENTS:</h2>
         <?php
           $this->view->partial('common/_sub_nav', array(
-            'parent' => 'eccentrico',
+            'parent' => 'events',
             'sub_nav' => array(
-              array('title' => 'London', 'href' => site_url('events/london'), 'nav_selected' => 'events'),
-              array('title' => 'Tokyo', 'href' => site_url('events/tokyo'), 'nav_selected' => 'events'),
-              array('title' => 'Beijing', 'href' => site_url('events/beijing'), 'nav_selected' => 'events'),
-              array('title' => 'Rome', 'href' => site_url('events/rome'), 'nav_selected' => 'events')            
+              array('title' => 'London', 'href' => site_url('events/london'), 'nav_selected' => 'london'),
+              array('title' => 'Tokyo', 'href' => site_url('events/tokyo'), 'nav_selected' => 'tokyo'),
+              array('title' => 'Beijing', 'href' => site_url('events/beijing'), 'nav_selected' => 'beijing'),
+              array('title' => 'Rome', 'href' => site_url('events/rome'), 'nav_selected' => 'rome')            
           )));
         ?>
       </div>

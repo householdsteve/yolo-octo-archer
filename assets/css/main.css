@@ -70,6 +70,15 @@ body a:focus {
 body a.selected {
   color: black;
 }
+ul {
+  text-transform: uppercase;
+}
+ul a:hover {
+  color: #cccccc;
+}
+ul a.selected {
+  color: red;
+}
 nav {
   position: relative;
 }

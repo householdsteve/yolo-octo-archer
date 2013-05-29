@@ -42,7 +42,6 @@ a::-moz-focus-inner {border:0;}
   height:100%;
 }
 
-
 body {
   background:@base_grey;
   font-family:'one_night_onlymedium';
@@ -53,6 +52,18 @@ body {
     text-decoration:none;
     &:hover, &:active, &:focus { color:#333; text-decoration:none; }
     &.selected { color:black;}
+  }
+}
+
+ul {
+  text-transform:uppercase;
+  a {
+    &:hover {
+      color:@med_grey;
+    }
+    &.selected {
+      color:red;
+    }
   }
 }
 
