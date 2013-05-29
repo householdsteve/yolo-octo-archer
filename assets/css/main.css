@@ -190,12 +190,22 @@ section.principal h1 {
 section.principal h2 {
   font-size: 110%;
 }
+#loader {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+}
 #palace-grid-holder {
   overflow: hidden;
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
   height: 100%;
+  display: none;
 }
 #globalHoverContainer {
   background: white;

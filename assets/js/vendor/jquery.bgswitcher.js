@@ -84,6 +84,7 @@
               }
               
               globalHoverContainer.show().delay(400).transition({opacity:options.hoverOpacity},700,function(){}); 
+              if(activeHoverChild.length > 0) activeHoverChild.hide();
               activeHoverChild = _s.data('hoverRef');
               activeHoverChild.show();
             }
@@ -101,6 +102,10 @@
                  if(!testTime()){
                       items.trigger('bghide');
                       globalHoverContainer.delay(0).transition({opacity:0},500,function(){globalHoverContainer.hide()});
+                      if(activeHoverChild.length > 0) activeHoverChild.hide();
+                      if(lastHoverChild.length > 0) lastHoverChild.hide();
+                      lastHoverChild = [];
+                      activeHoverChild = []
                    }
                   },300);
                }
