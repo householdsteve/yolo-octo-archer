@@ -426,17 +426,13 @@ section.principal {
 #map-canvas { height: 100%; width:100% }
 #mapDiv img, #map-canvas img { max-width: none; }
 
-section .row-fluid .span12, section .row-fluid-social .span12 {
+.row-fluid .span12, .row-fluid-social .span12 {
   max-width:1280px;
   margin:0;
   word-wrap: break-word;
-  &:first-child{margin:0};
-  [class*="span"] {
-    word-wrap: break-word;
-  }
 }
 
-section .row-fluid-social .span12 {
+.row-fluid-social .span12 {
   &:nth-child(even){
     .span3:nth-child(even) {
       background:black;
