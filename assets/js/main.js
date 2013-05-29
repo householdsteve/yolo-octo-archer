@@ -33,13 +33,36 @@ function loadMaps(){
         title:"GA Boutique"
     });
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
     var image = '/assets/img/pin0.png';
   var GAmarker = new google.maps.Marker({
       position: new google.maps.LatLng(41.9054485,12.481257700000015),
       map: map,
       icon: image
+	});
+	
+	var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Giorgio Armani Boutique</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+      'sandstone rock formation in the southern part of the '+
+      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+      'south west of </p>'+
+      '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'http://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>';
 
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
   });
+	
+	google.maps.event.addListener(GAmarker, 'click', function() {
+	    infowindow.open(map,GAmarker);
+	  });
   }
 }
 
