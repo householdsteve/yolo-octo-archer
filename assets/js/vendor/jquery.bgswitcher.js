@@ -34,9 +34,12 @@
             scopeData = scope.data(),
             items = $(options.element,scope),
             itemCount = items.length,
+            internalDoors = [],
             isOver = false,
             isAnimating = false,
             isHoverAble = true,
+            globalHoverShowing = false,
+            doorsShowing = true,
             activeItem = [],
             lastHoverChild = [],
             activeHoverChild = [],
@@ -61,8 +64,15 @@
             }
             
             function testHoverAble(){
-              console.log(isHoverAble)
               return isHoverAble;
+            }
+            
+            function isGlobalHoverShowing(){
+              return globalHoverShowing;
+            }
+            
+            function isDoorsShowing(){
+              return doorsShowing;
             }
             
             function createHover(ele){
@@ -80,11 +90,17 @@
                  });
               }else{
                 // call animation of bg image and load for all
-                if(!testAnimating()) items.trigger('bgset',[_s]);
+                items.trigger('bgset',[_s]);
               }
               
-              globalHoverContainer.show().delay(400).transition({opacity:options.hoverOpacity},700,function(){}); 
+              if(!isGlobalHoverShowing()){
+                globalHoverContainer.show().delay(400).transition({opacity:options.hoverOpacity},700,function(){});
+                globalHoverShowing = true;
+              }
+
               if(activeHoverChild.length > 0) activeHoverChild.hide();
+              if(lastHoverChild.length > 0) lastHoverChild.hide();
+              
               activeHoverChild = _s.data('hoverRef');
               activeHoverChild.show();
             }
@@ -92,24 +108,53 @@
             }
             
             function removeHover(ele){
-              setTimeout(function(){
-              if(testHoverAble()){
-              isOver = false;
-              lastHoverChild = activeHoverChild;
-              if(lastHoverChild.length > 0) lastHoverChild.hide();
               
-                 setTimeout(function(){
-                 if(!testTime()){
-                      items.trigger('bghide');
-                      globalHoverContainer.delay(0).transition({opacity:0},500,function(){globalHoverContainer.hide()});
-                      if(activeHoverChild.length > 0) activeHoverChild.hide();
-                      if(lastHoverChild.length > 0) lastHoverChild.hide();
-                      lastHoverChild = [];
-                      activeHoverChild = []
-                   }
-                  },300);
-               }
-              },10);
+            isOver = false;
+            setTimeout(function(){
+                              if(!testTime()){
+                                 items.trigger('bghide');
+                                 globalHoverContainer.delay(0).transition({opacity:0},500,function(){
+                                   globalHoverContainer.hide();
+                                   globalHoverShowing = false;
+                                 });
+           
+                                 if(activeHoverChild.length > 0) activeHoverChild.hide();
+                                 if(lastHoverChild.length > 0) lastHoverChild.hide();
+                                 lastHoverChild = [];
+                                 activeHoverChild = [];
+                              }
+              },300);
+            
+            //               if(testHoverAble()){
+            //               isOver = false;
+            //               lastHoverChild = activeHoverChild;
+            //               if(lastHoverChild.length > 0) lastHoverChild.hide();
+            //               console.log(testTime()+" this is test time before")
+            //                  setTimeout(function(){
+            //                    console.log(testTime()+" this is test time after")
+            //                  if(!testTime()){
+            //                       //items.trigger('bghide');
+            //                       // setTimeout(function(){
+            //                       //                         if(activeItem.length > 0){
+            //                       //                           console.log('hover still availabe');
+            //                       //                           isAnimating = false;
+            //                       //                           activeItem.trigger('mouseenter');
+            //                       //                         }
+            //                       //                       },550);
+            //                       
+            //                       globalHoverContainer.delay(0).transition({opacity:0},500,function(){
+            //                         globalHoverContainer.hide();
+            //                         globalHoverShowing = false;
+            //                       });
+            // 
+            //                       if(activeHoverChild.length > 0) activeHoverChild.hide();
+            //                       if(lastHoverChild.length > 0) lastHoverChild.hide();
+            //                       lastHoverChild = [];
+            //                       activeHoverChild = []
+            //                    }
+            //                   },300);
+            //                }
+           
             }
             
             function calculateBackground(ele){
@@ -135,30 +180,51 @@
                             "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
                             "background-position": ((_d.bgorigin+(scopeData.menuwidth))-offset.left) + "px "+ (-offset.top) +"px"
                         });
-                  var _c = $('.cover',_s);
-                  _c.transition({opacity:0},500,function(){});
+                  
+                  
+                      if(items.index(_s) == itemCount-1){
+                          doorsShowing = false;
+                        }
+                      
+                     var _c = $('.cover',_s);
+                      if(_c.is(":visible")){
+                        _c.transition({opacity:0,"z-index":99977},500,function(){});
+                      }
+                  
                   _s.data('dateEle').hide();
                   _d.dateEle.show();          
+            }
+            
+            function hideDoors(){
+              $.each(internalDoors,function(i,v){
+                console.log('im fading out now')
+                v.animate({opacity:0},500,function(){});
+              });
+            }
+            
+            function showDoors(){
+              $.each(internalDoors,function(i,v){
+                console.log(v)
+                v.addClass('cool')
+                v.css({opacity:1});
+              });
             }
             
             function hideBackground(ele){
               var _s = $(ele.currentTarget);
               
               var _c = $('.cover',_s);
+              
               activeItem = [];
-              isAnimating = false;
+              isAnimating = true;
           
               
               _c.transition({opacity:1},500,function(){
                  _s.css({
                             "background-image":"none",
                         });
+                 _c.css({"z-index":2});
                 _s.data('dateEle').show();
-                  if(activeItem.length > 0){
-                    console.log('hover still availabe');
-                    isAnimating = false;
-                    //items.trigger('bgset',[activeItem]);
-                  }
               });
              
             }
@@ -174,7 +240,10 @@
                 ).appendTo(globalHoverContainerInternal).hide();
                 
               _s.data({"hoverRef":localContent, "dateEle":_s.children('div.date')});
-              _s.append($('<div/>').addClass('cover door').css({opacity:1}));
+              
+              var internalDoor = $('<div/>').addClass('cover door').css({opacity:1});
+              _s.append(internalDoor);
+              internalDoors.push(internalDoor);
               
               _s.on("mouseenter", createHover);
               _s.on("mouseleave", removeHover);
@@ -192,13 +261,12 @@
           
           
           function takeHoverControl(e){
-            console.log(isHoverAble)
-            _global.disableHover();
+            //_global.disableHover();
           }
           
           function releaseHoverControl(e){
-            _global.enableHover();
-            if(activeItem.length > 0) activeItem.trigger('mouseleave');
+           // _global.enableHover();
+           // if(activeItem.length > 0) activeItem.trigger('mouseleave');
           }
           
           // this functions are available via data api
