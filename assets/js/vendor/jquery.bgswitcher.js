@@ -109,11 +109,8 @@
             
             function removeHover(ele){
               
-            console.log('mouse out first called')
             isOver = false;
-            console.log(testTime()+" this is test time before")
             setTimeout(function(){
-              console.log(testTime()+" this is test time after")
                               if(!testTime()){
                                  items.trigger('bghide');
                                  globalHoverContainer.delay(0).transition({opacity:0},500,function(){
@@ -191,7 +188,7 @@
                       
                      var _c = $('.cover',_s);
                       if(_c.is(":visible")){
-                        _c.transition({opacity:0,"z-index":99999},500,function(){});
+                        _c.transition({opacity:0,"z-index":99977},500,function(){});
                       }
                   
                   _s.data('dateEle').hide();
@@ -216,7 +213,6 @@
             function hideBackground(ele){
               var _s = $(ele.currentTarget);
               
-              console.log('this shouldnt be called')
               var _c = $('.cover',_s);
               
               activeItem = [];
@@ -227,6 +223,7 @@
                  _s.css({
                             "background-image":"none",
                         });
+                 _c.css({"z-index":2});
                 _s.data('dateEle').show();
               });
              
