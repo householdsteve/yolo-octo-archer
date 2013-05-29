@@ -49,7 +49,7 @@ class Home extends CI_Controller{
     $this->_data['rows'] = 4;
     $this->_data['columns'] = 4;
     $this->_data['events'] = array();
-    $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,29,2013),
+    $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,30,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/may_29.jpg",
                                       "link"=>"/home/countdown",
                                       "enabled"=>"true",
@@ -58,22 +58,13 @@ class Home extends CI_Controller{
                                       "subtitle"=>"PRELUDE",
                                       "type"=>"WATCH THE VIDEO");
                                       
-    $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,30,2013),
+    $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,31,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Tornatore.jpg",
                                       "link"=>"/home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"false",
                                       "title"=>"GIUSEPPE TORNATORE",
                                       "subtitle"=>"VIDEO INTERVIEW",
-                                      "type"=>"");
-                                      
-    $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,31,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
-                                      "enabled"=>"false",
-                                      "available"=>"false",
-                                      "title"=>"CONTENT COMING:",
-                                      "subtitle"=>"30.5.2013",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,1,2013),
@@ -194,6 +185,15 @@ class Home extends CI_Controller{
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
                                       "subtitle"=>"13.6.2013",
+                                      "type"=>"");
+
+    $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,14,2013),
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "link"=>"/home/countdown",
+                                      "enabled"=>"false",
+                                      "available"=>"false",
+                                      "title"=>"CONTENT COMING:",
+                                      "subtitle"=>"14.6.2013",
                                       "type"=>"");
     
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
