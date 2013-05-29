@@ -187,6 +187,33 @@ section.principal h1 {
 section.principal h2 {
   font-size: 110%;
 }
+#globalHoverContainer {
+  background: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 3000;
+  text-transform: uppercase;
+}
+#globalHoverContainer-internal {
+  height: 100%;
+  margin: 0 auto;
+}
+#globalHoverContainer-internal h1,
+#globalHoverContainer-internal h3,
+#globalHoverContainer-internal small {
+  display: block;
+  text-align: center;
+}
+#globalHoverContainer-internal h1 {
+  font-size: 60px;
+  margin-top: 60px;
+}
+#globalHoverContainer-internal h3 {
+  font-size: 35px;
+  margin-top: 30px;
+}
 #palace-grid-holder {
   overflow: hidden;
   width: 100%;

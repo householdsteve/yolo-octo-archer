@@ -183,6 +183,32 @@ section.principal {
   height:100%;
 }
 
+#globalHoverContainer {
+  background:white;
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  z-index:3000;
+  text-transform:uppercase;
+}
+
+#globalHoverContainer-internal {
+  height:100%;
+  margin:0 auto;
+  h1,h3,small{
+    display:block;
+    text-align:center;
+  }
+  h1 { 
+    font-size:60px;
+    margin-top:60px;
+  }
+  h3 { 
+    font-size:35px;
+    margin-top:30px;
+  }
+}
 
 #palace-grid-holder {
   overflow:hidden;
@@ -389,7 +415,7 @@ section .row-fluid .span12, section .row-fluid-social .span12 {
 }
 
 section .row-fluid-social .span12 {
-  &:nth-child(odd){
+  &:nth-child(even){
     .span3:nth-child(even) {
       background:black;
       color:white; 
@@ -399,7 +425,7 @@ section .row-fluid-social .span12 {
       color:black; 
     }
   }
-  &:nth-child(even){
+  &:nth-child(odd){
     .span3:nth-child(odd) {
       background:black;
       color:white; 

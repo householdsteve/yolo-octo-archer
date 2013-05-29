@@ -157,7 +157,7 @@ $(function(){
    
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
 
-   $(".zoomViewport").width(availableWidth-20);
+   $(".zoomViewport").width(availableWidth-3);
    
    // give the palace some values
    palace.height(availableHeight+15).css("max-width",maxwidth).data({'containerHeight':availableHeight,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});

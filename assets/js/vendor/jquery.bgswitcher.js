@@ -11,12 +11,13 @@
 
 (function($) {
     var bgSwitcher = function(el,opts){
-        var $el = $(el), $win = $(window), winWidth = $win.width();
+        var $el = $(el), $win = $(window), winWidth = $win.width(), winHeight = $win.height();
     
         //Defaults to extend options
         var defaults = {
             callback: function(){}, 		// empty function 
-            startfrom: 0
+            startfrom: 0,
+            hoverOpacity: 0.7
      	};  
         
         //Extend those options
@@ -30,11 +31,20 @@
             //Global Variables
         var _global = this,
             scope = $el,
-            scopeData = scope.data();
+            scopeData = scope.data(),
             items = $(options.element,scope),
             itemCount = items.length,
             isOver = false,
-            activeItem = [];
+            isAnimating = false,
+            isHoverAble = true,
+            activeItem = [],
+            lastHoverChild = [],
+            activeHoverChild = [],
+            globalHoverContainerInternal = $("<div/>",{'id':'globalHoverContainer-internal'}),
+            globalHoverContainer = $("<div/>",{"id":"globalHoverContainer"})
+                                    .height(winHeight/2.5).css({opacity:0,"top":(winHeight/2)- ((winHeight/2.5)/2)})
+                                    .append(globalHoverContainerInternal).hide();
+            
             
             
             // without this is internal function
@@ -42,37 +52,59 @@
               if(typeof f == 'function') f.apply();
             }
             
+            function testTime(){
+              return isOver;
+            }
+            
+            function testAnimating(){
+              return isAnimating;
+            }
+            
+            function testHoverAble(){
+              console.log(isHoverAble)
+              return isHoverAble;
+            }
             
             function createHover(ele){
               var _s = $(ele.currentTarget);
               
+              if(testHoverAble()){
               isOver = true;
               activeItem = _s;
               
               if(!_s.data('bgcached')){
                 $.imgpreload(_s.data('bgImage'),function()
                  {
+                     
                      _s.data({'bgdimens':$(this).data('attrs'), "bgcached":true}).trigger('bgcomplete');
                  });
               }else{
                 // call animation of bg image and load for all
-                items.trigger('bgset',[_s]);
+                if(!testAnimating()) items.trigger('bgset',[_s]);
               }
-              console.log(activeItem)
+              
+              globalHoverContainer.show().delay(400).transition({opacity:options.hoverOpacity},700,function(){}); 
+              activeHoverChild = _s.data('hoverRef');
+              activeHoverChild.show();
             }
-            
-            function removeHover(ele){
-              isOver = false;
-              //setTimeout(function(){
-                //if(!testTime()){
-                  items.trigger('bghide');
-              //  }
-             // },300);
               
             }
             
-            function testTime(){
-              return isOver;
+            function removeHover(ele){
+              setTimeout(function(){
+              if(testHoverAble()){
+              isOver = false;
+              lastHoverChild = activeHoverChild;
+              lastHoverChild.hide();
+              
+                 setTimeout(function(){
+                 if(!testTime()){
+                      items.trigger('bghide');
+                      globalHoverContainer.delay(0).transition({opacity:0},500,function(){globalHoverContainer.hide()});
+                   }
+                  },300);
+               }
+              },10);
             }
             
             function calculateBackground(ele){
@@ -87,7 +119,7 @@
               _s.data({"bgprop":bgprop,"bgwidth":bgwidth,"bgorigin":bgorigin});
               
               // call animation of bg image and load for all
-              items.trigger('bgset',[_s]);
+              if(!testAnimating()) items.trigger('bgset',[_s]);
             
             }
             
@@ -99,7 +131,9 @@
                             "background-position": ((_d.bgorigin+(scopeData.menuwidth))-offset.left) + "px "+ (-offset.top) +"px"
                         });
                   var _c = $('.cover',_s);
-                  _c.transition({opacity:0},300,function(){});           
+                  _c.transition({opacity:0},500,function(){});
+                  _s.data('dateEle').hide();
+                  _d.dateEle.show();          
             }
             
             function hideBackground(ele){
@@ -107,13 +141,18 @@
               
               var _c = $('.cover',_s);
               activeItem = [];
-              _c.transition({opacity:1},300,function(){
+              isAnimating = false;
+          
+              
+              _c.transition({opacity:1},500,function(){
                  _s.css({
                             "background-image":"none",
                         });
+                _s.data('dateEle').show();
                   if(activeItem.length > 0){
-                    console.log('hover still availabe')
-                    items.trigger('bgset',[activeItem]);
+                    console.log('hover still availabe');
+                    isAnimating = false;
+                    //items.trigger('bgset',[activeItem]);
                   }
               });
              
@@ -122,6 +161,14 @@
 
             items.each(function(i,v){
               var _s = $(this);
+              
+              var localContent = $('<div/>',{"class":"internal-hover"}).append(
+                $('<h1/>').text($(this).data('hovertitle')),
+                $('<h3/>').text($(this).data('hoversubtitle')),
+                $('<small/>').text("WATCH THE VIDEO")
+                ).appendTo(globalHoverContainerInternal).hide();
+                
+              _s.data({"hoverRef":localContent, "dateEle":_s.children('div.date')});
               _s.append($('<div/>').addClass('cover door').css({opacity:1}));
               
               _s.on("mouseenter", createHover);
@@ -132,11 +179,30 @@
             
               // add mouse click
             });
+            
+            // add main hover over to parent container
+            globalHoverContainer.appendTo(scope.parent());
+            globalHoverContainer.on("mouseenter",takeHoverControl);
+            globalHoverContainer.on("mouseleave",releaseHoverControl);            
           
+          
+          function takeHoverControl(e){
+            console.log(isHoverAble)
+            _global.disableHover();
+          }
+          
+          function releaseHoverControl(e){
+            _global.enableHover();
+            activeItem.trigger('mouseleave');
+          }
           
           // this functions are available via data api
-          this.doSOmething = function(){
-            
+          this.disableHover = function(){
+            isHoverAble = false;
+          }
+          
+          this.enableHover = function(){
+            isHoverAble = true;
           }
             
             
