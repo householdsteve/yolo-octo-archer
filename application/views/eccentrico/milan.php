@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <div class="span12">
-    <object type="application/x-shockwave-flash" data="http://youtube.com/v/IS8tFgfXCmw?version=3&amp;color=white&amp;vq=hd720&amp;rel=0&amp;width=100%&amp;height=480" width="100%" height="476" allowfullscreen="true"><param name="movie" value="http://youtube.com/v/IS8tFgfXCmw?version=3&amp;color=white&amp;vq=hd720&amp;rel=0&amp;width=100%&amp;height=480"></object>
+    <iframe src="http://youtube.com/embed/IS8tFgfXCmw?autohide=1&amp;color=white&amp;vq=hd720&amp;iv_load_policy=3&amp;rel=0&amp;width=100%&amp;height=480" width="100%" height="446" frameborder="0" allowfullscreen=""></iframe>
   </div>
 </div>
 <div class="row-fluid top-space">
