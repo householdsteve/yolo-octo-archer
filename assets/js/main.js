@@ -197,7 +197,6 @@ $(function(){
    $(".item-holder").each(function(i,v){
      var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
      _s.height(a).css({"margin-top":amargin});
-     console.log(_ddata.contentAvailable)
      if(!checkInternetExplorer() && _ddata.contentAvailable){
        _s.zoomTarget({
               targetsize: 3,
@@ -205,6 +204,11 @@ $(function(){
               onanimationcomplete:loadPage, 
               zoomout: function(){console.log('closed');}, // enable mouse over
               onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
+        });
+      }
+      if(checkInternetExplorer()){
+        _s.on("click",function(e){
+          window.location = _ddata.link;
         });
       }
    });
@@ -229,6 +233,7 @@ $(function(){
     bgImagesPreload.push($( this ).data('bgImage'));
    });
    
+   if(!$('body').hasClass('waiting')){
    $.imgpreload(bgImagesPreload,function()
    {         // check for success with: $(this[i]).data('loaded')
      loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide(); });
@@ -236,6 +241,7 @@ $(function(){
      palace.show().transition({opacity:1},700);
      socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300)
    });
+    }
    
    // pjax calls for jax page laoding
    currentSelectedMenuItem = $('nav.main ul a.selected');

@@ -170,7 +170,7 @@
               var localContent = $('<div/>',{"class":"internal-hover"}).append(
                 $('<h1/>').text($(this).data('hovertitle')),
                 $('<h3/>').text($(this).data('hoversubtitle')),
-                $('<small/>').text("WATCH THE VIDEO")
+                $('<small/>').text($(this).data('hovertype'))
                 ).appendTo(globalHoverContainerInternal).hide();
                 
               _s.data({"hoverRef":localContent, "dateEle":_s.children('div.date')});
