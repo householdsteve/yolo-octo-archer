@@ -50,7 +50,7 @@ class Home extends CI_Controller{
     $this->_data['columns'] = 4;
     $this->_data['events'] = array();
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,30,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/may_29.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/may_30.jpg",
                                       "link"=>"/home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
