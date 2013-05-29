@@ -25,7 +25,7 @@
     <div class="row-fluid">
       <div class="span10">
         <h1>TOKYO</h1>
-         <p>Giorgio Armani says: “After Milan, I wanted to bring Eccentrico to Tokyo to celebrate five years of Armani/Ginza Tower, to pay tribute to my love of Japanese culture and aesthetics, which have often inspired me in my work.”</p>
+         <p>Giorgio Armani said: “After Milan, I wanted to bring Eccentrico to Tokyo to celebrate five years of Armani/Ginza Tower, to pay tribute to my love of Japanese culture and aesthetics, which have often inspired me in my work.”</p>
 
         </div>
       </div>

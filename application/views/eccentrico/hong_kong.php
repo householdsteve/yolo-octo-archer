@@ -25,7 +25,7 @@
     <div class="row-fluid">
       <div class="span10">
         <h1>HONG KONG</h1>
-         <p>For the first time, the exhibition also includes a selection of unique cosmetics, from Maestro Fusion Make Up to Lip Maestro or Rouge d’Armani. Exclusive fragrances are also displayed as a tribute to the craftsmanship of Haute Parfumerie, including Crystal and the limited edition Armani Privé collections. The 2012 Year of the Dragon limited edition watch collection was also be showcased.</p>
+         <p>For the first time, the exhibition also included a selection of unique cosmetics, from Maestro Fusion Make Up to Lip Maestro or Rouge d’Armani. Exclusive fragrances were also displayed as a tribute to the craftsmanship of Haute Parfumerie, including Crystal and the limited edition Armani Privé collections. The 2012 Year of the Dragon limited edition watch collection was also showcased.</p>
 
         </div>
       </div>
