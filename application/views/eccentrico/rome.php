@@ -22,7 +22,7 @@
   <div class="span7 offset1">
     <div class="row-fluid">
       <div class="span10">
-        <p>TESTO PRESS RELEASE ROME</p>
+        <p>Dal 6 Giugno, un percorso inedito attraverso abiti, accessori e gioielli delle collezioni Giorgio Armani.</p>
         </div>
       </div>
     </div>

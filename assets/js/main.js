@@ -30,7 +30,7 @@ function loadMaps(){
     
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(41.9054485,12.481257700000015),
-        title:"GA Super store"
+        title:"GA Boutique"
     });
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var image = PageAttr.baseUrl+'assets/img/pin0.png';
