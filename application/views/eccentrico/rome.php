@@ -22,6 +22,8 @@
   <div class="span7 offset1">
     <div class="row-fluid">
       <div class="span10">
+        <p>From the June 6th, featuring neverbefore seen dresses, accessories and jewels from the Giorgio Armani collections.</p>
+        
         <p>Dal 6 Giugno, un percorso inedito attraverso abiti, accessori e gioielli delle collezioni Giorgio Armani.</p>
         </div>
       </div>
