@@ -221,7 +221,7 @@
               
               _c.transition({opacity:1},500,function(){
                  _s.css({
-                            "background-image":"none",
+                            "background-image":"none"
                         });
                  _c.css({"z-index":2});
                 _s.data('dateEle').show();

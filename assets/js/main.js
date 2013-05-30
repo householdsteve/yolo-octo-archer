@@ -235,7 +235,7 @@ $(function(){
    $('nav#mainnav').delay(300).transition({left:0},700);
    
    // give the palace some values
-   palace.hide().height(availableHeight+15).css({opacity:0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
+   palace.hide().height(availableHeight+15).css({"opacity":0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({"element":"div.door"});
    
    //contentEnabled
    loadHolder = $("<div/>",{id:"loader"});
