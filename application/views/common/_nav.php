@@ -31,7 +31,7 @@
     </li>
     <li>
       <small>The Boutique</small>      
-      <a class="<?php selected('boutique', $nav_selected); ?>" href="<?php echo site_url('boutique'); ?>" title="GA Store opening">GA Store opening</a>
+      <a class="<?php selected('boutique', $nav_selected); ?>" href="<?php echo site_url('boutique'); ?>" title="GA Store opening">GIORGIO ARMANI</br>Store opening</a>
     </li>
   </ul>
   <div id="main_countdown">
