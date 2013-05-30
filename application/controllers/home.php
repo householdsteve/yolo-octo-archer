@@ -174,7 +174,7 @@ class Home extends CI_Controller{
   }
   
   public function countdown($id){
-    $this->output->cache(44640);
+
     if( $this->input->is_ajax_request() )
 		{
       parse_str($_SERVER['QUERY_STRING'], $_GET);
@@ -189,6 +189,7 @@ class Home extends CI_Controller{
       $this->_data['isAjax'] = false;
       $this->_data['data'] = $this->_data;      
       //$this->load->view("home/".$id.".php", $this->_data);
+      $this->output->cache(44640);
       $this->view->set('_uni_title', 'FALSE')->render($this->_data);
     }  
   }
