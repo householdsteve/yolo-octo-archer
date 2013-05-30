@@ -281,6 +281,14 @@ section.principal {
   }
 }
 
+#visitarmani {
+  display:block;
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+}
+
 html.lt-ie9 .grid-row {
   .door {
     border:solid 1px @med_grey;
@@ -309,15 +317,19 @@ html.lt-ie9 .grid-row {
      -webkit-backface-visibility: hidden;
      -webkit-box-shadow: inset rgba(56,56,56,0.5) 4.5px 2px 0px;
      box-shadow: inset rgba(56,56,56,0.5) 4.5px 2px 0px;
-     
+     overflow:hidden;
      behavior: url(PIE.htc);
      
      &.event {
        -webkit-box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
         box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
+        behavior: url(PIE.htc);
+        overflow:hidden;
         .door {
           -webkit-box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
             box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
+            behavior: url(PIE.htc);
+            overflow:hidden;
          }
      }
      

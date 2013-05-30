@@ -7,6 +7,7 @@ class Events extends CI_Controller{
     parent::__construct();
     // add class 'selected' to navigation menu 
     $this->_data['nav_selected'] = 'events';
+    $this->output->cache(44640);
     // do not do $this->view->render(); here
     // otherwise the 404 error may not work
   }

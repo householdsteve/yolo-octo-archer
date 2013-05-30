@@ -20,6 +20,7 @@ class Social_stream extends CI_Controller{
 		$this->load->model('social_stream_model');
     $this->_data['data'] = $this->social_stream_model->get_all(19);
     
+    $this->output->cache(44640);
     if( $this->input->is_ajax_request() )
 		{
 		  $this->load->view("social_stream/index",$this->_data);

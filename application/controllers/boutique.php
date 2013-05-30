@@ -9,6 +9,7 @@ class Boutique extends CI_Controller{
     $this->_data['nav_selected'] = 'boutique';
     // do not do $this->view->render(); here
     // otherwise the 404 error may not work
+    $this->output->cache(44640);
   }
   
   public function index($start="")

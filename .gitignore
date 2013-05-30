@@ -1,4 +1,5 @@
 application/config/development/database.php
+application/config/development/config.php
 application/cache
 application/config/config.php
 .htaccess
