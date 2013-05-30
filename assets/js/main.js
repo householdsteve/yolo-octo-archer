@@ -155,7 +155,7 @@ $(function(){
           sy = -dy * 0.03;
           b  =  (Math.abs(sx) + Math.abs(sy)) * 0.2;
 
-          $('.door:not(.event)').css('box-shadow', "inset rgba(155,155,155,0.5) "+ sx +"px "+ sy + "px " + b+20 + "px");
+          $('.door:not(.event)').css('box-shadow', "inset rgba(65,65,65,0.5) "+ sx +"px "+ sy + "px " + b+20 + "px");
           $('.door.event, .door.event .door').css('box-shadow', "inset rgba(255,0,0,1) "+ sx +"px "+ sy + "px ");
 
       });
