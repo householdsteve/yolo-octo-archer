@@ -283,6 +283,13 @@ section.principal h2 {
   font-size: 35px;
   margin-top: 30px;
 }
+#visitarmani {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
 html.lt-ie9 .grid-row .door {
   border: solid 1px #cccccc;
 }
