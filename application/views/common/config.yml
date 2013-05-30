@@ -31,7 +31,7 @@ default:
 
     site:
       - vendor/jquery-1.9.1.min
-      - vendor/jquery-ui-1.10.3.custom.min
+      - vendor/jquery-ui-1.10.3.custom
       - vendor/bootstrap.min
       - vendor/jquery.countdown.min
       - vendor/jquery.imgpreload.min
