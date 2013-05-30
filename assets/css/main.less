@@ -94,8 +94,8 @@ ul {
 nav {
   position:relative;
   small {
-    font-size:70%;
-    color:@med_grey;
+    font-size:80%;
+    color:black;
     position:relative;
     top:3px;
   }
@@ -108,6 +108,7 @@ nav {
     border-bottom:1px @dark solid;
 	color:@dark;
     a {
+      font-size:15px;
       display:block;
       &:hover {
         color:@med_grey;
@@ -306,8 +307,8 @@ html.lt-ie9 .grid-row {
      background: no-repeat;
      position:relative;
      -webkit-backface-visibility: hidden;
-     -webkit-box-shadow: inset rgba(155,155,155,0.5) 4.5px 2px 0px;
-     box-shadow: inset rgba(155,155,155,0.5) 4.5px 2px 0px;
+     -webkit-box-shadow: inset rgba(56,56,56,0.5) 4.5px 2px 0px;
+     box-shadow: inset rgba(56,56,56,0.5) 4.5px 2px 0px;
      
      behavior: url(PIE.htc);
      
@@ -335,7 +336,7 @@ html.lt-ie9 .grid-row {
      bottom:8px;
      width:100%;
      text-align:center;
-     color:@med_grey;
+     color:@dark;
      sup {top:-3px; left:1px}
    }
   }
@@ -438,6 +439,16 @@ html.lt-ie9 .cd-close {
 }
 
 
+
+/*@media screen and (max-device-width: 480px) {
+  .grid-row {
+    .item-holder {
+      &:nth-child(3){
+        clear:both;
+      }    
+    }
+  }
+}*/
 
 
 /* jQuery Countdown styles 1.6.2. */
