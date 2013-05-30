@@ -68,7 +68,7 @@ function loadMaps(){
       icon: image
 	});
 	
-	var contentString = '<div id="content" style="overflow-y:hidden 1important;">'+
+	var contentString = '<div id="content" style="overflow:hidden 1important;">'+
       '<div id="siteNotice"style="overflow:hidden !important;">'+
       '</div>'+
       // '<h1 id="firstHeading" class="firstHeading">Giorgio Armani Boutique</h1>'+
