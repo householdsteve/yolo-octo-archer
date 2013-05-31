@@ -1,5 +1,5 @@
 <div class="row-fluid">
-  <div class="span12"><img src="<?php echo base_url(); ?>assets/img/testing/ecc-roma.jpg" width="1171" height="481" alt="Masthead"></div>
+  <div class="span12"><img src="http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/ecc-roma.jpg" width="1171" height="481" alt="Masthead"></div>
 </div>
 <div class="row-fluid top-space">
   <div class="span12">
