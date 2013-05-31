@@ -31,9 +31,9 @@ default:
 
     site:
       - vendor/jquery-1.9.1.min
-      - vendor/jquery-ui-1.10.3.custom.min
+      - vendor/jquery-ui-1.10.3.custom
       - vendor/bootstrap.min
-      - vendor/jquery.countdown.min
+      - vendor/jquery.countdown.min      
       - vendor/jquery.imgpreload.min
       - vendor/jquery.zoomooz
       - vendor/jquery.bgswitcher
@@ -41,6 +41,7 @@ default:
       - vendor/jquery.pjax
       - vendor/jquery.fittext
       - vendor/spin.min
+      - vendor/jquery.spin      
       - vendor/jquery.cookie
       - vendor/jquery.scrollTo.min
       - royalslider/jquery.royalslider.min

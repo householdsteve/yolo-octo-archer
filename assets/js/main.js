@@ -68,11 +68,11 @@ function loadMaps(){
       icon: image
 	});
 	
-	var contentString = '<div id="content" style="overflow-y:hidden 1important;">'+
-      '<div id="siteNotice"style="overflow-y:hidden !important;">'+
+	var contentString = '<div id="content" style="overflow:hidden 1important;">'+
+      '<div id="siteNotice"style="overflow:hidden !important;">'+
       '</div>'+
       // '<h1 id="firstHeading" class="firstHeading">Giorgio Armani Boutique</h1>'+
-      '<div id="bodyContent"style="height:57px;overflow-y:hidden 1important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="Ga Logo">' +
+      '<div id="bodyContent"style="height:57px;max-width:300px;overflow:hidden 1important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="GIORGIO ARMANI">' +
       '<p>Via Condotti 77-79 • Rome</p>'+
       '</div>'+
       '</div>';
@@ -155,7 +155,7 @@ $(function(){
           sy = -dy * 0.03;
           b  =  (Math.abs(sx) + Math.abs(sy)) * 0.2;
 
-          $('.door:not(.event)').css('box-shadow', "inset rgba(155,155,155,0.5) "+ sx +"px "+ sy + "px " + b+20 + "px");
+          $('.door:not(.event)').css('box-shadow', "inset rgba(65,65,65,0.5) "+ sx +"px "+ sy + "px " + b+20 + "px");
           $('.door.event, .door.event .door').css('box-shadow', "inset rgba(255,0,0,1) "+ sx +"px "+ sy + "px ");
 
       });
@@ -235,12 +235,14 @@ $(function(){
    $('nav#mainnav').delay(300).transition({left:0},700);
    
    // give the palace some values
-   palace.hide().height(availableHeight+15).css({opacity:0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({element:"div.door"});
+   palace.hide().height(availableHeight+15).css({"opacity":0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({"element":"div.door"});
    
    //contentEnabled
    loadHolder = $("<div/>",{id:"loader"});
    loadHolder.appendTo($('body'));
-   spinner = new Spinner(opts).spin(loadHolder[0]);
+   loadHolder.spin(opts);
+   // spinner = new Spinner(opts).spin(loadHolder[0]);
+   // loadHolder.data("spinner",spinner);
 
    $( ":data(content-enabled)", palace).each(function() {
    var element = $( this );
@@ -250,8 +252,8 @@ $(function(){
    if(!$('body').hasClass('waiting')){
    $.imgpreload(bgImagesPreload,function()
    {         // check for success with: $(this[i]).data('loaded')
-     loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide(); });
-     spinner.stop();
+     loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
+     //loadHolder.data("spinner").stop();
      palace.show().transition({opacity:1},700);
      socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300)
    });
@@ -280,6 +282,10 @@ $(function(){
    
    function loadCountdownPage(l){
      pageCall = $.ajax({url: PageAttr.baseUrl+l, dataType:"json", data:{w:availableWidth,h:WINH}});
+     
+      pageCall.done(function(data){
+        loadHolder.css({opacity:1}).show().spin(opts);
+      });
    }
 
    function loadPage(html){
@@ -307,7 +313,8 @@ $(function(){
 
        pageCall.always(function(data){
           countdownContent.html(data.html);
-          countdownDiv.delay(500).css({opacity:0}).show().transition({opacity:1},500);
+          countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
+          loadHolder.hide().spin(false);
        });
    }
    
@@ -323,7 +330,8 @@ $(function(){
           return false;
        });
     }
-
+    
+  setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
 });
 
 

@@ -24,6 +24,7 @@ class Social_stream extends CI_Controller{
 		{
 		  $this->load->view("social_stream/index",$this->_data);
 		}else{
+		  
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
@@ -53,6 +54,7 @@ class Social_stream extends CI_Controller{
 		
 		foreach($tags_search_data->data as $key => $item){
 		  $this->social_stream_model->insert($item);
+		  //$this->social_stream_model->matcher($item->id);
 		}
 		
 		$this->_data['ig'] = $tags_search_data;

@@ -45,7 +45,7 @@
             activeHoverChild = [],
             globalHoverContainerInternal = $("<div/>",{'id':'globalHoverContainer-internal'}),
             globalHoverContainer = $("<div/>",{"id":"globalHoverContainer"})
-                                    .height(winHeight/2.5).width(scopeData.containerWidth).css({opacity:0,"top":(winHeight/2)- ((winHeight/2.5)/2)})
+                                    .height(280).width(scopeData.containerWidth).css({opacity:0,"top":(winHeight/2)- ((winHeight/2.5)/2)})
                                     .append(globalHoverContainerInternal).hide();
             
             
@@ -124,37 +124,6 @@
                                  activeHoverChild = [];
                               }
               },300);
-            
-            //               if(testHoverAble()){
-            //               isOver = false;
-            //               lastHoverChild = activeHoverChild;
-            //               if(lastHoverChild.length > 0) lastHoverChild.hide();
-            //               console.log(testTime()+" this is test time before")
-            //                  setTimeout(function(){
-            //                    console.log(testTime()+" this is test time after")
-            //                  if(!testTime()){
-            //                       //items.trigger('bghide');
-            //                       // setTimeout(function(){
-            //                       //                         if(activeItem.length > 0){
-            //                       //                           console.log('hover still availabe');
-            //                       //                           isAnimating = false;
-            //                       //                           activeItem.trigger('mouseenter');
-            //                       //                         }
-            //                       //                       },550);
-            //                       
-            //                       globalHoverContainer.delay(0).transition({opacity:0},500,function(){
-            //                         globalHoverContainer.hide();
-            //                         globalHoverShowing = false;
-            //                       });
-            // 
-            //                       if(activeHoverChild.length > 0) activeHoverChild.hide();
-            //                       if(lastHoverChild.length > 0) lastHoverChild.hide();
-            //                       lastHoverChild = [];
-            //                       activeHoverChild = []
-            //                    }
-            //                   },300);
-            //                }
-           
             }
             
             function calculateBackground(ele){
@@ -164,7 +133,8 @@
 
                   
               bgwidth  = (bgheight / _d.bgdimens.height) * _d.bgdimens.width;
-              bgorigin = (Math.abs((winWidth - scopeData.menuwidth) - bgwidth) / 2);
+              //bgorigin = (Math.abs((winWidth - scopeData.menuwidth) - bgwidth) / 2);
+              bgorigin = ((winWidth/2) - (bgwidth/2)) + scopeData.menuwidth;
                       
               _s.data({"bgprop":bgprop,"bgwidth":bgwidth,"bgorigin":bgorigin});
               
@@ -174,41 +144,38 @@
             }
             
             function setCurrentBackground(ele,activeObject){
-              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.offset();
-                  _s.css({
-                            "background-image":"url("+_d.bgImage+")",
-                            "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
-                            "background-position": ((_d.bgorigin+(scopeData.menuwidth))-offset.left) + "px "+ (-offset.top) +"px"
-                        });
-                  
-                  
-                      if(items.index(_s) == itemCount-1){
-                          doorsShowing = false;
-                        }
-                      
-                     var _c = $('.cover',_s);
-                      if(_c.is(":visible")){
-                        _c.transition({opacity:0,"z-index":99977},500,function(){});
-                      }
-                  
-                  _s.data('dateEle').hide();
-                  _d.dateEle.show();          
+              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.parent().offset();                            
+              _s.css({
+                "background-image":"url("+_d.bgImage+")",
+                "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
+                "background-position": (scope.offset().left - offset.left) + "px "+ (-offset.top) +"px"
+              });
+
+
+
+              var _c = $('.cover',_s);
+              if(_c.is(":visible")){
+                _c.transition({opacity:0},500,function(){});
+              }
+
+              _s.data('dateEle').hide();
+              if(items.index(_s) == itemCount-1){
+                // last animation
+                // bbroadcast even listener here
+                changeDateMessage(_d,activeObject);
+              }        
             }
             
-            function hideDoors(){
-              $.each(internalDoors,function(i,v){
-                console.log('im fading out now')
-                v.animate({opacity:0},500,function(){});
-              });
+            function changeDateMessage(d,ao){
+              d.dateEle.addClass('active').text(d.hovertype).show();
             }
             
-            function showDoors(){
-              $.each(internalDoors,function(i,v){
-                console.log(v)
-                v.addClass('cool')
-                v.css({opacity:1});
-              });
+            function changeDateMessageBack(ele){
+              var _s = $(ele.currentTarget);
+              var _d = _s.data();
+                _d.dateEle.removeClass('active').text(_d.originalText).show();
             }
+
             
             function hideBackground(ele){
               var _s = $(ele.currentTarget);
@@ -218,13 +185,15 @@
               activeItem = [];
               isAnimating = true;
           
+              if(items.index(_s) == itemCount-1){
+                // broadcast complete event
+                items.trigger('resetDate');
+              }
               
               _c.transition({opacity:1},500,function(){
                  _s.css({
-                            "background-image":"none",
+                            "background-image":"none"
                         });
-                 _c.css({"z-index":2});
-                _s.data('dateEle').show();
               });
              
             }
@@ -235,14 +204,15 @@
               
               var localContent = $('<div/>',{"class":"internal-hover"}).append(
                 $('<h1/>').text($(this).data('hovertitle')),
-                $('<h3/>').text($(this).data('hoversubtitle')),
-                $('<small/>').text($(this).data('hovertype'))
+                $('<h3/>').text($(this).data('hoversubtitle'))
                 ).appendTo(globalHoverContainerInternal).hide();
-                
-              _s.data({"hoverRef":localContent, "dateEle":_s.children('div.date')});
+              
+              var dateEl = _s.children('div.date');
+              _s.data({"hoverRef":localContent, "dateEle":dateEl, 'originalText':dateEl.text()});
               
               var internalDoor = $('<div/>').addClass('cover door').css({opacity:1});
-              _s.append(internalDoor);
+              var internalHover = $('<div/>').addClass('controller').css({opacity:0});
+              _s.append(internalDoor,internalHover);
               internalDoors.push(internalDoor);
               
               _s.on("mouseenter", createHover);
@@ -250,6 +220,7 @@
               _s.on("bghide", hideBackground);
               _s.on("bgcomplete", calculateBackground);
               _s.on("bgset", setCurrentBackground);
+              _s.on("resetDate", changeDateMessageBack);
             
               // add mouse click
             });

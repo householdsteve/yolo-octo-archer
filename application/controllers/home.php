@@ -10,42 +10,16 @@ class Home extends CI_Controller{
     $this->_data['sub_nav_selected'] = '';
     // do not do $this->view->render(); here
     // otherwise the 404 error may not work
+    
+  }
+  public function clear()
+  {
+    $this->output->clear_all_cache();
+    //$this->view->render($this->_data);
   }
   
   public function index($start="")
   {
-    // $this->load->library('pagination');
-    //    $posts = $this->tumblr->read_posts();
-    //    
-    //    foreach($posts as $key => $row){
-    //      if(isset($row['tag'])){
-    //        if(is_array($row['tag'])) $row['tag'] = implode(",", $row['tag']);
-    //        if (preg_match("/art-post|tattoo-post|np/i", $row['tag'])) {
-    //          unset($posts[$key]);
-    //        }
-    //      }
-    //    }
-    //    
-    //    
-    //    $quantity = 10; // how many per page
-    //    $start = $this->uri->segment(3); // this is auto-incremented by the pagination class
-    //    if(!$start) $start = 0; // default to zero if no $start
-    // 
-    //    // slice the array and only pass the slice containing what we want (i.e. the $config['per_page'] number of records starting from $start)
-    //    $this->_data['posts'] = array_slice($posts, $start, $quantity);
-    // 
-    //    $config['base_url'] = base_url().'news/page/';
-    //    $config['uri_segment'] = 3;
-    //    $config['total_rows'] = count($posts);
-    //    $config['per_page'] = $quantity;
-    // 
-    //    $this->pagination->initialize($config);
-    // 
-    //    $this->_data['pagination'] = $this->pagination->create_links();
-    //    
-    //    
-    //    //$this->_data['posts'] = $posts;
-    //    $this->output->cache(43829);
     $this->_data['rows'] = 4;
     $this->_data['columns'] = 4;
     $this->_data['events'] = array();
@@ -57,28 +31,29 @@ class Home extends CI_Controller{
                                       "title"=>"GIORGIO ARMANI",
                                       "subtitle"=>"A Tribute to Rome",
                                       "type"=>"WATCH NOW");
+                                      "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,31,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Tornatore.jpg",
                                       "link"=>"/home/countdown",
                                       "enabled"=>"true",
-                                      "available"=>"false",
+                                      "available"=>"true",
                                       "title"=>"GIUSEPPE TORNATORE",
                                       "subtitle"=>"VIDEO INTERVIEW",
-                                      "type"=>"");
+                                      "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,1,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Bova.jpg",
                                       "link"=>"/home/countdown",
-                                      "enabled"=>"false",
+                                      "enabled"=>"true",
                                       "available"=>"false",
-                                      "available"=>"false",
-                                      "title"=>"CONTENT COMING:",
-                                      "subtitle"=>"1.6.2013",
+                                      "title"=>"RAOUL BOVA",
+                                      "subtitle"=>"COMING 1.6.2013",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,2,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      //"image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Preziosi.jpg",                                      
                                       "link"=>"/home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
@@ -88,6 +63,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,3,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      //"image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Lupano.jpg",                                      
                                       "link"=>"/home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
@@ -195,11 +171,12 @@ class Home extends CI_Controller{
                                       "title"=>"CONTENT COMING:",
                                       "subtitle"=>"14.6.2013",
                                       "type"=>"");
-    
+    $this->output->cache(44640);
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
   public function countdown($id){
+
     if( $this->input->is_ajax_request() )
 		{
       parse_str($_SERVER['QUERY_STRING'], $_GET);
@@ -230,6 +207,7 @@ class Home extends CI_Controller{
   }
   
   public function waiting(){
+      $this->output->cache(44640);
     	$this->load->view("layouts/static.php");
   }
   
