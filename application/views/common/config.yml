@@ -15,7 +15,6 @@ default:
       keywords: Giorgio, Armani, One Night Only, Fashion, Festa, Show, Rome, Live, Event
       description: The source for the biggest event of the year. See all of the One night only content here.
       robots: index, follow
-      viewport: width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.0, user-scalable=no
 
   css:
     site:
