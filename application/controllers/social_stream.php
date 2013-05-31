@@ -54,6 +54,7 @@ class Social_stream extends CI_Controller{
 		
 		foreach($tags_search_data->data as $key => $item){
 		  $this->social_stream_model->insert($item);
+		  //$this->social_stream_model->matcher($item->id);
 		}
 		
 		$this->_data['ig'] = $tags_search_data;
