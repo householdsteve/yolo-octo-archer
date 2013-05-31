@@ -83,6 +83,32 @@ class View{
       log_message('debug', 'View: render metas');
     }
     
+     if(isset($this->_data['metas']['property'])){
+        $name = $this->_data['metas']['property']; // cache it
+        foreach($name as $k => $v){
+          if($k == "og:image"){
+            $v = base_url().$v;
+          }
+          echo meta_property($k, $v);
+        }
+        log_message('debug', 'View: render metas property');
+      }
+      
+      if(isset($this->_data['og'])){
+        foreach($this->_data['og'] as $k => $v){
+          foreach($v as $key => $val){
+            $currpg = explode(" ",$key);
+            if($this->_CI->uri->segment($this->_CI->uri->total_segments()) == $currpg[0]){
+              if($currpg[1] == "og:image"){
+                $val = base_url().$val;
+              }
+              echo meta_property($currpg[1], $val);
+            }
+          }
+        }
+        
+      }
+    
     return $this;
   }
   
@@ -145,6 +171,7 @@ class View{
     if($configs){
       $this->_assign('css', $configs, $sub)
            ->_assign('js', $configs, $sub)
+           ->_assign('og', $configs, $sub)
            ->_walk_through('metas', $configs)
            ->_set('title', $configs);
     }

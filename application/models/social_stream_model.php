@@ -73,8 +73,22 @@ class Social_stream_model extends CI_Model {
 		);
 
 		// Insert record
-		$this->db->insert('instagram', $insert_array );
+		if(!$this->match($data->id)){
+		  $this->db->insert('instagram', $insert_array );
+		}
 
   }
+  
+  public function match($id = false){
+     $this->db->where('ig_id',$id);
+ 		$query=$this->db->get('instagram',1,0);
+
+ 		if($query->num_rows()>0)
+ 		{
+ 			return true;
+ 		}else{
+       return false;
+     }
+   }
   
 }

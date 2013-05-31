@@ -283,6 +283,13 @@ section.principal h2 {
   font-size: 35px;
   margin-top: 30px;
 }
+#visitarmani {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
 html.lt-ie9 .grid-row .door {
   border: solid 1px #cccccc;
 }
@@ -307,15 +314,28 @@ html.lt-ie9 .grid-row .door {
   -webkit-backface-visibility: hidden;
   -webkit-box-shadow: inset rgba(56, 56, 56, 0.5) 4.5px 2px 0px;
   box-shadow: inset rgba(56, 56, 56, 0.5) 4.5px 2px 0px;
+  overflow: hidden;
   behavior: url(PIE.htc);
+}
+.grid-row .item-holder .door .controller {
+  z-index: 999999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .grid-row .item-holder .door.event {
   -webkit-box-shadow: inset #ff0000 4.5px 2px 0px;
   box-shadow: inset #ff0000 4.5px 2px 0px;
+  behavior: url(PIE.htc);
+  overflow: hidden;
 }
 .grid-row .item-holder .door.event .door {
   -webkit-box-shadow: inset #ff0000 4.5px 2px 0px;
   box-shadow: inset #ff0000 4.5px 2px 0px;
+  behavior: url(PIE.htc);
+  overflow: hidden;
 }
 .grid-row .item-holder .door div.cover {
   background-color: #eeeeee;
@@ -335,6 +355,9 @@ html.lt-ie9 .grid-row .door {
 .grid-row .item-holder .date sup {
   top: -3px;
   left: 1px;
+}
+.grid-row .item-holder .date.active {
+  color: black;
 }
 #social-media-feed {
   width: 100%;
@@ -491,6 +514,22 @@ html.lt-ie9 .cd-close {
   margin: 0;
   word-wrap: break-word;
 }
+.set-white {
+  background: #eeeeee;
+  color: black;
+}
+.set-black {
+  background: black;
+  color: white;
+}
+.row-fluid-social .span12 .white {
+  background: #eeeeee;
+  color: black;
+}
+.row-fluid-social .span12 .black {
+  background: black;
+  color: white;
+}
 .row-fluid-social .span12:nth-child(even) .span3:nth-child(even) {
   background: black;
   color: white;
@@ -504,7 +543,7 @@ html.lt-ie9 .cd-close {
   color: white;
 }
 .row-fluid-social .span12:nth-child(odd) .span3:nth-child(even) {
-  background: #cccccc;
+  background: #eeeeee;
   color: black;
 }
 .social.content {
@@ -550,357 +589,4 @@ html.lt-ie9 .cd-close {
   font-size: 15px;
   position: relative;
   top: 20%;
-}
-/* ROYAL SLIDE TEMPLATE FILES */
-.rsUni .rsArrow {
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  position: absolute;
-  width: 60px;
-  z-index: 21;
-}
-.rsUni.rsVer .rsArrow {
-  height: 60px;
-  width: 100%;
-}
-.rsUni.rsVer .rsArrowLeft {
-  left: 0;
-  top: 0;
-}
-.rsUni.rsVer .rsArrowRight {
-  bottom: 0;
-  left: 0;
-}
-.rsUni.rsHor .rsArrowLeft {
-  left: 0;
-  top: 0;
-}
-.rsUni.rsHor .rsArrowRight {
-  right: 0;
-  top: 0;
-}
-.rsUni .rsArrowIcn {
-  background: url("rs-universal.png") repeat scroll 0 0 transparent;
-  border-radius: 2px 2px 2px 2px;
-  cursor: pointer;
-  height: 32px;
-  left: 50%;
-  margin-left: -16px;
-  margin-top: -16px;
-  opacity: 0.5;
-  position: absolute;
-  top: 50%;
-  width: 32px;
-}
-.rsUni .rsArrow:hover .rsArrowIcn {
-  opacity: 1;
-}
-.rsUni.rsHor .rsArrowLeft .rsArrowIcn {
-  background-position: -64px -32px;
-}
-.rsUni.rsHor .rsArrowRight .rsArrowIcn {
-  background-position: -64px -64px;
-}
-.rsUni.rsVer .rsArrowLeft .rsArrowIcn {
-  background-position: -96px -32px;
-}
-.rsUni.rsVer .rsArrowRight .rsArrowIcn {
-  background-position: -96px -64px;
-}
-.rsUni .rsArrowDisabled .rsArrowIcn {
-  opacity: 0.1 !important;
-}
-.rsUni .rsBullets {
-  height: auto;
-  line-height: 5px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding-top: 4px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  z-index: 35;
-}
-.rsUni .rsBullet {
-  display: inline-block;
-  height: 8px;
-  padding: 5px;
-  width: 8px;
-}
-.rsUni .rsBullet span {
-  background: none repeat scroll 0 0 #BBBBBB;
-  border-radius: 50% 50% 50% 50%;
-  display: block;
-  height: 8px;
-  width: 8px;
-}
-.rsUni .rsBullet.rsNavSelected span {
-  background-color: #383838;
-}
-.rsUni .rsThumbsHor {
-  height: auto;
-  width: 100%;
-}
-.rsUni .rsThumbsVer {
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 96px;
-}
-.rsUni.rsWithThumbsHor .rsThumbsContainer {
-  height: 100%;
-  position: relative;
-}
-.rsUni.rsWithThumbsVer .rsThumbsContainer {
-  position: relative;
-  width: 100%;
-}
-.rsUni .rsThumb {
-  float: left;
-  height: 72px;
-  overflow: hidden;
-  width: 96px;
-  text-align: center;
-}
-.rsUni .rsThumb img {
-  height: auto;
-  width: 100%;
-}
-.rsUni .rsThumb.rsNavSelected {
-  background: none repeat scroll 0 0 #000;
-}
-.rsUni .rsThumb.rsNavSelected img {
-  opacity: 0.7;
-}
-.rsUni .rsThumb.rsNavSelected .thumbIco {
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.rsUni .rsTmb {
-  display: block;
-  margin: 0 auto;
-}
-.rsUni .rsTmb h5 {
-  color: #FFFFFF;
-  font-size: 16px;
-  line-height: 20px;
-  margin: 0;
-  padding: 0;
-}
-.rsUni .rsTmb span {
-  color: #DDDDDD;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 0;
-  padding: 0;
-}
-.rsUni .rsThumbsArrow {
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  position: absolute;
-  width: 20px;
-  z-index: 21;
-}
-.rsUni.rsWithThumbsVer .rsThumbsArrow {
-  height: 20px;
-  width: 100%;
-}
-.rsUni.rsWithThumbsVer .rsThumbsArrowLeft {
-  left: 0;
-  top: 0;
-}
-.rsUni.rsWithThumbsVer .rsThumbsArrowRight {
-  bottom: 0;
-  left: 0;
-}
-.rsUni.rsWithThumbsHor .rsThumbsArrowLeft {
-  left: 0;
-  top: 0;
-}
-.rsUni.rsWithThumbsHor .rsThumbsArrowRight {
-  right: 0;
-  top: 0;
-}
-.rsUni .rsThumbsArrowIcn {
-  background: url("rs-universal.png") repeat scroll 0 0 transparent;
-  cursor: pointer;
-  height: 16px;
-  left: 50%;
-  margin-left: -8px;
-  margin-top: -8px;
-  position: absolute;
-  top: 50%;
-  width: 16px;
-}
-.rsUni.rsWithThumbsHor .rsThumbsArrowLeft .rsThumbsArrowIcn {
-  background-position: -128px -32px;
-}
-.rsUni.rsWithThumbsHor .rsThumbsArrowRight .rsThumbsArrowIcn {
-  background-position: -128px -48px;
-}
-.rsUni.rsWithThumbsVer .rsThumbsArrowLeft .rsThumbsArrowIcn {
-  background-position: -144px -32px;
-}
-.rsUni.rsWithThumbsVer .rsThumbsArrowRight .rsThumbsArrowIcn {
-  background-position: -144px -48px;
-}
-.rsUni .rsThumbsArrowDisabled {
-  display: none !important;
-}
-.rsUni .rsThumb {
-  height: 44px;
-  width: 59px;
-}
-.rsUni .rsThumbsHor {
-  height: 44px;
-}
-.rsUni .rsThumbsVer {
-  width: 59px;
-}
-.rsUni .rsTabs {
-  height: auto;
-  margin: 0 auto;
-  overflow: hidden;
-  padding-top: 12px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-}
-.rsUni .rsTab {
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  background: none repeat scroll 0 0 #FFFFFF;
-  border-color: #d9d9dd -moz-use-text-color #d9d9dd #d9d9dd;
-  border-image: none;
-  border-style: solid none solid solid;
-  border-width: 1px medium 1px 1px;
-  color: #333333;
-  cursor: pointer;
-  display: inline-block;
-  height: auto;
-  min-width: 72px;
-  padding: 5px 13px 6px;
-  text-align: center;
-  text-decoration: none;
-  width: auto;
-}
-.rsUni .rsTab:first-child {
-  border-bottom-left-radius: 16px;
-  border-top-left-radius: 16px;
-}
-.rsUni .rsTab:last-child {
-  border-bottom-right-radius: 16px;
-  border-right: 1px solid #D9D9DD;
-  border-top-right-radius: 16px;
-}
-.rsUni .rsTab:active {
-  background-color: #F4F4F4;
-}
-.rsUni .rsTab.rsNavSelected {
-  background: none repeat scroll 0 0 #383838;
-  border-color: #383838;
-  color: #FFFFFF;
-}
-.rsUni .rsFullscreenBtn {
-  cursor: pointer;
-  display: block;
-  height: 44px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 44px;
-  z-index: 22;
-}
-.rsUni .rsFullscreenIcn {
-  background: url("rs-universal.png") repeat scroll 0 0 transparent;
-  border-radius: 2px 2px 2px 2px;
-  display: block;
-  height: 32px;
-  margin: 6px;
-  opacity: 0.7;
-  width: 32px;
-}
-.rsUni .rsFullscreenBtn:hover .rsFullscreenIcn {
-  opacity: 1;
-}
-.rsUni.rsFullscreen .rsFullscreenIcn {
-  background-position: -32px 0;
-}
-.rsUni .rsPlayBtn {
-  cursor: pointer;
-  height: 64px;
-  margin-left: -32px;
-  margin-top: -32px;
-  width: 64px;
-}
-.rsUni .rsPlayBtnIcon {
-  background: url("rs-universal.png") no-repeat scroll 0 -32px rgba(0, 0, 0, 0.75);
-  border-radius: 4px 4px 4px 4px;
-  display: block;
-  height: 64px;
-  transition: all 0.3s ease 0s;
-  width: 64px;
-}
-.rsUni .rsPlayBtn:hover .rsPlayBtnIcon {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-.rsUni .rsBtnCenterer {
-  height: 20px;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  width: 20px;
-}
-.rsUni .rsCloseVideoBtn {
-  cursor: pointer;
-  height: 44px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 44px;
-  z-index: 500;
-}
-.rsUni .rsCloseVideoBtn.rsiOSBtn {
-  right: -6px;
-  top: -38px;
-}
-.rsUni .rsCloseVideoIcn {
-  background: url("rs-universal.png") repeat scroll -64px 0 rgba(0, 0, 0, 0.75);
-  height: 32px;
-  margin: 6px;
-  width: 32px;
-}
-.rsUni .rsCloseVideoIcn:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-.rsUni .rsPreloader {
-  background-image: url("../preloaders/preloader-white.gif");
-  height: 20px;
-  left: 50%;
-  margin-left: -10px;
-  margin-top: -10px;
-  top: 50%;
-  width: 20px;
-}
-.rsUni .rsGCaption {
-  background: none repeat scroll 0 0 #222222;
-  border-radius: 2px 2px 2px 2px;
-  bottom: 6px;
-  color: #FFFFFF;
-  float: none;
-  font-size: 12px;
-  left: 6px;
-  padding: 2px 8px;
-  position: absolute;
-  text-align: left;
-  width: auto;
 }

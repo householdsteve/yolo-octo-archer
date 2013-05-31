@@ -240,7 +240,9 @@ $(function(){
    //contentEnabled
    loadHolder = $("<div/>",{id:"loader"});
    loadHolder.appendTo($('body'));
-   spinner = new Spinner(opts).spin(loadHolder[0]);
+   loadHolder.spin(opts);
+   // spinner = new Spinner(opts).spin(loadHolder[0]);
+   // loadHolder.data("spinner",spinner);
 
    $( ":data(content-enabled)", palace).each(function() {
    var element = $( this );
@@ -250,8 +252,8 @@ $(function(){
    if(!$('body').hasClass('waiting')){
    $.imgpreload(bgImagesPreload,function()
    {         // check for success with: $(this[i]).data('loaded')
-     loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide(); });
-     spinner.stop();
+     loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
+     //loadHolder.data("spinner").stop();
      palace.show().transition({opacity:1},700);
      socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300)
    });
@@ -280,6 +282,10 @@ $(function(){
    
    function loadCountdownPage(l){
      pageCall = $.ajax({url: PageAttr.baseUrl+l, dataType:"json", data:{w:availableWidth,h:WINH}});
+     
+      pageCall.done(function(data){
+        loadHolder.css({opacity:1}).show().spin(opts);
+      });
    }
 
    function loadPage(html){
@@ -307,7 +313,8 @@ $(function(){
 
        pageCall.always(function(data){
           countdownContent.html(data.html);
-          countdownDiv.delay(500).css({opacity:0}).show().transition({opacity:1},500);
+          countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
+          loadHolder.hide().spin(false);
        });
    }
    
@@ -322,8 +329,15 @@ $(function(){
           });
           return false;
        });
+    }else{
+      var special = $(".row-fluid-social");
+      $('.span12:even').find('.span3:even').addClass('black');
+      $('.span12:even').find('.span3:odd').addClass('white')
+      $('.span12:odd').find('.span3:odd').addClass('black');
+      $('.span12:odd').find('.span3:even').addClass('white');
     }
-
+    
+  setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
 });
 
 
