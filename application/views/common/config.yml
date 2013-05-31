@@ -16,6 +16,8 @@ default:
       description: The source for the biggest event of the year. See all of the One night only content here.
       robots: index, follow
       viewport: width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.0, user-scalable=no
+    property:
+      og:image: assets/img/og/may-30.jpg    
 
   css:
     site:
