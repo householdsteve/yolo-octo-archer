@@ -17,15 +17,16 @@ class Social_stream extends CI_Controller{
   
   public function index($start="")
   {     
+    //$this->cache->model('social_stream_model', 'get_all', array(19), 120);
 		$this->load->model('social_stream_model');
     $this->_data['data'] = $this->social_stream_model->get_all(19);
     
     if( $this->input->is_ajax_request() )
 		{
-		  $this->output->cache(44640);
+		  //$this->output->cache(44640);
 		  $this->load->view("social_stream/index",$this->_data);
 		}else{
-		  $this->output->cache(44640);
+		  //$this->output->cache(44640);
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
