@@ -181,7 +181,7 @@ class Home extends CI_Controller{
       parse_str($_SERVER['QUERY_STRING'], $_GET);
       $this->_data['w'] = $_GET['w'];
       $this->_data['h'] = $_GET['h'];    
-      $this->_data['isAjax'] = true;      
+      $this->_data['isAjax'] = true;   
       echo json_encode( array("html"=>$this->load->view("home/".$id.".php", $this->_data, true)) );
     }else{
       $this->_data['w'] = "100%"; // incase internet explorer gets it

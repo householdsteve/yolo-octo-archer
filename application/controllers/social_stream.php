@@ -22,9 +22,10 @@ class Social_stream extends CI_Controller{
     
     if( $this->input->is_ajax_request() )
 		{
+		  $this->output->cache(44640);
 		  $this->load->view("social_stream/index",$this->_data);
 		}else{
-		  
+		  $this->output->cache(44640);
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
