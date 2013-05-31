@@ -52,6 +52,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,2,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      //"image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Preziosi.jpg",                                      
                                       "link"=>"/home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
@@ -61,6 +62,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,3,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      //"image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Lupano.jpg",                                      
                                       "link"=>"/home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",

@@ -83,6 +83,17 @@ class View{
       log_message('debug', 'View: render metas');
     }
     
+     if(isset($this->_data['metas']['property'])){
+        $name = $this->_data['metas']['property']; // cache it
+        foreach($name as $k => $v){
+          if($k == "og:image"){
+            $v = base_url().$v;
+          }
+          echo meta_property($k, $v);
+        }
+        log_message('debug', 'View: render metas property');
+      }
+    
     return $this;
   }
   
@@ -148,6 +159,8 @@ class View{
            ->_walk_through('metas', $configs)
            ->_set('title', $configs);
     }
+    
+    //echo "<pre>".print_r($configs)."</pre>";
     return $this;
   }
 

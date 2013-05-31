@@ -14,8 +14,29 @@ index:
 
   metas:
     name:
+      keywords: One, Night, Only, Armani, Giorgio, Emporio, Fashion, Show, Rome, Roma
+      description: Giorgio Armani One night only Roma. The event of the year.
+      robots: index, follow
+    property:
+      og:image: assets/img/og/may-30.jpg
 
-  css:
-    site:
+countdown:
+  title: Giorgio Armani | One night only - Countdown
+  
+  test:
+    firstlevel: yeah man
+  
+  metas:
+     name:
+       keywords: test, tester
+       
+may-30:
+   title: Giorgio Armani | One night only - May 30th
 
-   
+   metas:
+     name:
+       keywords: One, Night, Only, Armani, Giorgio, Emporio, Fashion, Show, Rome, Roma
+       description: Giorgio Armani One night only Roma. The event of the year.
+       robots: index, follow
+     property:
+       og:image: assets/img/og/may-30.jpg

@@ -64,7 +64,7 @@ $autoload['libraries'] = array( 'yaml', 'carabiner', 'view' );
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array( 'application', 'html', 'url' );
+$autoload['helper'] = array( 'application', 'html', 'url', 'custom_helper' );
 
 
 /*
