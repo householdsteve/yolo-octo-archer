@@ -320,6 +320,15 @@ html.lt-ie9 .grid-row {
      overflow:hidden;
      behavior: url(PIE.htc);
      
+     .controller {
+      z-index:999999;
+      width:100%;
+      height:100%;
+      position:absolute;
+      top:0;
+      left:0;
+     }
+     
      &.event {
        -webkit-box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
         box-shadow: inset rgba(255,0,0,1) 4.5px 2px 0px;
@@ -350,6 +359,9 @@ html.lt-ie9 .grid-row {
      text-align:center;
      color:@dark;
      sup {top:-3px; left:1px}
+     &.active {
+       color:black;
+     }
    }
   }
 }

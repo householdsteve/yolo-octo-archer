@@ -30,7 +30,7 @@ class Home extends CI_Controller{
                                       "available"=>"true",
                                       "title"=>"GIORGIO ARMANI",
                                       "subtitle"=>"A Tribute to Rome",
-                                      "type"=>"WATCH NOW");
+                                      "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,31,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Tornatore.jpg",
@@ -39,16 +39,16 @@ class Home extends CI_Controller{
                                       "available"=>"true",
                                       "title"=>"GIUSEPPE TORNATORE",
                                       "subtitle"=>"VIDEO INTERVIEW",
-                                      "type"=>"WATCH NOW");
+                                      "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,1,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Bova.jpg",
                                       "link"=>"/home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "available"=>"false",
-                                      "title"=>"CONTENT COMING:",
-                                      "subtitle"=>"1.6.2013",
+                                      "title"=>"RAOUL BOVA",
+                                      "subtitle"=>"COMING 1.6.2013",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,2,2013),
