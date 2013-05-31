@@ -1,34 +1,26 @@
 # actions
 # common settings for all actions in this controller
 common:
-      
+  metas:
+    name:
+      keywords: One, Night, Only, Armani, Giorgio, Emporio, Fashion, Show, Rome, Roma
+      description:
+      robots: index, follow
+    property:
+      og:image: assets/img/og/ono-roma.jpg
+          
 # configs for each action
 index:
   title: Giorgio Armani | Events
-
-  metas:
-    name:
       
 rome:
   title: Giorgio Armani | One night only Roma
-
-  metas:
-    name:
       
 beijing:
   title: Giorgio Armani | One night only Beijing
 
-  metas:
-    name:
-
 london:
   title: Giorgio Armani | One night only London
 
-  metas:
-    name:
-
 tokyo:
   title: Giorgio Armani | One night only Tokyo
-
-  metas:
-    name:

@@ -17,6 +17,8 @@ index:
       keywords: One, Night, Only, Armani, Giorgio, Emporio, Fashion, Show, Rome, Roma
       description: Giorgio Armani One night only Roma. The event of the year.
       robots: index, follow
+    property:
+      og:image: assets/img/og/ono-roma.jpg
 
 countdown:
   title: Giorgio Armani | One night only - Counting down
