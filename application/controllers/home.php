@@ -30,7 +30,6 @@ class Home extends CI_Controller{
                                       "available"=>"true",
                                       "title"=>"GIORGIO ARMANI",
                                       "subtitle"=>"A Tribute to Rome",
-                                      "type"=>"WATCH NOW");
                                       "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,31,2013),
