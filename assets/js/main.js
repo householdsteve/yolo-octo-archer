@@ -330,7 +330,8 @@ $(function(){
           return false;
        });
     }
-
+    
+  setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
 });
 
 
