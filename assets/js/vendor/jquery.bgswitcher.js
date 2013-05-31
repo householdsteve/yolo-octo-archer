@@ -45,7 +45,7 @@
             activeHoverChild = [],
             globalHoverContainerInternal = $("<div/>",{'id':'globalHoverContainer-internal'}),
             globalHoverContainer = $("<div/>",{"id":"globalHoverContainer"})
-                                    .height(winHeight/2.5).width(scopeData.containerWidth).css({opacity:0,"top":(winHeight/2)- ((winHeight/2.5)/2)})
+                                    .height(280).width(scopeData.containerWidth).css({opacity:0,"top":(winHeight/2)- ((winHeight/2.5)/2)})
                                     .append(globalHoverContainerInternal).hide();
             
             
@@ -164,7 +164,8 @@
 
                   
               bgwidth  = (bgheight / _d.bgdimens.height) * _d.bgdimens.width;
-              bgorigin = (Math.abs((winWidth - scopeData.menuwidth) - bgwidth) / 2);
+              //bgorigin = (Math.abs((winWidth - scopeData.menuwidth) - bgwidth) / 2);
+              bgorigin = ((winWidth/2) - (bgwidth/2)) + scopeData.menuwidth;
                       
               _s.data({"bgprop":bgprop,"bgwidth":bgwidth,"bgorigin":bgorigin});
               
@@ -174,13 +175,21 @@
             }
             
             function setCurrentBackground(ele,activeObject){
-              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.offset();
+              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.parent().offset();
+              console.log("position left: " + _s.parent().position().left)
+              console.log("offset left: " + _s.parent().offset().left)
+              console.log("bg origin  left: " + _d.bgorigin)
+                            
                   _s.css({
                             "background-image":"url("+_d.bgImage+")",
                             "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
-                            "background-position": ((_d.bgorigin+(scopeData.menuwidth))-offset.left) + "px "+ (-offset.top) +"px"
+                            "background-position": (scope.offset().left - offset.left) + "px "+ (-offset.top) +"px"
                         });
-                  
+                  // $("#palace-grid-holder").css({
+                  //                                   "background-image":"url("+_d.bgImage+")",
+                  //                                   "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
+                  //                                   "background-position": (_d.bgorigin) + "px "+ (-offset.top) +"px"
+                  //                               });
                   
                       if(items.index(_s) == itemCount-1){
                           doorsShowing = false;
@@ -235,8 +244,7 @@
               
               var localContent = $('<div/>',{"class":"internal-hover"}).append(
                 $('<h1/>').text($(this).data('hovertitle')),
-                $('<h3/>').text($(this).data('hoversubtitle')),
-                $('<small/>').text($(this).data('hovertype'))
+                $('<h3/>').text($(this).data('hoversubtitle'))
                 ).appendTo(globalHoverContainerInternal).hide();
                 
               _s.data({"hoverRef":localContent, "dateEle":_s.children('div.date')});
