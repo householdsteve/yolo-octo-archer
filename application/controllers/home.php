@@ -189,7 +189,6 @@ class Home extends CI_Controller{
       $this->_data['isAjax'] = false;
       $this->_data['data'] = $this->_data;      
       //$this->load->view("home/".$id.".php", $this->_data);
-      $this->output->cache(44640);
       $this->view->set('_uni_title', 'FALSE')->render($this->_data);
     }  
   }

@@ -323,26 +323,6 @@ $(function(){
           return false;
        });
     }
-    
-    $(".royalSlider.rsDefault").royalSlider({
-        	// general options go gere
-        	imgWidth: 300,
-          imgHeight: 500,
-        	loop:true,
-        	autoHeight:true,
-        	imageAlignCenter:true,
-        	imageScaleMode: 'fit',
-        	autoScaleSlider: true,
-        	arrowsNavHideOnTouch: true,
-            visibleNearby: {
-                enabled: true,
-                centerArea: 0.7,
-                center: true,
-                breakpoint: 500,
-                breakpointCenterArea: 0.7,
-                navigateByCenterClick: true
-            }
-        });
 
 });
 

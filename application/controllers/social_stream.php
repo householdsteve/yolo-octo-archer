@@ -24,7 +24,7 @@ class Social_stream extends CI_Controller{
 		{
 		  $this->load->view("social_stream/index",$this->_data);
 		}else{
-		  $this->output->cache(44640);
+		  
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
