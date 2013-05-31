@@ -514,6 +514,22 @@ html.lt-ie9 .cd-close {
   margin: 0;
   word-wrap: break-word;
 }
+.set-white {
+  background: #eeeeee;
+  color: black;
+}
+.set-black {
+  background: black;
+  color: white;
+}
+.row-fluid-social .span12 .white {
+  background: #eeeeee;
+  color: black;
+}
+.row-fluid-social .span12 .black {
+  background: black;
+  color: white;
+}
 .row-fluid-social .span12:nth-child(even) .span3:nth-child(even) {
   background: black;
   color: white;
@@ -527,7 +543,7 @@ html.lt-ie9 .cd-close {
   color: white;
 }
 .row-fluid-social .span12:nth-child(odd) .span3:nth-child(even) {
-  background: #cccccc;
+  background: #eeeeee;
   color: black;
 }
 .social.content {

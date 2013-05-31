@@ -329,6 +329,12 @@ $(function(){
           });
           return false;
        });
+    }else{
+      var special = $(".row-fluid-social");
+      $('.span12:even').find('.span3:even').addClass('black');
+      $('.span12:even').find('.span3:odd').addClass('white')
+      $('.span12:odd').find('.span3:odd').addClass('black');
+      $('.span12:odd').find('.span3:even').addClass('white');
     }
     
   setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);

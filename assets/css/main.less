@@ -532,25 +532,37 @@ html.lt-ie9 .cd-close {
   word-wrap: break-word;
 }
 
+.set-white {
+  background:@base_grey;
+  color:black;
+}
+
+.set-black {
+  background:black;
+  color:white;
+}
+
 .row-fluid-social .span12 {
+  .white {
+    .set-white;
+  }
+  .black {
+    .set-black;
+  }
   &:nth-child(even){
     .span3:nth-child(even) {
-      background:black;
-      color:white; 
+      .set-black;
     }
     .span3:nth-child(odd) {
-      background:@base_grey;
-      color:black; 
+      .set-white;
     }
   }
   &:nth-child(odd){
     .span3:nth-child(odd) {
-      background:black;
-      color:white; 
+      .set-black;
     }
     .span3:nth-child(even) {
-      background:@med_grey;
-      color:black; 
+      .set-white; 
     }
   }
 }
