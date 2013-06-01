@@ -338,6 +338,28 @@ $(function(){
     }
     
   setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
+  
+  $(".royalSlider.rsDefault").royalSlider({
+      	// general options go gere
+      	loop:true,
+      	imageAlignCenter:true,
+      	imageScaleMode: 'fit',
+      	autoScaleSlider: false,
+      	arrowsNavHideOnTouch: true,
+          visibleNearby: {
+              enabled: true,
+              centerArea: 0.7,
+              center: false,
+              breakpoint: 500,
+              breakpointCenterArea: 0.7,
+              navigateByCenterClick: true
+          },
+          autoPlay: {
+              		// autoplay options go gere
+              		enabled: true,
+              		pauseOnHover: true
+          }
+      });
 });
 
 
