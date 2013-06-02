@@ -57,7 +57,7 @@ class Home extends CI_Controller{
                                       "available"=>"true",
                                       "title"=>"ALESSANDRO PREZIOSI",
                                       "subtitle"=>"VIDEO INTERVIEW",
-                                      "type"=>"");
+                                      "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,3,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Lupano.jpg",                                      
