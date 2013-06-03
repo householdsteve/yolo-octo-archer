@@ -1,6 +1,12 @@
-<div class="row-fluid question-bg">
+<div class="gabg question-bg">GIORGIO ARMANI</div>
+<div class="row-fluid visible-tablet visible-phone hidden-desktop">
+  <div class="span12">
+    <img src="http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/Giorgio-Armani_74.jpg" title="GIORGIO ARMANI">
+  </div>
+</div>
+<div class="row-fluid">
   <div class="span4 question-content it" data-lang="IT">
-      <div class="switch"><p><a class="it" href="#">IT</a> / <a class="en" href="#">EN</a></p></div>
+      <div class="switch"><p><a class="en" href="#">EN</a> / <a class="it" href="#">IT</a></p></div>
       <h1 class="title">UN'INTERVISTA CON GIORGIO ARMANI</h1>      
       <h4 class="question">Perché quest'anno ha deciso di realizzare One Night Only a Roma?</h4>
       <p class="answer">Penso sia giunto il momento di dare un contributo reale alla rinascita del mio paese e della sua immagine, riscoprendone la magia. L'Italia sta ancora attraversando un momento difficile, ma rimane una grande nazione, che in Roma trova un simbolo di bellezza eterna, che tutto il mondo ci invidia. Lo scorso anno ho portato One Night Only a Beijing. Adesso è la volta della mia Italia.
@@ -38,7 +44,7 @@
   
   
   <div class="span4 question-content en" data-lang="EN">
-      <div class="switch"><p><a class="it" href="#">IT</a> / <a class="en" href="#">EN</a></p></div>
+      <div class="switch"><p><a class="en" href="#">EN</a> / <a class="it" href="#">IT</a></p></div>
       <h1 class="title">AN INTERVIEW WITH GIORGIO ARMANI</h1>      
       <h4 class="question">Why did you decide to have One Night Only in Rome this year?</h4>
       <p class="answer">I think it's time to make a real contribution to the rebirth of my country and its image, rediscovering its magic. Italy is still going through a difficult period, but it remains a great nation; Rome is a symbol of eternal beauty, a city that the whole world envies. Last year I took One Night Only to Beijing. Now it’s Italy’s turn. </p>
@@ -67,6 +73,4 @@
       
   
   </div>
-    
-    
 </div>
