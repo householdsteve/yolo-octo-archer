@@ -36,12 +36,12 @@ class Social_stream extends CI_Controller{
 		$this->load->model('social_stream_model');
     $this->_data['data'] = $this->social_stream_model->merge_feeds();
     
-    if( $this->input->is_ajax_request() )
-		{
-		  $this->load->view("social_stream/index",$this->_data);
-		}else{
-		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
-		}
+    // if( $this->input->is_ajax_request() )
+    //    {
+    //      $this->load->view("social_stream/index",$this->_data);
+    //    }else{
+    //      $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+    //    }
   }
   
   public function find($cachetime=null){
@@ -57,9 +57,9 @@ class Social_stream extends CI_Controller{
 		foreach($tags_search_data->data as $key => $item){
 		  $this->Social_stream_model->insert($item);
 		}
-		
-		$this->_data['ig'] = $tags_search_data;
-		$this->view->set('_uni_title', 'FALSE')->render($this->_data);
+    // 
+    // $this->_data['ig'] = $tags_search_data;
+    // $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
   

@@ -15,7 +15,7 @@ class Home extends CI_Controller{
   public function clear()
   {
     $this->output->clear_all_cache();
-    //$this->view->render($this->_data);
+    $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
   public function index($start="")

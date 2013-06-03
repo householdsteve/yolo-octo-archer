@@ -56,8 +56,8 @@ class Social_stream_model extends CI_Model {
      }
    }
 	  
-	  
-		return $all;
+	  echo 'Merged feeds!'.PHP_EOL;
+		//return $all;
 	  
 	}
 	
@@ -75,6 +75,7 @@ class Social_stream_model extends CI_Model {
 		// Insert record
 		if(!$this->match($data->id)){
 		  $this->db->insert('instagram', $insert_array );
+		  echo 'Saved a photo!'.PHP_EOL;
 		}
 
   }

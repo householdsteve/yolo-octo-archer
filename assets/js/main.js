@@ -123,7 +123,12 @@ function activateInternalGalleries(){
        arrowsNavAutoHide:true,
        arrowsNav:true,
        width:'100%',height:'600px',
-       autoScaleSlider:!0,autoScaleSliderWidth:400,autoScaleSliderHeight:600,slidesSpacing:0
+       autoScaleSlider:!0,autoScaleSliderWidth:400,autoScaleSliderHeight:600,slidesSpacing:0,
+       autoPlay: {
+           		// autoplay options go gere
+           		enabled: true,
+           		pauseOnHover: true
+       }
     });
 }
 
