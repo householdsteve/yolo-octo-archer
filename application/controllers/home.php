@@ -63,10 +63,10 @@ class Home extends CI_Controller{
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Lupano.jpg",                                      
                                       "link"=>"/home/countdown",
                                       "enabled"=>"true",
-                                      "available"=>"false",
+                                      "available"=>"true",
                                       "title"=>"GIORGIO LUPANO",
-                                      "subtitle"=>"COMING 3.6.2013",
-                                      "type"=>"");
+                                      "subtitle"=>"VIDEO INTERVIEW",
+                                      "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,4,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
