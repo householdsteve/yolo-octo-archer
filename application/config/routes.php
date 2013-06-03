@@ -40,6 +40,7 @@
 $route['tumblrimport'] = 'tumblrimport';
 $route['home/countdown/(:any)'] = 'home/countdown/$1';
 $route['home/events'] = 'home/events/roma';
+$route['preview/(:any)'] = 'preview/index/$1';
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 

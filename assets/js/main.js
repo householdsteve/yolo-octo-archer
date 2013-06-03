@@ -384,8 +384,13 @@ $(function(){
     
   setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
   
+  $(".question-content a",sectionPrincipal).on("click",function(e){
+    $(".question-content",sectionPrincipal).hide();
+    var _s = $(".question-content[data-lang="+$(this).text()+"]",sectionPrincipal).show();
+    return false;
+  });
+  
   activateInternalGalleries();
-    
 });
 
 
