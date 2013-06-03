@@ -104,7 +104,26 @@ function delegateSubActions(atag){
     case "events/rome":
       internalCountdown();
     break;
+    case "events/london":
+    case "events/beijing":
+    case "events/tokyo":        
+      activateInternalGalleries();
+    break;
   }
+}
+
+function activateInternalGalleries(){
+  $(".royalSlider.rsDefault").royalSlider({
+       loop:true,
+       imageAlignCenter:true,
+       imageScaleMode: 'fit',
+       autoScaleSlider: false,
+       arrowsNavHideOnTouch: false,
+       arrowsNavAutoHide:true,
+       arrowsNav:true,
+       width:'100%',height:'600px',
+       autoScaleSlider:!0,autoScaleSliderWidth:400,autoScaleSliderHeight:600,slidesSpacing:0
+    });
 }
 
 function internalCountdown(){
@@ -339,27 +358,8 @@ $(function(){
     
   setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
   
-  $(".royalSlider.rsDefault").royalSlider({
-      	// general options go gere
-      	loop:true,
-      	imageAlignCenter:true,
-      	imageScaleMode: 'fit',
-      	autoScaleSlider: false,
-      	arrowsNavHideOnTouch: true,
-          visibleNearby: {
-              enabled: true,
-              centerArea: 0.7,
-              center: false,
-              breakpoint: 500,
-              breakpointCenterArea: 0.7,
-              navigateByCenterClick: true
-          },
-          autoPlay: {
-              		// autoplay options go gere
-              		enabled: true,
-              		pauseOnHover: true
-          }
-      });
+  activateInternalGalleries();
+    
 });
 
 
