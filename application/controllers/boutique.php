@@ -19,7 +19,6 @@ class Boutique extends CI_Controller{
 		  $this->load->view("boutique/index",$this->_data);
 		}else{
 		  $this->_data['nonasync'] = true;
-		      $this->output->cache(44640);
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }

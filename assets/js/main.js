@@ -6,8 +6,9 @@ var countdownClose = [];
 var activePage = [];
 var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
-var bgImagesPreload = ['http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg'];
-var advise,
+var bgImagesPreload = [PageAttr.baseUrl+'assets/img/GA-logo100x100.png'];
+var WIN,
+    advise,
     spinner,
     loadHolder;
 
@@ -112,10 +113,40 @@ function internalCountdown(){
   $("#countdown-holder h1").fitText(0.8);
 }
 
+function windowListenerEvents(){
+  var currentHeight = WIN.height(), currentWidth = WIN.width();
+
+  if($("#frame1").length > 0) $("#frame1").height(currentHeight);
+}
+
 $(function(){
-  if (!$.support.transition)
+    if (!$.support.transition)
     $.fn.transition = $.fn.animate;
     
+    // set up basic vars and cache elements
+    WIN = $(window);
+    var WINW = WIN.width(), WINH = WIN.height(),
+        DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
+        rows = 4,
+        columns = 4,
+        availableHeight = WINH - socialH
+        availableWidth = WINW - menuwidth;
+
+    var palace = $("#palace-grid-holder"),
+        sectionMain = $("section#main");
+        sectionPrincipal = $("section.principal",sectionMain),
+        socialMediaFeed = $("#social-media-feed");
+
+     var o = availableHeight / rows,
+         amargin = (o * 0.10),
+         a = o - amargin,
+         maxwidth = Math.floor(a*3);
+     
+  // add window listeners
+  WIN.on('resize',windowListenerEvents);
+  WIN.trigger('resize');
+   
+  // check for internet explorer  
   if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
   
   if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
@@ -136,46 +167,29 @@ $(function(){
   $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
   internalCountdown();
   
-      $('body').mousemove(function(event) {
+  $('body').mousemove(function(event) {
 
-          cx = Math.ceil($('body').width()  / 2);
-          cy = Math.ceil($('body').height() / 2);
-          dx = event.pageX - cx;
-          dy = event.pageY - cy;
+      cx = Math.ceil($('body').width()  / 2);
+      cy = Math.ceil($('body').height() / 2);
+      dx = event.pageX - cx;
+      dy = event.pageY - cy;
 
 
-          x0 = Math.ceil(cx - (dx * 0.2));
-          y0 = Math.ceil(cy - (dy * 0.2));
-          x1 = event.pageX;
-          y1 = event.pageY;
-          r0 = 300;
-          r1 = 10;
+      x0 = Math.ceil(cx - (dx * 0.2));
+      y0 = Math.ceil(cy - (dy * 0.2));
+      x1 = event.pageX;
+      y1 = event.pageY;
+      r0 = 300;
+      r1 = 10;
 
-          sx = -dx * 0.03;
-          sy = -dy * 0.03;
-          b  =  (Math.abs(sx) + Math.abs(sy)) * 0.2;
+      sx = -dx * 0.03;
+      sy = -dy * 0.03;
+      b  =  (Math.abs(sx) + Math.abs(sy)) * 0.2;
 
-          $('.door:not(.event)').css('box-shadow', "inset rgba(65,65,65,0.5) "+ sx +"px "+ sy + "px " + b+20 + "px");
-          $('.door.event, .door.event .door').css('box-shadow', "inset rgba(255,0,0,1) "+ sx +"px "+ sy + "px ");
+      $('.door:not(.event)').css('box-shadow', "inset rgba(65,65,65,0.5) "+ sx +"px "+ sy + "px " + b+20 + "px");
+      $('.door.event, .door.event .door').css('box-shadow', "inset rgba(255,0,0,1) "+ sx +"px "+ sy + "px ");
 
-      });
-      
-  var WIN = $(window), WINW = WIN.width(), WINH = WIN.height(),
-      DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
-      rows = 4,
-      columns = 4,
-      availableHeight = WINH - socialH
-      availableWidth = WINW - menuwidth;
-  
-  var palace = $("#palace-grid-holder"),
-      sectionMain = $("section#main");
-      sectionPrincipal = $("section.principal",sectionMain),
-      socialMediaFeed = $("#social-media-feed");
-  
-   var o = availableHeight / rows;
-   var amargin = (o * 0.10);
-   var a = o - amargin;
-   var maxwidth = Math.floor(a*3);
+  });
    
   // SET UP DIFFERENT PAGE HEIGHTS
    sectionMain.css("min-height",WINH).height(WINH);
@@ -245,9 +259,10 @@ $(function(){
    // loadHolder.data("spinner",spinner);
 
    $( ":data(content-enabled)", palace).each(function() {
-   var element = $( this );
-    bgImagesPreload.push($( this ).data('bgImage'));
+    var _dbgimg = $( this ).data('bgImage');
+    if($.inArray(_dbgimg,bgImagesPreload) == -1)  bgImagesPreload.push(_dbgimg);
    });
+   console.log(bgImagesPreload)
    
    if(!$('body').hasClass('waiting')){
    $.imgpreload(bgImagesPreload,function()
