@@ -69,18 +69,18 @@ class Home extends CI_Controller{
                                       "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,4,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/Giorgio-Armani_74-crop.jpg",
                                       "link"=>"/home/countdown",
-                                      "enabled"=>"false",
+                                      "enabled"=>"true",
                                       "available"=>"false",
-                                      "title"=>"CONTENT COMING:",
-                                      "subtitle"=>"4.6.2013",
+                                      "title"=>"INTERVIEW MR. ARMANI",
+                                      "subtitle"=>"COMING 4.6.2013",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,5,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/",
-                                      "enabled"=>"false",
+                                      "enabled"=>"true",
                                       "available"=>"false",
                                       "classes"=>"event",
                                       "custom-date"=>"LIVE",
@@ -206,6 +206,11 @@ class Home extends CI_Controller{
   public function waiting(){
       $this->output->cache(44640);
     	$this->load->view("layouts/static.php");
+  }
+  
+  public function live(){
+      //$this->output->cache(44640);
+    	$this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
 }

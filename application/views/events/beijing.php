@@ -4,22 +4,8 @@
 <div class="row-fluid top-space">
   <div class="span12">
     <div class="row-fluid">
-      <div class="span3 offset1">
-        <h1>ONE NIGHT ONLY</h1>
-        <h2>DISCOVER THE EVENTS:</h2>
-        <?php
-          $this->view->partial('common/_sub_nav', array(
-            'parent' => 'events',
-            'sub_nav' => array(
-              array('title' => 'London', 'href' => site_url('events/london'), 'nav_selected' => 'london'),
-              array('title' => 'Tokyo', 'href' => site_url('events/tokyo'), 'nav_selected' => 'tokyo'),
-              array('title' => 'Beijing', 'href' => site_url('events/beijing'), 'nav_selected' => 'beijing'),
-              array('title' => 'Rome', 'href' => site_url('events/rome'), 'nav_selected' => 'rome')            
-          )));
-        ?>
-      </div>
 
-  <div class="span7 offset1">
+  <div class="span6 offset1">
     <div class="row-fluid">
       <div class="span10">
         <h1>BEIJING 2012</h1>
@@ -28,6 +14,14 @@
         <p>More than a decade after my arrival in China, it seems to me that the time has come to celebrate our presence in the country and to present the current collections in a special way, edited just for this purpose. I didn’t want the celebration to be an end in itself, though; my trip will also offer an opportunity to present the research programme I have developed with Tsinghua University: an initiative I hold very dear, building another bridge between East and West, through the successful exchange of culture and know-how, supporting the new talent the region has to offer.”</p>
 
         </div>
+      </div>
+    </div>
+    <div class="span5">
+      <h2>SHOTS FROM THE EVENT</h2>
+      <div class="royalSlider rsDefault">
+          <?php for($i=1; $i < 38; $i++):?>   
+          <a class="rsImg" href="<?php echo base_url()?>assets/img/events/one_night_only-beijing_<?php echo $i;?>.jpg"> </a>
+          <?php endfor;?>
       </div>
     </div>
   </div>

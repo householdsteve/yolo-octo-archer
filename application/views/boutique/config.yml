@@ -8,3 +8,8 @@ index:
 
   metas:
     name:
+      keywords: One, Night, Only, Armani, Giorgio, Emporio, Fashion, Show, Rome, Roma
+      description:
+      robots: index, follow
+    property:
+      og:image: assets/img/og/ono-roma.jpg

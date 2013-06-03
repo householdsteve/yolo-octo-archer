@@ -18,7 +18,7 @@ class Events extends CI_Controller{
 		{
 		  $this->load->view("events/index",$this->_data);
 		}else{
-		      $this->output->cache(44640);
+		      
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
@@ -30,7 +30,7 @@ class Events extends CI_Controller{
 		{
 		  $this->load->view("events/rome",$this->_data);
 		}else{
-		      $this->output->cache(44640);
+		      
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
@@ -42,7 +42,7 @@ class Events extends CI_Controller{
 		{
 		  $this->load->view("events/beijing",$this->_data);
 		}else{
-		      $this->output->cache(44640);
+
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
@@ -54,7 +54,6 @@ class Events extends CI_Controller{
   		{
   		  $this->load->view("events/london",$this->_data);
   		}else{
-  		      //$this->output->cache(44640);
   		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   		}
     }
@@ -66,7 +65,7 @@ class Events extends CI_Controller{
     		{
     		  $this->load->view("events/tokyo",$this->_data);
     		}else{
-    		      $this->output->cache(44640);
+    		      
     		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
     		}
       }

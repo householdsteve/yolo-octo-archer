@@ -3,7 +3,7 @@
   <div class="cd-content">
     <iframe width="100%" height="<?php echo $h;?>" src="http://www.youtube.com/embed/OHHIV_pnm2c?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1" frameborder="0" allowfullscreen></iframe>
   </div>
-  <a class="cd-close" href="<?php echo base_url();?>" style="opacity: 1;">X</a>
+  <a class="cd-close" href="<?php echo base_url();?>">X</a>
 </div>
 <?php else: ?>
 <div>
