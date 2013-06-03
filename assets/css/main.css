@@ -409,6 +409,19 @@ html.lt-ie9 .grid-row .door {
 html.lt-ie9 .cd-close {
   background: url('../img/icon-back-ie.png') no-repeat top left;
 }
+.stickem-container {
+  position: relative;
+}
+.stickit {
+  margin-left: 660px;
+  position: fixed;
+  top: 0;
+}
+.stickit-end {
+  bottom: 40px;
+  position: absolute;
+  right: 0;
+}
 /* ==========================================================================
    page contents
    ========================================================================== */
@@ -534,6 +547,18 @@ html.lt-ie9 .cd-close {
 .set-black {
   background: black;
   color: white;
+}
+.fixed,
+.social.content.custom.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.row-fluid-social {
+  position: relative;
+}
+.row-fluid-social .span3 {
+  position: relative;
 }
 .row-fluid-social .span12 .white {
   background: #eeeeee;

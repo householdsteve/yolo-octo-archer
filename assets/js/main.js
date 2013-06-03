@@ -119,6 +119,11 @@ function windowListenerEvents(){
   if($("#frame1").length > 0) $("#frame1").height(currentHeight);
 }
 
+function windowScrollEvents(){
+  var e = $(window).scrollTop();
+  // call events here if needed
+}
+
 $(function(){
     if (!$.support.transition)
     $.fn.transition = $.fn.animate;
@@ -144,6 +149,7 @@ $(function(){
      
   // add window listeners
   WIN.on('resize',windowListenerEvents);
+  //WIN.on('scroll',windowScrollEvents);
   WIN.trigger('resize');
    
   // check for internet explorer  
@@ -262,7 +268,7 @@ $(function(){
     var _dbgimg = $( this ).data('bgImage');
     if($.inArray(_dbgimg,bgImagesPreload) == -1)  bgImagesPreload.push(_dbgimg);
    });
-   console.log(bgImagesPreload)
+  
    
    if(!$('body').hasClass('waiting')){
    $.imgpreload(bgImagesPreload,function()
