@@ -73,7 +73,7 @@ class Home extends CI_Controller{
                                       "link"=>"/home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"false",
-                                      "title"=>"INTERVIEW WITH MR. ARMANI",
+                                      "title"=>"INTERVIEW MR. ARMANI",
                                       "subtitle"=>"COMING 4.6.2013",
                                       "type"=>"");
                                       
