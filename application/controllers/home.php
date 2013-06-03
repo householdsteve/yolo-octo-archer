@@ -69,7 +69,7 @@ class Home extends CI_Controller{
                                       "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,4,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/Giorgio-Armani_74.jpg",
                                       "link"=>"/home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"false",
@@ -80,7 +80,7 @@ class Home extends CI_Controller{
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,5,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"/",
-                                      "enabled"=>"false",
+                                      "enabled"=>"true",
                                       "available"=>"false",
                                       "classes"=>"event",
                                       "custom-date"=>"LIVE",
