@@ -4,22 +4,8 @@
 <div class="row-fluid top-space">
   <div class="span12">
     <div class="row-fluid">
-      <div class="span3 offset1">
-        <h1>ONE NIGHT ONLY</h1>
-        <h2>DISCOVER THE EVENTS:</h2>
-        <?php
-          $this->view->partial('common/_sub_nav', array(
-            'parent' => 'events',
-            'sub_nav' => array(
-              array('title' => 'London', 'href' => site_url('events/london'), 'nav_selected' => 'london'),
-              array('title' => 'Tokyo', 'href' => site_url('events/tokyo'), 'nav_selected' => 'tokyo'),
-              array('title' => 'Beijing', 'href' => site_url('events/beijing'), 'nav_selected' => 'beijing'),
-              array('title' => 'Rome', 'href' => site_url('events/rome'), 'nav_selected' => 'rome')            
-          )));
-        ?>
-      </div>
 
-  <div class="span7 offset1">
+  <div class="span6 offset1">
     <div class="row-fluid">
       <div class="span10">
         <h1>LONDON 2006</h1>
@@ -30,6 +16,14 @@
         <p>Hilary Riva, Chief Executive of the British Fashion Council, said: “I am delighted to welcome Mr. Armani and his show to London. This city is the most innovative and inclusive of the world's fashion capitals, so it is also appropriate that the Emporio Armani (PRODUCT) RED collection should be launched here. This initiative has been inspirational in its ability to motivate leading brands to unite behind such an important cause."</p>
         </div>
       </div>
+    </div>
+    <div class="span5">
+      <h2>ON THE RED CARPET</h2>
+            <div class="royalSlider rsDefault">
+                <?php for($i=1; $i < 9; $i++):?>   
+                <a class="rsImg" href="<?php echo base_url()?>assets/img/events/one_night_only-london_<?php echo $i;?>.jpg"> </a>
+                <?php endfor;?>
+            </div>
     </div>
   </div>
 </div>
