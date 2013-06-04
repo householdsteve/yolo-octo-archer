@@ -8,6 +8,7 @@ var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
 var bgImagesPreload = [PageAttr.baseUrl+'assets/img/GA-logo100x100.png'];
 var zoomViewport;
+var offsetTime = 0;
 var WIN,
     advise,
     spinner,
@@ -38,16 +39,31 @@ var opts = {
 function checkInternetExplorer(){
   return isInternetExplorer;
 }
-function serverTime() { 
+
+function checkOffsetTime(){
+  return offsetTime;
+}
+
+function timeOffset() { 
+    var call = $.ajax({url: PageAttr.baseUrl+'home/timer', dataType:"json"});
+    call.always(function(data,textStatus,errorThrown){
+         var localOffset = (data.timer/60)/60; // in hours
+         var n = new Date();
+         n = ((n.getTimezoneOffset()/60) + localOffset) * 60; // get difference in minutes
+         offsetTime = n;
+         internalCountdown();
+      });
+}
+
+function serverTime() {
+  if(checkOffsetTime()){
     var time = null; 
-    $.ajax({url: PageAttr.baseUrl+'home/timer', 
-        async: false, dataType: 'text', 
-        success: function(d) { 
-            time = new Date(d.timer); 
-        }, error: function(http, message, exc) { 
-            time = new Date(); 
-    }}); 
-    return time; 
+        time = new Date(); 
+        time.setMinutes(time.getMinutes() + offsetTime);
+        return time;
+    }else{
+        return new Date();
+    }
 }
 
 function loadMaps(){
@@ -151,6 +167,7 @@ function interviewTexts(){
 }
 
 function internalCountdown(){
+  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
   $("#countdown-holder h1").fitText(0.8);
 }
@@ -193,7 +210,8 @@ $(function(){
   WIN.on('resize',windowListenerEvents);
   //WIN.on('scroll',windowScrollEvents);
   WIN.trigger('resize');
-   
+  
+  timeOffset();
   // check for internet explorer  
   if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
   
@@ -211,9 +229,6 @@ $(function(){
   }
     
   $(".social.content h3").fitText(1.5);
-    
-  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
-  internalCountdown();
   
   $('body').mousemove(function(event) {
 
