@@ -70,11 +70,11 @@ function loadMaps(){
       icon: image
 	});
 	
-	var contentString = '<div id="content" style="overflow:hidden 1important;">'+
+	var contentString = '<div id="content" style="overflow:hidden !important;">'+
       '<div id="siteNotice"style="overflow:hidden !important;">'+
       '</div>'+
       // '<h1 id="firstHeading" class="firstHeading">Giorgio Armani Boutique</h1>'+
-      '<div id="bodyContent"style="height:57px;max-width:300px;overflow:hidden 1important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="GIORGIO ARMANI">' +
+      '<div id="bodyContent" style="height:80px;width:300px; text-align:center; padding-top:20px;max-width:300px;overflow:hidden !important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="GIORGIO ARMANI">' +
       '<p>Via Condotti 77-79 • Rome</p>'+
       '</div>'+
       '</div>';
@@ -83,9 +83,7 @@ function loadMaps(){
       content: contentString
   });
 	
-	google.maps.event.addListener(GAmarker, 'click', function() {
-	    infowindow.open(map,GAmarker);
-	  });
+	  infowindow.open(map,GAmarker);
   }
 }
 
