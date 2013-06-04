@@ -146,14 +146,14 @@ function activateInternalGalleries(){
 }
 
 function callCountdownScripts(e){
-  // var parts = e.url.split("/");
-  //   var compare = parts[parts.length-1].split('?')[0];
-  //   
-  //   switch(compare){
-  //     case "june-4":
-  //       interviewTexts();
-  //     break;
-  // }
+  var parts = e.url.split("/");
+    var compare = parts[parts.length-1].split('?')[0];
+    
+    switch(compare){
+      case "june-4":
+        interviewTexts();
+      break;
+  }
 }
 
 function interviewTexts(){
@@ -180,18 +180,19 @@ function loadAdditionalContent(e){
           moveBodyContent();
        });
      }else{
-       moveBodyContent();
+      moveBodyContent();
      }
   return false;
 }
 
 function moveBodyContent(){
+  additionalContent.show();
   sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){});
 }
 
 function removeAdditional(){
   sectionMain.transition({"left":0},800,function(){
-    //additionalContent.remove();
+    additionalContent.hide();
   });
   return false;
 }
@@ -432,6 +433,8 @@ $(function(){
    if(!checkInternetExplorer()){
        socialMediaFeed.find('a').click(function(e){
          var smf = $.ajax({url: this.href});
+         var c = $('span',$(this));
+         c.css({"position":"fixed",top:c.offset().top, left:c.offset().left,"z-index":9999})
          smf.always(function(data){
              socialMediaFeed.append(data);
              setTimeout(function(){

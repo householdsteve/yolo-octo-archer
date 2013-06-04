@@ -737,7 +737,7 @@ html.touch .question-bg {
   top: 0;
 }
 .social.content .above p {
-  top: 20%;
+  top: 30px;
   position: relative;
   word-wrap: break-word;
 }
