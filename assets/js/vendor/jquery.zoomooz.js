@@ -1543,10 +1543,10 @@ if(!$.zoomooz) {
           
             // closeclick not available here...
             if(settings.closeclick && zoomTarget.hasClass("selectedZoomTarget")) {
-                settings.root.click();
                 
                 // this is where the file zooms out. added call back for zoom out
                 if(typeof settings.zoomout == 'function') settings.zoomout.apply();
+                settings.root.click();
                 
             } else {
                 // this is where the zoom in occurs, gets called many times
