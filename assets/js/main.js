@@ -8,10 +8,22 @@ var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
 var bgImagesPreload = [PageAttr.baseUrl+'assets/img/GA-logo100x100.png'];
 var WIN,
+    WINW,
+    DOC,
+    rows,
+    columns,
+    availableHeight,
+    availableWidth,
     advise,
     spinner,
-    loadHolder;
-
+    loadHolder,
+    additionalContent,
+    palace,
+    sectionMain,
+    sectionPrincipal,
+    socialMediaFeed,
+    moreFromRome;
+    
 var opts = {
   lines: 13, // The number of lines to draw
   length: 0, // The length of each line
@@ -156,6 +168,12 @@ function internalCountdown(){
   $("#countdown-holder h1").fitText(0.8);
 }
 
+function loadAdditionalContent(){
+  additionalContent = $('<section/>',{"class":"additional",id:"additional-content"});
+  additionalContent.css({"left":WINW}).appendTo(sectionMain);
+  sectionMain.transition({"left":-WINW},800,function(){});
+}
+
 function windowListenerEvents(){
   var currentHeight = WIN.height(), currentWidth = WIN.width();
 
@@ -173,22 +191,26 @@ $(function(){
     
     // set up basic vars and cache elements
     WIN = $(window);
-    var WINW = WIN.width(), WINH = WIN.height(),
-        DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
-        rows = 4,
-        columns = 4,
-        availableHeight = WINH - socialH
-        availableWidth = WINW - menuwidth;
+    WINW = WIN.width(), WINH = WIN.height(),
+    DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
+    rows = 4,
+    columns = 4,
+    availableHeight = WINH - (socialH*2)
+    availableWidth = WINW - menuwidth;
 
-    var palace = $("#palace-grid-holder"),
-        sectionMain = $("section#main");
-        sectionPrincipal = $("section.principal",sectionMain),
-        socialMediaFeed = $("#social-media-feed");
+    palace = $("#palace-grid-holder"),
+    sectionMain = $("section#main");
+    sectionPrincipal = $("section.principal",sectionMain),
+    socialMediaFeed = $("#social-media-feed"),
+    moreFromRome = $("#more-from-rome");
 
      var o = availableHeight / rows,
          amargin = (o * 0.10),
          a = o - amargin,
          maxwidth = Math.floor(a*3);
+         
+         // get top margin back
+         availableHeight = availableHeight + amargin;
      
   // add window listeners
   WIN.on('resize',windowListenerEvents);
@@ -298,7 +320,7 @@ $(function(){
    $('nav#mainnav').delay(300).transition({left:0},700);
    
    // give the palace some values
-   palace.hide().height(availableHeight+15).css({"opacity":0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({"element":"div.door"});
+   palace.hide().height(availableHeight+15).css({"opacity":0,"max-width":maxwidth}).data({'containerHeight':WINH - socialH,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({"element":"div.door"});
    
    //contentEnabled
    loadHolder = $("<div/>",{id:"loader"});
@@ -314,15 +336,20 @@ $(function(){
   
    
    if(!$('body').hasClass('waiting')){
-   $.imgpreload(bgImagesPreload,function()
-   {         // check for success with: $(this[i]).data('loaded')
-     loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
-     //loadHolder.data("spinner").stop();
-     palace.show().transition({opacity:1},700);
-     socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300)
-   });
+     $.imgpreload(bgImagesPreload,function()
+      {         // check for success with: $(this[i]).data('loaded')
+       loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
+       //loadHolder.data("spinner").stop();
+       palace.show().transition({opacity:1},700);
+       socialMediaFeed.css({opacity:0}).width(availableWidth-3).show().transition({opacity:1},500);
+       moreFromRome.css({opacity:0}).height(socialH - amargin).show().delay(400).transition({opacity:1},500);
+      });
     }
    
+   $("a.mfr",moreFromRome).on("click",function(e){
+     loadAdditionalContent();
+     return false;
+   });
    // pjax calls for jax page laoding
    currentSelectedMenuItem = $('nav.main ul a.selected');
      

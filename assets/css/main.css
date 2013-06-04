@@ -238,6 +238,11 @@ section.principal h1 {
 section.principal h2 {
   font-size: 110%;
 }
+section.additional {
+  position: relative;
+  top: 0;
+  background: red;
+}
 #loader {
   position: absolute;
   width: 100px;
@@ -364,11 +369,24 @@ html.lt-ie9 .grid-row .door {
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   display: none;
 }
 #social-media-feed h3.title {
+  height: 60px;
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+  line-height: 60px;
+}
+#more-from-rome {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+#more-from-rome h3.title {
   height: 60px;
   text-align: center;
   margin: 0;

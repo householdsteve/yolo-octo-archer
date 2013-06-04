@@ -1,6 +1,8 @@
 <div class="zoomViewport">
 <div class="zoomContainer">  
-
+  <div id="more-from-rome">
+    <h3 class="title"><a href="home/more-from-rome" class="mfr arrow">MORE FROM ROME</a></h3>
+  </div>
 <div id="palace-grid-holder" class="">
   <?php
     $count = 0;
