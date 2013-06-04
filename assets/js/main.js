@@ -175,7 +175,7 @@ function loadAdditionalContent(e){
   var mfr = $.ajax({url: e.currentTarget.href});
        mfr.always(function(data){
           additionalContent.html(data);
-          sectionMain.transition({"left":-availableWidth},800,function(){});
+          sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){});
        });
   return false;
 }
