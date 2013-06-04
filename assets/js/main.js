@@ -133,6 +133,25 @@ function activateInternalGalleries(){
     });
 }
 
+function callCountdownScripts(e){
+  var parts = e.url.split("/");
+  var compare = parts[parts.length-1].split('?')[0];
+  
+  switch(compare){
+    case "june-4":
+      interviewTexts();
+    break;
+  }
+}
+
+function interviewTexts(){
+  $(".question-content a",sectionPrincipal).on("click",function(e){
+    $(".question-content",sectionPrincipal).hide();
+    var _s = $(".question-content[data-lang="+$(this).text()+"]",sectionPrincipal).show();
+    return false;
+  });
+}
+
 function internalCountdown(){
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
   $("#countdown-holder h1").fitText(0.8);
@@ -360,6 +379,7 @@ $(function(){
        pageCall.always(function(data){
           countdownContent.html(data.html);
           countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
+          callCountdownScripts(this);
           loadHolder.hide().spin(false);
           zoomViewport.hide();
        });
@@ -386,13 +406,8 @@ $(function(){
     
   setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
   
-  $(".question-content a",sectionPrincipal).on("click",function(e){
-    $(".question-content",sectionPrincipal).hide();
-    var _s = $(".question-content[data-lang="+$(this).text()+"]",sectionPrincipal).show();
-    return false;
-  });
-  
   activateInternalGalleries();
+  interviewTexts();
 });
 
 
