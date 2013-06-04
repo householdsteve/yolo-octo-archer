@@ -226,18 +226,18 @@ $(function(){
   // check for internet explorer  
   if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
   
-  // if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
-  //     advise = $("<div/>",{"class":"tellexplorer"})
-  //     .append($("<div/>",{"class":"advice"}).html(
-  //       "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
-  //       ));
-  //     advise.appendTo($('body'));
-  //     advise.click(function(){
-  //       $(this).remove();
-  //     });
-  //     
-  //     $.cookie('_saw_ie_message_', true, { expires: 7 });
-  //   }
+  if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
+    advise = $("<div/>",{"class":"tellexplorer"})
+    .append($("<div/>",{"class":"advice"}).html(
+      "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
+      ));
+    advise.appendTo($('body'));
+    advise.click(function(){
+      $(this).remove();
+    });
+    
+    $.cookie('_saw_ie_message_', true, { expires: 7 });
+  }
     
   $(".social.content h3").fitText(1.5);
     
@@ -332,8 +332,7 @@ $(function(){
    loadHolder = $("<div/>",{id:"loader"});
    loadHolder.appendTo($('body'));
    loadHolder.spin(opts);
-   // spinner = new Spinner(opts).spin(loadHolder[0]);
-   // loadHolder.data("spinner",spinner);
+
 
    $( ":data(content-enabled)", palace).each(function() {
     var _dbgimg = $( this ).data('bgImage');
