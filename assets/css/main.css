@@ -406,6 +406,9 @@ html.lt-ie9 .grid-row .door {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
 }
+.cd-close.fixed {
+  position: fixed;
+}
 html.lt-ie9 .cd-close {
   background: url('../img/icon-back-ie.png') no-repeat top left;
 }
@@ -604,12 +607,6 @@ html.touch .question-bg {
 .set-black {
   background: black;
   color: white;
-}
-.fixed,
-.social.content.custom.fixed {
-  position: fixed;
-  top: 0;
-  z-index: 999;
 }
 .row-fluid-social {
   position: relative;

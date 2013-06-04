@@ -1,5 +1,5 @@
 <?php if(!$isAjax):?>
-<a class="cd-close" href="<?php echo base_url();?>">X</a>
+<a class="cd-close fixed" href="<?php echo base_url();?>">X</a>
 <?php endif; ?>
 <div class="gabg question-bg">GIORGIO ARMANI</div>
 <div class="row-fluid visible-tablet visible-phone hidden-desktop">
