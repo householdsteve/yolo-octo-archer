@@ -1,7 +1,7 @@
 <div class="zoomViewport">
 <div class="zoomContainer">  
   <div id="more-from-rome">
-    <h3 class="title"><a href="home/more-from-rome" class="mfr arrow">MORE FROM ROME</a></h3>
+    <h3 class="title"><a href="home/more-from-rome" class="mfr arrow right">MORE FROM ROME <span>></span></a></h3>
   </div>
 <div id="palace-grid-holder" class="">
   <?php
@@ -39,5 +39,5 @@
 </div>
 
 <div id="social-media-feed">
-  <h3 class="title"><a href="social-stream" class="">#ONENIGHTONLYROMA</a></h3>
+  <h3 class="title"><a href="social-stream" class="smf arrow down">#ONENIGHTONLYROMA <span>></span></a></h3>
 </div>
