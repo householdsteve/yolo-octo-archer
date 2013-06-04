@@ -241,7 +241,6 @@ section.principal h2 {
 section.additional {
   position: relative;
   top: 0;
-  background: red;
   height: 100%;
   width: auto;
 }
@@ -371,7 +370,7 @@ html.lt-ie9 .grid-row .door {
   margin: 0;
   padding: 0;
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   display: none;
 }
@@ -394,6 +393,36 @@ html.lt-ie9 .grid-row .door {
   margin: 0;
   font-size: 14px;
   line-height: 60px;
+}
+#back-to-count {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+#back-to-count h3.title {
+  height: 60px;
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+  line-height: 60px;
+}
+.more-rome {
+  margin: 0 !important;
+  width: 50% !important;
+}
+section.additional .span6 {
+  margin: 0 !important;
+  width: 50% !important;
+}
+.sub-title {
+  background: black;
+  color: #cccccc;
+  margin-top: -15px;
+  padding: 10px;
+}
+.sub-title h1 {
+  font-size: 15px;
 }
 .cd-page {
   position: absolute;
@@ -441,6 +470,40 @@ html.lt-ie9 .cd-close {
   bottom: 40px;
   position: absolute;
   right: 0;
+}
+a.arrow {
+  position: relative;
+  vertical-align: middle;
+}
+a.arrow span {
+  background: url('../img/sprite.png') top left no-repeat;
+  text-indent: -9999em;
+  width: 15px;
+  height: 15px;
+  display: block;
+  position: absolute;
+  top: 1px;
+  right: -20px;
+}
+a.arrow.right span {
+  background-position: center -105px;
+}
+a.arrow.right:hover span {
+  background-position: center -45px;
+}
+a.arrow.down span {
+  background-position: center -74px;
+}
+a.arrow.down:hover span {
+  background-position: center -14px;
+}
+a.arrow.left span {
+  background-position: center -89px;
+  right: auto;
+  left: -20px;
+}
+a.arrow.left:hover span {
+  background-position: center -29px;
 }
 /* ==========================================================================
    page contents

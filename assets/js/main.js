@@ -18,7 +18,7 @@ var WIN,
     advise,
     spinner,
     loadHolder,
-    additionalContent,
+    additionalContent = [],
     palace,
     sectionMain,
     sectionPrincipal,
@@ -170,13 +170,29 @@ function internalCountdown(){
 }
 
 function loadAdditionalContent(e){
-  additionalContent = $('<section/>',{"class":"additional",id:"additional-content"});
-  additionalContent.width(availableWidth).css({"left":WINW,"top":-WINH}).appendTo(sectionMain);
-  var mfr = $.ajax({url: e.currentTarget.href});
+  if(additionalContent.length < 1){
+    additionalContent = $('<section/>',{"class":"additional",id:"additional-content"});
+    additionalContent.width(availableWidth).css({"left":WINW,"top":-WINH}).appendTo(sectionMain);
+    var mfr = $.ajax({url: e.currentTarget.href});
        mfr.always(function(data){
           additionalContent.html(data);
-          sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){});
+          var b = $("#back-to-count a").click(removeAdditional);
+          moveBodyContent();
        });
+     }else{
+       moveBodyContent();
+     }
+  return false;
+}
+
+function moveBodyContent(){
+  sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){});
+}
+
+function removeAdditional(){
+  sectionMain.transition({"left":0},800,function(){
+    //additionalContent.remove();
+  });
   return false;
 }
 
@@ -347,7 +363,7 @@ $(function(){
        loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
        //loadHolder.data("spinner").stop();
        palace.show().transition({opacity:1},700);
-       socialMediaFeed.css({opacity:0}).width(availableWidth-3).show().transition({opacity:1},500);
+       socialMediaFeed.css({top:WINH - socialH, opacity:0}).width(availableWidth-3).show().transition({opacity:1},500);
        moreFromRome.css({opacity:0}).height(socialH - amargin).show().delay(400).transition({opacity:1},500);
       });
     }
