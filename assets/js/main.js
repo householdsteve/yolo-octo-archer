@@ -7,6 +7,7 @@ var activePage = [];
 var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
 var bgImagesPreload = [PageAttr.baseUrl+'assets/img/GA-logo100x100.png'];
+var zoomViewport;
 var WIN,
     WINW,
     DOC,
@@ -301,7 +302,7 @@ $(function(){
               targetsize: 3,
               closeclick: true,
               onanimationcomplete:loadPage, 
-              zoomout: function(){}, // enable mouse over
+              zoomout: function(){ zoomViewport.show(); }, // enable mouse over
               onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
         });
       }
@@ -314,7 +315,7 @@ $(function(){
    
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
 
-   $(".zoomViewport").width(availableWidth-3);
+   zoomViewport = $(".zoomViewport").width(availableWidth-3);
    
    // do some fading in:
    $('nav#mainnav').delay(300).transition({left:0},700);
@@ -407,6 +408,7 @@ $(function(){
           countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
           callCountdownScripts(this);
           loadHolder.hide().spin(false);
+          zoomViewport.hide();
        });
    }
    
