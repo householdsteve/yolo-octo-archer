@@ -273,9 +273,14 @@ $(function(){
   }); 
   
    $(".item-holder").each(function(i,v){
-     var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
+     var _s = $(this), _d = $('.door',_s), _ddata = _d.data(), _over = _s.hasClass('override');
      _s.height(a).css({"margin-top":amargin});
-     if(!checkInternetExplorer() && _ddata.contentAvailable){
+     if(_over){
+       _s.on("click",function(e){
+         window.location = PageAttr.baseUrl+_ddata.link;
+       });
+     }
+     if(!checkInternetExplorer() && _ddata.contentAvailable && !_over){
        _s.zoomTarget({
               targetsize: 3,
               closeclick: true,

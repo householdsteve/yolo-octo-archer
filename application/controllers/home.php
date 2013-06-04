@@ -25,7 +25,7 @@ class Home extends CI_Controller{
     $this->_data['events'] = array();
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,30,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/may_30.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "title"=>"GIORGIO ARMANI",
@@ -34,7 +34,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,5,31,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Tornatore.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "title"=>"GIUSEPPE TORNATORE",
@@ -43,7 +43,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,1,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Bova.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "title"=>"RAOUL BOVA",
@@ -52,7 +52,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,2,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Preziosi.jpg",                                      
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "title"=>"ALESSANDRO PREZIOSI",
@@ -61,20 +61,21 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,3,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/Lupano.jpg",                                      
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "title"=>"GIORGIO LUPANO",
                                       "subtitle"=>"VIDEO INTERVIEW",
-                                      "type"=>"CLICK TO WATCH");
+                                      "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,4,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/Giorgio-Armani_74-crop.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "title"=>"INTERVIEW MR. ARMANI",
                                       "subtitle"=>"READ THE Q&A",
+                                      "override"=>"true",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,5,2013),
@@ -90,7 +91,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,6,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
@@ -99,7 +100,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,7,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
@@ -108,7 +109,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,8,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
@@ -117,7 +118,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,9,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
@@ -126,7 +127,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,10,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
@@ -135,7 +136,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,11,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
@@ -144,7 +145,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,12,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
@@ -153,7 +154,7 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,13,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
@@ -162,7 +163,7 @@ class Home extends CI_Controller{
 
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,14,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
-                                      "link"=>"/home/countdown",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"false",
                                       "available"=>"false",
                                       "title"=>"CONTENT COMING:",
