@@ -348,8 +348,7 @@ $(function(){
    loadHolder = $("<div/>",{id:"loader"});
    loadHolder.appendTo($('body'));
    loadHolder.spin(opts);
-   // spinner = new Spinner(opts).spin(loadHolder[0]);
-   // loadHolder.data("spinner",spinner);
+
 
    $( ":data(content-enabled)", palace).each(function() {
     var _dbgimg = $( this ).data('bgImage');
