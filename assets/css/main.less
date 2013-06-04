@@ -235,6 +235,13 @@ section.principal {
   height:100%;
 }
 
+section.additional {
+  position:relative;
+  top:0;
+  height:100%;
+  width:auto;
+}
+
 #loader {
   position:absolute;
   width:100px;
@@ -384,6 +391,55 @@ html.lt-ie9 .grid-row {
   }
 }
 
+#more-from-rome {
+  width:100%;
+  margin:0;
+  padding:0;
+  display:none;
+  h3.title {
+    height:@socialheight;
+    text-align:center;
+    margin:0;
+    font-size:14px;
+    line-height:@socialheight;
+  }
+}
+
+#back-to-count {
+  width:100%;
+  margin:0;
+  padding:0;
+  display:block;
+  h3.title {
+    height:@socialheight;
+    text-align:center;
+    margin:0;
+    font-size:14px;
+    line-height:@socialheight;
+  }
+}
+
+.more-rome{
+  margin:0 !important; 
+  width:50% !important;
+}
+
+section.additional .span6{
+  margin:0 !important;
+  width:50% !important;
+}
+
+.sub-title{
+  background:black;
+  color:@med_grey;
+  margin-top:-15px;
+  padding:10px;
+  h1 {
+    font-size:15px;
+  }
+}
+
+
 .cd-page {
   position:absolute;
   top:0;
@@ -439,6 +495,46 @@ html.lt-ie9 .cd-close {
     bottom: 40px;
     position: absolute;
     right: 0;
+}
+
+a.arrow {
+  position:relative;
+  vertical-align:middle;
+}
+
+a.arrow span { 
+  background: url('../img/sprite.png') top left no-repeat;
+  text-indent:-9999em;
+  width:15px;
+  height:15px;
+  display:block;
+  position:absolute;
+  top:1px;
+  right:-20px;
+}
+
+a.arrow.right span{
+  background-position:center -105px;
+}
+a.arrow.right:hover span{
+  background-position:center -45px;
+}
+
+  
+a.arrow.down span{
+  background-position:center -74px;
+}
+a.arrow.down:hover span{
+  background-position:center -14px;
+}
+
+a.arrow.left span{
+  background-position:center -89px;
+  right:auto;
+  left:-20px;
+}
+a.arrow.left:hover span{
+  background-position:center -29px;
 }
 
 /* ==========================================================================
@@ -500,7 +596,7 @@ margin:10px;
 	background:url('http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/Giorgio-Armani_74.jpg') top right no-repeat;
 	background-size:cover;	
 	.full_width_height;
-	position:fixed;
+//position:fixed;
 	text-indent:-9999em;
 	z-index:3;
 }
@@ -699,7 +795,7 @@ html.touch {
     position:absolute;
     top:0;
     p {
-      top:20%;
+      top:30px;
       position:relative;
       word-wrap: break-word;
     }

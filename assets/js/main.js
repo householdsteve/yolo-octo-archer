@@ -10,10 +10,22 @@ var bgImagesPreload = [PageAttr.baseUrl+'assets/img/GA-logo100x100.png'];
 var zoomViewport;
 var offsetTime = 0;
 var WIN,
+    WINW,
+    DOC,
+    rows,
+    columns,
+    availableHeight,
+    availableWidth,
     advise,
     spinner,
-    loadHolder;
-
+    loadHolder,
+    additionalContent = [],
+    palace,
+    sectionMain,
+    sectionPrincipal,
+    socialMediaFeed,
+    moreFromRome;
+    
 var opts = {
   lines: 13, // The number of lines to draw
   length: 0, // The length of each line
@@ -149,12 +161,12 @@ function activateInternalGalleries(){
 
 function callCountdownScripts(e){
   var parts = e.url.split("/");
-  var compare = parts[parts.length-1].split('?')[0];
-  
-  switch(compare){
-    case "june-4":
-      interviewTexts();
-    break;
+    var compare = parts[parts.length-1].split('?')[0];
+    
+    switch(compare){
+      case "june-4":
+        interviewTexts();
+      break;
   }
 }
 
@@ -170,6 +182,34 @@ function internalCountdown(){
   $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
   $("#countdown-holder h1").fitText(0.8);
+}
+
+function loadAdditionalContent(e){
+  if(additionalContent.length < 1){
+    additionalContent = $('<section/>',{"class":"additional",id:"additional-content"});
+    additionalContent.width(availableWidth).css({"left":WINW,"top":-WINH}).appendTo(sectionMain);
+    var mfr = $.ajax({url: e.currentTarget.href});
+       mfr.always(function(data){
+          additionalContent.html(data);
+          var b = $("#back-to-count a").click(removeAdditional);
+          moveBodyContent();
+       });
+     }else{
+      moveBodyContent();
+     }
+  return false;
+}
+
+function moveBodyContent(){
+  additionalContent.show();
+  sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){});
+}
+
+function removeAdditional(){
+  sectionMain.transition({"left":0},800,function(){
+    additionalContent.hide();
+  });
+  return false;
 }
 
 function windowListenerEvents(){
@@ -189,22 +229,26 @@ $(function(){
     
     // set up basic vars and cache elements
     WIN = $(window);
-    var WINW = WIN.width(), WINH = WIN.height(),
-        DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
-        rows = 4,
-        columns = 4,
-        availableHeight = WINH - socialH
-        availableWidth = WINW - menuwidth;
+    WINW = WIN.width(), WINH = WIN.height(),
+    DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
+    rows = 4,
+    columns = 4,
+    availableHeight = WINH - (socialH*2)
+    availableWidth = WINW - menuwidth;
 
-    var palace = $("#palace-grid-holder"),
-        sectionMain = $("section#main");
-        sectionPrincipal = $("section.principal",sectionMain),
-        socialMediaFeed = $("#social-media-feed");
+    palace = $("#palace-grid-holder"),
+    sectionMain = $("section#main");
+    sectionPrincipal = $("section.principal",sectionMain),
+    socialMediaFeed = $("#social-media-feed"),
+    moreFromRome = $("#more-from-rome");
 
      var o = availableHeight / rows,
          amargin = (o * 0.10),
          a = o - amargin,
          maxwidth = Math.floor(a*3);
+         
+         // get top margin back
+         availableHeight = availableHeight + amargin;
      
   // add window listeners
   WIN.on('resize',windowListenerEvents);
@@ -316,14 +360,13 @@ $(function(){
    $('nav#mainnav').delay(300).transition({left:0},700);
    
    // give the palace some values
-   palace.hide().height(availableHeight+15).css({"opacity":0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({"element":"div.door"});
+   palace.hide().height(availableHeight+15).css({"opacity":0,"max-width":maxwidth}).data({'containerHeight':WINH - socialH,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({"element":"div.door"});
    
    //contentEnabled
    loadHolder = $("<div/>",{id:"loader"});
    loadHolder.appendTo($('body'));
    loadHolder.spin(opts);
-   // spinner = new Spinner(opts).spin(loadHolder[0]);
-   // loadHolder.data("spinner",spinner);
+
 
    $( ":data(content-enabled)", palace).each(function() {
     var _dbgimg = $( this ).data('bgImage');
@@ -332,15 +375,17 @@ $(function(){
   
    
    if(!$('body').hasClass('waiting')){
-   $.imgpreload(bgImagesPreload,function()
-   {         // check for success with: $(this[i]).data('loaded')
-     loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
-     //loadHolder.data("spinner").stop();
-     palace.show().transition({opacity:1},700);
-     socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300)
-   });
+     $.imgpreload(bgImagesPreload,function()
+      {         // check for success with: $(this[i]).data('loaded')
+       loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
+       //loadHolder.data("spinner").stop();
+       palace.show().transition({opacity:1},700);
+       socialMediaFeed.css({top:WINH - socialH, opacity:0}).width(availableWidth-3).show().transition({opacity:1},500);
+       moreFromRome.css({opacity:0}).height(socialH - amargin).show().delay(400).transition({opacity:1},500);
+      });
     }
    
+   $("a.mfr",moreFromRome).on("click",loadAdditionalContent);
    // pjax calls for jax page laoding
    currentSelectedMenuItem = $('nav.main ul a.selected');
      
@@ -398,13 +443,15 @@ $(function(){
           countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
           callCountdownScripts(this);
           loadHolder.hide().spin(false);
-          zoomViewport.hide();
+          //zoomViewport.hide();
        });
    }
    
    if(!checkInternetExplorer()){
        socialMediaFeed.find('a').click(function(e){
          var smf = $.ajax({url: this.href});
+         var c = $('span',$(this));
+         c.css({"position":"fixed",top:c.offset().top, left:c.offset().left,"z-index":9999})
          smf.always(function(data){
              socialMediaFeed.append(data);
              setTimeout(function(){
