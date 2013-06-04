@@ -169,10 +169,15 @@ function internalCountdown(){
   $("#countdown-holder h1").fitText(0.8);
 }
 
-function loadAdditionalContent(){
+function loadAdditionalContent(e){
   additionalContent = $('<section/>',{"class":"additional",id:"additional-content"});
-  additionalContent.css({"left":WINW}).appendTo(sectionMain);
-  sectionMain.transition({"left":-WINW},800,function(){});
+  additionalContent.width(availableWidth).css({"left":WINW,"top":-WINH}).appendTo(sectionMain);
+  var mfr = $.ajax({url: e.currentTarget.href});
+       mfr.always(function(data){
+          additionalContent.html(data);
+          sectionMain.transition({"left":-availableWidth},800,function(){});
+       });
+  return false;
 }
 
 function windowListenerEvents(){
@@ -347,10 +352,7 @@ $(function(){
       });
     }
    
-   $("a.mfr",moreFromRome).on("click",function(e){
-     loadAdditionalContent();
-     return false;
-   });
+   $("a.mfr",moreFromRome).on("click",loadAdditionalContent);
    // pjax calls for jax page laoding
    currentSelectedMenuItem = $('nav.main ul a.selected');
      

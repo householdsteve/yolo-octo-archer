@@ -213,6 +213,17 @@ class Home extends CI_Controller{
     	$this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
+  public function more_from_rome(){
+
+    if( $this->input->is_ajax_request() )
+		{
+		  $this->load->view("home/more_from_rome",$this->_data);
+		}else{
+		      
+		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
+		}
+  }
+  
 }
 // End of About class
 
