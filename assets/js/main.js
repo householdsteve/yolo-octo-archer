@@ -146,14 +146,14 @@ function activateInternalGalleries(){
 }
 
 function callCountdownScripts(e){
-  var parts = e.url.split("/");
-  var compare = parts[parts.length-1].split('?')[0];
-  
-  switch(compare){
-    case "june-4":
-      interviewTexts();
-    break;
-  }
+  // var parts = e.url.split("/");
+  //   var compare = parts[parts.length-1].split('?')[0];
+  //   
+  //   switch(compare){
+  //     case "june-4":
+  //       interviewTexts();
+  //     break;
+  // }
 }
 
 function interviewTexts(){
@@ -410,7 +410,7 @@ $(function(){
           countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
           callCountdownScripts(this);
           loadHolder.hide().spin(false);
-          zoomViewport.hide();
+          //zoomViewport.hide();
        });
    }
    
