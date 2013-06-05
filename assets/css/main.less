@@ -472,6 +472,9 @@ section.additional .span6{
      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
      filter: alpha(opacity=100);
    }
+   &.fixed {
+     position:fixed;
+   }
 }
 
 html.lt-ie9 .cd-close {
@@ -593,7 +596,7 @@ margin:10px;
 	background:url('http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/Giorgio-Armani_74.jpg') top right no-repeat;
 	background-size:cover;	
 	.full_width_height;
-//position:fixed;
+  position:fixed;
 	text-indent:-9999em;
 	z-index:3;
 }
@@ -639,6 +642,16 @@ html.touch {
   .question-bg {
   	background-position:top center;
   }
+  
+  #globalHoverContainer-internal {
+    h1 { 
+      font-size:50px;
+      line-height:52px;
+      margin-top:100px;
+    }
+  }
+  
+  
 }
 
 #live-streaming {
@@ -739,11 +752,6 @@ html.touch {
   color:white;
 }
 
-.fixed, .social.content.custom.fixed {
-  position:fixed;
-  top:0;
-  z-index:999;
-}
 .row-fluid-social {
   position:relative;
   .span3 {

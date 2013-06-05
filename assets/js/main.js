@@ -8,6 +8,7 @@ var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
 var bgImagesPreload = [PageAttr.baseUrl+'assets/img/GA-logo100x100.png'];
 var zoomViewport;
+var offsetTime = 0;
 var WIN,
     WINW,
     DOC,
@@ -50,16 +51,31 @@ var opts = {
 function checkInternetExplorer(){
   return isInternetExplorer;
 }
-function serverTime() { 
+
+function checkOffsetTime(){
+  return offsetTime;
+}
+
+function timeOffset() { 
+    var call = $.ajax({url: PageAttr.baseUrl+'home/timer', dataType:"json"});
+    call.always(function(data,textStatus,errorThrown){
+         var localOffset = (data.timer/60)/60; // in hours
+         var n = new Date();
+         n = ((n.getTimezoneOffset()/60) + localOffset) * 60; // get difference in minutes
+         offsetTime = n;
+         internalCountdown();
+      });
+}
+
+function serverTime() {
+  if(checkOffsetTime()){
     var time = null; 
-    $.ajax({url: PageAttr.baseUrl+'home/timer', 
-        async: false, dataType: 'text', 
-        success: function(d) { 
-            time = new Date(d.timer); 
-        }, error: function(http, message, exc) { 
-            time = new Date(); 
-    }}); 
-    return time; 
+        time = new Date(); 
+        time.setMinutes(time.getMinutes() + offsetTime);
+        return time;
+    }else{
+        return new Date();
+    }
 }
 
 function loadMaps(){
@@ -82,11 +98,11 @@ function loadMaps(){
       icon: image
 	});
 	
-	var contentString = '<div id="content" style="overflow:hidden 1important;">'+
+	var contentString = '<div id="content" style="overflow:hidden !important;">'+
       '<div id="siteNotice"style="overflow:hidden !important;">'+
       '</div>'+
       // '<h1 id="firstHeading" class="firstHeading">Giorgio Armani Boutique</h1>'+
-      '<div id="bodyContent"style="height:57px;max-width:300px;overflow:hidden 1important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="GIORGIO ARMANI">' +
+      '<div id="bodyContent" style="height:80px;width:300px; text-align:center; padding-top:20px;max-width:300px;overflow:hidden !important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="GIORGIO ARMANI">' +
       '<p>Via Condotti 77-79 • Rome</p>'+
       '</div>'+
       '</div>';
@@ -95,9 +111,7 @@ function loadMaps(){
       content: contentString
   });
 	
-	google.maps.event.addListener(GAmarker, 'click', function() {
-	    infowindow.open(map,GAmarker);
-	  });
+	  infowindow.open(map,GAmarker);
   }
 }
 
@@ -165,6 +179,7 @@ function interviewTexts(){
 }
 
 function internalCountdown(){
+  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
   $("#countdown-holder h1").fitText(0.8);
 }
@@ -242,7 +257,8 @@ $(function(){
   WIN.on('resize',windowListenerEvents);
   //WIN.on('scroll',windowScrollEvents);
   WIN.trigger('resize');
-
+  
+  timeOffset();
   
   if(checkInternetExplorer()){
     if($("#frame1").length){
@@ -267,9 +283,6 @@ $(function(){
   //   }
     
   $(".social.content h3").fitText(1.5);
-    
-  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
-  internalCountdown();
   
   $('body').mousemove(function(event) {
 
@@ -327,9 +340,13 @@ $(function(){
   }); 
   
    $(".item-holder").each(function(i,v){
-     var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
+     var _s = $(this), _d = $('.door',_s), _ddata = _d.data(), _over = _s.hasClass('override');
      _s.height(a).css({"margin-top":amargin});
-     if(!checkInternetExplorer() && _ddata.contentAvailable){
+     if(_over && Modernizr.touch){
+       _s.on("click",function(e){
+         window.location = PageAttr.baseUrl+_ddata.link;
+       });
+     }else if(!checkInternetExplorer() && _ddata.contentAvailable){
        _s.zoomTarget({
               targetsize: 3,
               closeclick: true,
