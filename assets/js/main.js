@@ -490,6 +490,5 @@ $(function(){
   
   activateInternalGalleries();
   interviewTexts();
+  $('.row-fluid-social').waypoint('infinite');
 });
-
-

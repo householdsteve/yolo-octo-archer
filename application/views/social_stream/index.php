@@ -1,19 +1,10 @@
-<?php
-// echo '<pre>';
-// print_r($data);
-// echo '</pre>';
-?>
 <div class="row-fluid-social">
-  <div class="span12">
     <?php
     $count = 0;
-    $data = array("key1" => array(
-      "type"=> "custom",
-      "content" => "Join us in sharing the excitement for the Giorgio Armani One Night Only in Roma event. Mention @armani start tagging:",
-      "username"=> "",
-      "unixdate"=> ""
-     )) + $data;
       foreach($data as $key => $row):?>
+      <?php if ($count % 4 == 0):?>
+        <div class="span12 infinite-item">
+      <?php endif;?>
         <div class="span3">
             <?php $this->view->partial('common/_'.$row['type'], array(
               'content' => $row['content'],
@@ -21,11 +12,13 @@
               'username' => $row['username']
               )); ?>
         </div>
-    <?php if ($count % 4 == 3):?>
-    </div>
-    <div class="span12">
-    <?php endif; $count++;?>
+      <?php if ($count % 4 == 3):?>
+        </div>
+      <?php endif; $count++;?>
     <?php endforeach;?>
-     </div>
-  </div>
+
+    <?php if(!$isAjax):?>
+    <div class="infinite-loading">loading...</div>
+    <?php endif;?>
+    <?php echo $pagination; ?>
 </div>

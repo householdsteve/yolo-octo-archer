@@ -43,5 +43,7 @@ default:
       - vendor/jquery.spin      
       - vendor/jquery.cookie
       - vendor/jquery.scrollTo.min
+      - vendor/waypoints
+      - vendor/waypoints-infinite
       - royalslider/jquery.royalslider.min
       - main

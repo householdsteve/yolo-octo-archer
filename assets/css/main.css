@@ -509,6 +509,9 @@ a.arrow.left span {
 a.arrow.left:hover span {
   background-position: center -29px;
 }
+.infinite-more-link {
+  display: none;
+}
 /* ==========================================================================
    page contents
    ========================================================================== */

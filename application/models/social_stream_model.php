@@ -5,10 +5,14 @@ class Social_stream_model extends CI_Model {
 	{
 		$this->load->database();
 	}
+	public function count_social_rows(){
+	  return $this->db->count_all("content");
+	}
 	
-	public function get_all($ct){
+	public function get_all($limit,$start){
+	  $this->db->limit($limit, $start);
 	  $this->db->order_by("unixdate", "desc");
-	  $query = $this->db->get('content',$ct, 0);
+	  $query = $this->db->get('content');
 	  if($query->result_array()){
 	    return $query->result_array();
     }else{
