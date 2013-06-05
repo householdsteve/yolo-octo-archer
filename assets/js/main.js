@@ -72,6 +72,7 @@ function serverTime() {
     var time = null; 
         time = new Date(); 
         time.setMinutes(time.getMinutes() + offsetTime);
+        time.setSeconds(time.getSeconds() + 167);
         return time;
     }else{
         return new Date();
@@ -179,7 +180,7 @@ function interviewTexts(){
 }
 
 function internalCountdown(){
-  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});
+  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'HMS'});
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
   $("#countdown-holder h1").fitText(0.8);
 }
