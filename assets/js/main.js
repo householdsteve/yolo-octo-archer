@@ -209,8 +209,11 @@ function windowScrollEvents(){
 }
 
 $(function(){
-    if (!$.support.transition)
-    $.fn.transition = $.fn.animate;
+    // dfault setup for cs3 animations
+    if (!$.support.transition) $.fn.transition = $.fn.animate;
+    
+    // check for internet explorer  
+    if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
     
     // set up basic vars and cache elements
     WIN = $(window);
@@ -239,9 +242,11 @@ $(function(){
   WIN.on('resize',windowListenerEvents);
   //WIN.on('scroll',windowScrollEvents);
   WIN.trigger('resize');
-   
-  // check for internet explorer  
-  if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
+  if(checkInternetExplorer()){
+    setTimeout(function(){
+        WIN.trigger('resize');
+    },300);
+  }
   
   if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
     advise = $("<div/>",{"class":"tellexplorer"})
