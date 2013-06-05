@@ -251,6 +251,11 @@ $(function(){
       $("<iframe/>",{"id":"frame1","src":srcfr}).height(WINH).width("100%").appendTo($("#live-streaming"));
       WIN.trigger('resize');
     }
+    if($("#frame2").length){
+      var _s = $("#frame2"), srcfr = _s.attr('src');
+      _s.remove();
+     
+    }
   }
   
   // if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
