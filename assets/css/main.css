@@ -165,7 +165,9 @@ nav h1 {
   font-size: 21px;
   margin: 0 auto 6px auto;
   text-align: center;
-  display: none;
+}
+nav h1 a {
+  color: black;
 }
 nav #main_countdown .countdown {
   width: 170px;
@@ -249,7 +251,7 @@ section.additional {
   width: auto;
 }
 #loader {
-  position: absolute;
+  position: fixed;
   width: 100px;
   height: 100px;
   left: 50%;
