@@ -346,6 +346,10 @@ $(function(){
        _s.on("click",function(e){
          window.location = PageAttr.baseUrl+_ddata.link;
        });
+     }else if(_over && _d.hasClass('event')){
+       _s.on("click",function(e){
+          window.location = PageAttr.baseUrl+_ddata.link;
+        });
      }else if(!checkInternetExplorer() && _ddata.contentAvailable){
        _s.zoomTarget({
               targetsize: 3,

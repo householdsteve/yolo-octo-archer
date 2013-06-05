@@ -15,7 +15,7 @@
       for($c = 0; $c < $rows; $c++):
        ?>
        <div class="item-holder<?php ($events[$count]['available']) ? ' zoomTarget' : '';?><?php echo (isset($events[$count]['override'])) ? " override" : ""; ?>">
-         <div class="door<?php echo (isset($events[$count]['classes'])) ? " ".$events[$count]['classes'] : ""; ?>" data-bg-image="<?php echo $events[$count]['image'];?>" data-link="<?php echo $events[$count]['link'];?>/<?php echo strtolower(date('F-j',$events[$count]['date']));?>" data-hovertitle="<?php echo $events[$count]['title'];?>" data-hoversubtitle="<?php echo $events[$count]['subtitle'];?>" data-hovertype="<?php echo $events[$count]['type'];?>" data-content-enabled="<?php echo $events[$count]['enabled'];?>" data-content-available="<?php echo $events[$count]['available'];?>">
+         <div class="door<?php echo (isset($events[$count]['classes'])) ? " ".$events[$count]['classes'] : ""; ?>" data-bg-image="<?php echo $events[$count]['image'];?>" data-link="<?php echo $events[$count]['link'];?><?php echo (!isset($events[$count]['classes'])) ? "/".strtolower(date('F-j',$events[$count]['date'])) : '';?>" data-hovertitle="<?php echo $events[$count]['title'];?>" data-hoversubtitle="<?php echo $events[$count]['subtitle'];?>" data-hovertype="<?php echo $events[$count]['type'];?>" data-content-enabled="<?php echo $events[$count]['enabled'];?>" data-content-available="<?php echo $events[$count]['available'];?>">
            <div class="date">
              <?php if(!isset($events[$count]['custom-date'])):?>
              <span><?php echo date('F',$events[$count]['date']);?></span> <?php echo date('j',$events[$count]['date']);?><sup><?php echo date('S',$events[$count]['date']);?></sup>
