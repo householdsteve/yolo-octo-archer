@@ -20,7 +20,7 @@
 
     <?php endif; ?>
     <script type="text/javascript" charset="utf-8">
-      var PageAttr = {baseUrl:"<?php echo base_url();?>"};
+      var PageAttr = {baseUrl:"<?php echo base_url();?>",hideTimer:false};
     </script>
   </head>
   <body>

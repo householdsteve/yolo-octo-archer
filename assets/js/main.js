@@ -181,6 +181,7 @@ function interviewTexts(){
 }
 
 function internalCountdown(){
+  $("nav h1").css({"opacity":0}).show().transition({"opacity":1},300);
   $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'HMS'});
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
   $("#countdown-holder h1").fitText(0.8);
@@ -260,7 +261,7 @@ $(function(){
   //WIN.on('scroll',windowScrollEvents);
   WIN.trigger('resize');
   
-  timeOffset();
+  if(!PageAttr.hideTimer)  timeOffset();
   
   if(checkInternetExplorer()){
     if($("#frame1").length){
