@@ -500,12 +500,14 @@ $(function(){
          c.css({"position":"fixed",top:c.offset().top, left:c.offset().left,"z-index":9999})
          smf.always(function(data){
              socialMediaFeed.append(data);
+             $(".social.content p").fitText(1.85);
              setTimeout(function(){
                $('body').scrollTo(availableHeight, 800, {easing:'linear'});
                $('.row-fluid-social').waypoint('infinite',{
                  onBeforePageLoad: function(){loadHolder.css({opacity:1}).show().spin(opts);},
-                 onAfterPageLoad: function(){loadHolder.hide().spin(false);}
+                 onAfterPageLoad: function(){loadHolder.hide().spin(false); $(".social.content p").fitText(1.85);}
                });
+               $(".social.content p").fitText(1.5);
              },300);
           });
           return false;
@@ -522,4 +524,12 @@ $(function(){
   
   activateInternalGalleries();
   interviewTexts();
+  
+  if($('.row-fluid-social').length > 0){
+    $(".social.content p").fitText(1.85);
+  $('.row-fluid-social').waypoint('infinite',{
+     onBeforePageLoad: function(){loadHolder.css({opacity:1}).show().spin(opts);},
+     onAfterPageLoad: function(){loadHolder.hide().spin(false); $(".social.content p").fitText(1.85);}
+   });
+ }
 });

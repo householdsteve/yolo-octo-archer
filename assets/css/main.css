@@ -769,8 +769,8 @@ html.touch #globalHoverContainer-internal h1 {
 .social.content .above h2 {
   bottom: 2%;
   position: absolute;
-  line-height: 15px;
-  font-size: 15px;
+  line-height: 13px;
+  font-size: 13px;
 }
 .social.content.instagram .above {
   position: absolute;
@@ -779,6 +779,8 @@ html.touch #globalHoverContainer-internal h1 {
 }
 .social.content.instagram h2 {
   color: white !important;
+  text-shadow: 1px 1px 0px #000000;
+  filter: dropshadow(color=#000000, offx=0, offy=0);
 }
 .social.content.custom {
   background: black !important;
