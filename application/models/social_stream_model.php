@@ -59,6 +59,16 @@ class Social_stream_model extends CI_Model {
       }
      }
    }
+   
+   $b = array(
+     "lid"=> $row['id'],
+     "type"=> "custom",
+     "username"=> "",
+     "content" => "Join us in sharing the excitement for the Giorgio Armani One Night Only in Roma event. Mention @armani start tagging:",
+     "unixdate"=> time()+1209600
+    );
+    
+    $this->db->insert('content', $b );
 	  
 	  echo 'Merged feeds!'.PHP_EOL;
 		//return $all;

@@ -28,6 +28,7 @@ class Social_stream extends CI_Controller{
     $config['display_pages'] = FALSE;
     $config['anchor_class'] = 'class="infinite-more-link"';
     $config['prev_link'] = FALSE;
+    $config['first_link'] = FALSE;
     
     $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
     
