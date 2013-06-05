@@ -3,7 +3,7 @@
   <ul class="clearfix" data-pjax >
     <li>
       <small>The Event</small>
-      <a class="<?php selected('events', $nav_selected); ?>" href="<?php echo base_url(); ?>" title="One night only">One night only</a>
+      <a class="<?php selected('events', $nav_selected); ?>" href="<?php echo site_url('events/rome'); ?>" title="One night only">One night only</a>
       <?php
         $this->view->partial('common/_sub_nav', array(
           'parent' => 'events',
@@ -11,7 +11,7 @@
             array('title' => 'London', 'href' => site_url('events/london'), 'nav_selected' => 'london'),
             array('title' => 'Tokyo', 'href' => site_url('events/tokyo'), 'nav_selected' => 'tokyo'),
             array('title' => 'Beijing', 'href' => site_url('events/beijing'), 'nav_selected' => 'beijing'),
-            array('title' => 'Rome', 'href' => base_url(), 'nav_selected' => 'rome')        
+            array('title' => 'Rome', 'href' => site_url('events/rome'), 'nav_selected' => 'rome')        
         )));
       ?>
     </li>

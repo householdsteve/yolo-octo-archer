@@ -132,7 +132,8 @@ function delegateSubActions(atag){
   var compare = parts[parts.length-2]+"/"+parts[parts.length-1];
   switch(compare){
     case "events/rome":
-      internalCountdown();
+      //internalCountdown();
+      WIN.trigger('resize');
     break;
     case "events/london":
     case "events/beijing":
