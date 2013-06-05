@@ -244,23 +244,22 @@ $(function(){
   WIN.trigger('resize');
   if(checkInternetExplorer()){
     setTimeout(function(){
-        //WIN.trigger('resize');
-        windowScrollEvents();
-    },350);
+        WIN.trigger('resize');
+    },300);
   }
   
   // if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
-  //   advise = $("<div/>",{"class":"tellexplorer"})
-  //   .append($("<div/>",{"class":"advice"}).html(
-  //     "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
-  //     ));
-  //   advise.appendTo($('body'));
-  //   advise.click(function(){
-  //     $(this).remove();
-  //   });
-  //   
-  //   $.cookie('_saw_ie_message_', true, { expires: 7 });
-  // }
+  //     advise = $("<div/>",{"class":"tellexplorer"})
+  //     .append($("<div/>",{"class":"advice"}).html(
+  //       "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
+  //       ));
+  //     advise.appendTo($('body'));
+  //     advise.click(function(){
+  //       $(this).remove();
+  //     });
+  //     
+  //     $.cookie('_saw_ie_message_', true, { expires: 7 });
+  //   }
     
   $(".social.content h3").fitText(1.5);
     
