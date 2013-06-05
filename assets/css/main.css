@@ -511,6 +511,18 @@ a.arrow.left:hover span {
 }
 .infinite-more-link {
   display: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0px;
+  line-height: 0px;
+}
+.infinite-loading {
+  height: 200px;
+}
+span.end {
+  height: 20px;
+  display: block;
+  text-indent: -9999em;
 }
 /* ==========================================================================
    page contents

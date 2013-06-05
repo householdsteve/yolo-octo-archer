@@ -1,4 +1,5 @@
 <div class="row-fluid-social">
+  <?php echo $pagination; ?>
     <?php
     $count = 0;
       foreach($data as $key => $row):?>
@@ -16,9 +17,5 @@
         </div>
       <?php endif; $count++;?>
     <?php endforeach;?>
-
-    <?php if(!$isAjax):?>
-    <div class="infinite-loading">loading...</div>
-    <?php endif;?>
-    <?php echo $pagination; ?>
 </div>
+<span class="end">End of content</span>

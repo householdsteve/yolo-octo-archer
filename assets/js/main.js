@@ -474,6 +474,7 @@ $(function(){
              socialMediaFeed.append(data);
              setTimeout(function(){
                $('body').scrollTo(availableHeight, 800, {easing:'linear'});
+               $('.row-fluid-social').waypoint('infinite');
              },300);
           });
           return false;
@@ -490,5 +491,4 @@ $(function(){
   
   activateInternalGalleries();
   interviewTexts();
-  $('.row-fluid-social').waypoint('infinite');
 });
