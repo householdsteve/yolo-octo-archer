@@ -79,10 +79,10 @@ class Home extends CI_Controller{
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,5,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/ga-arrivo-roma.jpg",
                                       "link"=>"",
                                       "enabled"=>"true",
-                                      "available"=>"false",
+                                      "available"=>"true",
                                       "classes"=>"event",
                                       "custom-date"=>"LIVE",
                                       "title"=>"MR. ARMANI IS COMING",
