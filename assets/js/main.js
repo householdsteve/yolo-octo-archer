@@ -245,7 +245,7 @@ $(function(){
   if(checkInternetExplorer()){
     setTimeout(function(){
         WIN.trigger('resize');
-    },300);
+    },1000);
   }
   
   if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
