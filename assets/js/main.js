@@ -242,10 +242,16 @@ $(function(){
   WIN.on('resize',windowListenerEvents);
   //WIN.on('scroll',windowScrollEvents);
   WIN.trigger('resize');
+
+  
   if(checkInternetExplorer()){
-    setTimeout(function(){
-        WIN.trigger('resize');
-    },300);
+    if($("#frame1").length){
+      var _s = $("#frame1"), srcfr = _s.attr('src');
+      console.log(srcfr)
+      _s.remove();
+      $("<iframe/>",{"id":"frame1","src":srcfr}).height(WINH).width("100%").appendTo($("#live-streaming"));
+      WIN.trigger('resize');
+    }
   }
   
   // if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
