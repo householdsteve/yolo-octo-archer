@@ -1,3 +1,6 @@
+<?php if(!$isAjax):?>
+<a class="cd-close fixed" href="<?php echo base_url();?>">X</a>
+<?php endif; ?>
 <div class="gabg question-bg">GIORGIO ARMANI</div>
 <div class="row-fluid visible-tablet visible-phone hidden-desktop">
   <div class="span12">
@@ -7,7 +10,7 @@
 <div class="row-fluid">
   <div class="span4 question-content it" data-lang="IT">
       <div class="switch"><p><a class="en" href="#">EN</a> / <a class="it" href="#">IT</a></p></div>
-      <h1 class="title">UN'INTERVISTA CON GIORGIO ARMANI</h1>      
+      <h1 class="title">UNA INTERVISTA CON GIORGIO ARMANI</h1>      
       <h4 class="question">Perché quest'anno ha deciso di realizzare One Night Only a Roma?</h4>
       <p class="answer">Penso sia giunto il momento di dare un contributo reale alla rinascita del mio paese e della sua immagine, riscoprendone la magia. L'Italia sta ancora attraversando un momento difficile, ma rimane una grande nazione, che in Roma trova un simbolo di bellezza eterna, che tutto il mondo ci invidia. Lo scorso anno ho portato One Night Only a Beijing. Adesso è la volta della mia Italia.
       </p>
@@ -58,17 +61,17 @@
       <h4 class="question">Which of Rome’s historical periods fascinates you the most?</h4>
       <p class="answer">It’s the coexistence of different eras and styles that fascinates me, not a particular period - although some palaces and baroque piazzas are stunning. Rome is a city in which the stratification of the epochs is tangible: you won’t find it anywhere else with such magnificence. </p>
 
-      <h4 class="question">Roma</h4>
-      <p class="answer">Penso</p>
+      <h4 class="question">When did you go to Rome for the first time? And what is your fondest memory of the city?</h4>
+      <p class="answer">I must have been very young the first time I went to Rome, the memory is blurry. But the beauty of the city is that once you're there, you enter straight into the heart of it, and it feels like you've always been there. It must be the historically important places, the light, the spirit of the Romans, their disenchanted way of dealing with life in good times and bad and the way they welcome everyone.</p>
       
-      <h4 class="question">Roma</h4>
-      <p class="answer">Penso</p>
+      <h4 class="question">Rome is a city of cinema: which director, actor or film from the golden age of cinema impacted you the most? </h4>
+      <p class="answer">Again, it’s hard to choose, even though Rossellini's Roma Città Aperta has had a strong impact on me as I lived through the war as a child. Fellini is so excessive yet delicate as well –what represents the disenchanted spirit of this city better than La Dolce Vita?</p>
 
-      <h4 class="question">Roma</h4>
-      <p class="answer">Penso</p>
+      <h4 class="question">Seen through the eyes of a man from northern Italy, what do you envy about the city and about Romans?</h4>
+      <p class="answer">The ability to not take yourself too seriously and to face everything with a smile. I envy the city’s less frenetic pace and incredible light. </p>
       
-      <h4 class="question">Roma</h4>
-      <p class="answer">Penso</p>
+      <h4 class="question">If Giorgio Armani was born in Rome, what would have been different? Would you still have become a top designer? </h4>
+      <p class="answer">Who could say? As a Roman I’d probably be less pragmatic and certainly more fatalistic.  </p>
   
       
   

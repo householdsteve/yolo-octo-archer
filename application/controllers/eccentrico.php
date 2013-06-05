@@ -18,7 +18,7 @@ class Eccentrico extends CI_Controller{
 		{
 		  $this->load->view("eccentrico/index",$this->_data);
 		}else{
-		      $this->output->cache(44640);
+		      
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
@@ -30,7 +30,7 @@ class Eccentrico extends CI_Controller{
 		{
 		  $this->load->view("eccentrico/hong_kong",$this->_data);
 		}else{
-		      $this->output->cache(44640);
+		      
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
@@ -42,7 +42,7 @@ class Eccentrico extends CI_Controller{
 		{
 		  $this->load->view("eccentrico/milan",$this->_data);
 		}else{
-		      $this->output->cache(44640);
+		      
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
@@ -54,7 +54,7 @@ class Eccentrico extends CI_Controller{
 		{
 		  $this->load->view("eccentrico/tokyo",$this->_data);
 		}else{
-		      $this->output->cache(44640);
+		      
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }
@@ -66,7 +66,7 @@ class Eccentrico extends CI_Controller{
 		{
 		  $this->load->view("eccentrico/rome",$this->_data);
 		}else{
-		      $this->output->cache(44640);
+		      
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }

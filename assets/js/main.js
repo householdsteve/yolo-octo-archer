@@ -7,11 +7,25 @@ var activePage = [];
 var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
 var bgImagesPreload = [PageAttr.baseUrl+'assets/img/GA-logo100x100.png'];
+var zoomViewport;
+var offsetTime = 0;
 var WIN,
+    WINW,
+    DOC,
+    rows,
+    columns,
+    availableHeight,
+    availableWidth,
     advise,
     spinner,
-    loadHolder;
-
+    loadHolder,
+    additionalContent = [],
+    palace,
+    sectionMain,
+    sectionPrincipal,
+    socialMediaFeed,
+    moreFromRome;
+    
 var opts = {
   lines: 13, // The number of lines to draw
   length: 0, // The length of each line
@@ -37,16 +51,31 @@ var opts = {
 function checkInternetExplorer(){
   return isInternetExplorer;
 }
-function serverTime() { 
+
+function checkOffsetTime(){
+  return offsetTime;
+}
+
+function timeOffset() { 
+    var call = $.ajax({url: PageAttr.baseUrl+'home/timer', dataType:"json"});
+    call.always(function(data,textStatus,errorThrown){
+         var localOffset = (data.timer/60)/60; // in hours
+         var n = new Date();
+         n = ((n.getTimezoneOffset()/60) + localOffset) * 60; // get difference in minutes
+         offsetTime = n;
+         internalCountdown();
+      });
+}
+
+function serverTime() {
+  if(checkOffsetTime()){
     var time = null; 
-    $.ajax({url: PageAttr.baseUrl+'home/timer', 
-        async: false, dataType: 'text', 
-        success: function(d) { 
-            time = new Date(d.timer); 
-        }, error: function(http, message, exc) { 
-            time = new Date(); 
-    }}); 
-    return time; 
+        time = new Date(); 
+        time.setMinutes(time.getMinutes() + offsetTime);
+        return time;
+    }else{
+        return new Date();
+    }
 }
 
 function loadMaps(){
@@ -69,11 +98,11 @@ function loadMaps(){
       icon: image
 	});
 	
-	var contentString = '<div id="content" style="overflow:hidden 1important;">'+
+	var contentString = '<div id="content" style="overflow:hidden !important;">'+
       '<div id="siteNotice"style="overflow:hidden !important;">'+
       '</div>'+
       // '<h1 id="firstHeading" class="firstHeading">Giorgio Armani Boutique</h1>'+
-      '<div id="bodyContent"style="height:57px;max-width:300px;overflow:hidden 1important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="GIORGIO ARMANI">' +
+      '<div id="bodyContent" style="height:80px;width:300px; text-align:center; padding-top:20px;max-width:300px;overflow:hidden !important;">'+ '<img src="'+PageAttr.baseUrl+'assets/img/ga-logo.png" width="247" height="37" alt="GIORGIO ARMANI">' +
       '<p>Via Condotti 77-79 • Rome</p>'+
       '</div>'+
       '</div>';
@@ -82,9 +111,7 @@ function loadMaps(){
       content: contentString
   });
 	
-	google.maps.event.addListener(GAmarker, 'click', function() {
-	    infowindow.open(map,GAmarker);
-	  });
+	  infowindow.open(map,GAmarker);
   }
 }
 
@@ -134,12 +161,12 @@ function activateInternalGalleries(){
 
 function callCountdownScripts(e){
   var parts = e.url.split("/");
-  var compare = parts[parts.length-1].split('?')[0];
-  
-  switch(compare){
-    case "june-4":
-      interviewTexts();
-    break;
+    var compare = parts[parts.length-1].split('?')[0];
+    
+    switch(compare){
+      case "june-4":
+        interviewTexts();
+      break;
   }
 }
 
@@ -152,8 +179,37 @@ function interviewTexts(){
 }
 
 function internalCountdown(){
+  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
   $("#countdown-holder h1").fitText(0.8);
+}
+
+function loadAdditionalContent(e){
+  if(additionalContent.length < 1){
+    additionalContent = $('<section/>',{"class":"additional",id:"additional-content"});
+    additionalContent.width(availableWidth).css({"left":WINW,"top":-WINH}).appendTo(sectionMain);
+    var mfr = $.ajax({url: e.currentTarget.href});
+       mfr.always(function(data){
+          additionalContent.html(data);
+          var b = $("#back-to-count a").click(removeAdditional);
+          moveBodyContent();
+       });
+     }else{
+      moveBodyContent();
+     }
+  return false;
+}
+
+function moveBodyContent(){
+  additionalContent.show();
+  sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){});
+}
+
+function removeAdditional(){
+  sectionMain.transition({"left":0},800,function(){
+    additionalContent.hide();
+  });
+  return false;
 }
 
 function windowListenerEvents(){
@@ -173,28 +229,33 @@ $(function(){
     
     // set up basic vars and cache elements
     WIN = $(window);
-    var WINW = WIN.width(), WINH = WIN.height(),
-        DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
-        rows = 4,
-        columns = 4,
-        availableHeight = WINH - socialH
-        availableWidth = WINW - menuwidth;
+    WINW = WIN.width(), WINH = WIN.height(),
+    DOC = $(document), DOCW = DOC.width(), DOCH = DOC.height(),
+    rows = 4,
+    columns = 4,
+    availableHeight = WINH - (socialH*2)
+    availableWidth = WINW - menuwidth;
 
-    var palace = $("#palace-grid-holder"),
-        sectionMain = $("section#main");
-        sectionPrincipal = $("section.principal",sectionMain),
-        socialMediaFeed = $("#social-media-feed");
+    palace = $("#palace-grid-holder"),
+    sectionMain = $("section#main");
+    sectionPrincipal = $("section.principal",sectionMain),
+    socialMediaFeed = $("#social-media-feed"),
+    moreFromRome = $("#more-from-rome");
 
      var o = availableHeight / rows,
          amargin = (o * 0.10),
          a = o - amargin,
          maxwidth = Math.floor(a*3);
+         
+         // get top margin back
+         availableHeight = availableHeight + amargin;
      
   // add window listeners
   WIN.on('resize',windowListenerEvents);
   //WIN.on('scroll',windowScrollEvents);
   WIN.trigger('resize');
-   
+  
+  timeOffset();
   // check for internet explorer  
   if($('html').hasClass('lt-ie9')) isInternetExplorer = true;
   
@@ -212,9 +273,6 @@ $(function(){
   }
     
   $(".social.content h3").fitText(1.5);
-    
-  $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHM'});   
-  internalCountdown();
   
   $('body').mousemove(function(event) {
 
@@ -272,14 +330,18 @@ $(function(){
   }); 
   
    $(".item-holder").each(function(i,v){
-     var _s = $(this), _d = $('.door',_s), _ddata = _d.data();
+     var _s = $(this), _d = $('.door',_s), _ddata = _d.data(), _over = _s.hasClass('override');
      _s.height(a).css({"margin-top":amargin});
-     if(!checkInternetExplorer() && _ddata.contentAvailable){
+     if(_over && Modernizr.touch){
+       _s.on("click",function(e){
+         window.location = PageAttr.baseUrl+_ddata.link;
+       });
+     }else if(!checkInternetExplorer() && _ddata.contentAvailable){
        _s.zoomTarget({
               targetsize: 3,
               closeclick: true,
               onanimationcomplete:loadPage, 
-              zoomout: function(){}, // enable mouse over
+              zoomout: function(){ zoomViewport.show(); }, // enable mouse over
               onclick: function(){activePage = _s; loadCountdownPage(_ddata.link)} // disable mouse hovers too
         });
       }
@@ -292,20 +354,19 @@ $(function(){
    
    $(".door").height(a).width(a*0.58).css({"border-top-left-radius": a*0.58, "border-top-right-radius": a*0.58});
 
-   $(".zoomViewport").width(availableWidth-3);
+   zoomViewport = $(".zoomViewport").width(availableWidth-3);
    
    // do some fading in:
    $('nav#mainnav').delay(300).transition({left:0},700);
    
    // give the palace some values
-   palace.hide().height(availableHeight+15).css({"opacity":0,"max-width":maxwidth}).data({'containerHeight':availableHeight,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({"element":"div.door"});
+   palace.hide().height(availableHeight+15).css({"opacity":0,"max-width":maxwidth}).data({'containerHeight':WINH - socialH,'containerWidth':availableWidth,'menuwidth':menuwidth}).bgSwitcher({"element":"div.door"});
    
    //contentEnabled
    loadHolder = $("<div/>",{id:"loader"});
    loadHolder.appendTo($('body'));
    loadHolder.spin(opts);
-   // spinner = new Spinner(opts).spin(loadHolder[0]);
-   // loadHolder.data("spinner",spinner);
+
 
    $( ":data(content-enabled)", palace).each(function() {
     var _dbgimg = $( this ).data('bgImage');
@@ -314,15 +375,17 @@ $(function(){
   
    
    if(!$('body').hasClass('waiting')){
-   $.imgpreload(bgImagesPreload,function()
-   {         // check for success with: $(this[i]).data('loaded')
-     loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
-     //loadHolder.data("spinner").stop();
-     palace.show().transition({opacity:1},700);
-     socialMediaFeed.css({"top":availableHeight,opacity:0}).width(availableWidth-3).show().transition({opacity:1},300)
-   });
+     $.imgpreload(bgImagesPreload,function()
+      {         // check for success with: $(this[i]).data('loaded')
+       loadHolder.css({opacity:1}).transition({opacity:0},300,function(){ loadHolder.hide().spin(false) });
+       //loadHolder.data("spinner").stop();
+       palace.show().transition({opacity:1},700);
+       socialMediaFeed.css({top:WINH - socialH, opacity:0}).width(availableWidth-3).show().transition({opacity:1},500);
+       moreFromRome.css({opacity:0}).height(socialH - amargin).show().delay(400).transition({opacity:1},500);
+      });
     }
    
+   $("a.mfr",moreFromRome).on("click",loadAdditionalContent);
    // pjax calls for jax page laoding
    currentSelectedMenuItem = $('nav.main ul a.selected');
      
@@ -380,12 +443,15 @@ $(function(){
           countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
           callCountdownScripts(this);
           loadHolder.hide().spin(false);
+          //zoomViewport.hide();
        });
    }
    
    if(!checkInternetExplorer()){
        socialMediaFeed.find('a').click(function(e){
          var smf = $.ajax({url: this.href});
+         var c = $('span',$(this));
+         c.css({"position":"fixed",top:c.offset().top, left:c.offset().left,"z-index":9999})
          smf.always(function(data){
              socialMediaFeed.append(data);
              setTimeout(function(){
