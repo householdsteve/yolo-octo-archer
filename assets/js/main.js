@@ -8,7 +8,7 @@ var currentSelectedMenuItem = [];
 var isInternetExplorer = false;
 var bgImagesPreload = [PageAttr.baseUrl+'assets/img/GA-logo100x100.png'];
 var zoomViewport;
-var offsetTime = 0;
+var offsetTime = -1;
 var WIN,
     WINW,
     DOC,
@@ -68,7 +68,7 @@ function timeOffset() {
 }
 
 function serverTime() {
-  if(checkOffsetTime()){
+  if(checkOffsetTime() > -1){
     var time = null; 
         time = new Date(); 
         time.setMinutes(time.getMinutes() + offsetTime);
@@ -77,6 +77,7 @@ function serverTime() {
     }else{
         return new Date();
     }
+    
 }
 
 function loadMaps(){
