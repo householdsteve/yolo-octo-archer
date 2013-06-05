@@ -18,15 +18,35 @@ class Social_stream extends CI_Controller{
   public function index($start="")
   {     
     //$this->cache->model('social_stream_model', 'get_all', array(19), 120);
+    $this->load->library('pagination');
 		$this->load->model('social_stream_model');
-    $this->_data['data'] = $this->social_stream_model->get_all(200);
+		
+		$config['base_url'] = base_url().'social-stream/index';
+    $config['uri_segment'] = 3;
+    $config['total_rows'] = $this->social_stream_model->count_social_rows();
+    $config['per_page'] = 20;
+    $config['display_pages'] = FALSE;
+    $config['anchor_class'] = 'class="infinite-more-link"';
+    $config['prev_link'] = FALSE;
+    $config['first_link'] = FALSE;
+    
+    $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+    
+    $this->_data['data'] = $this->social_stream_model->get_all($config['per_page'],$page);
+
+    $this->pagination->initialize($config);
+
+    $this->_data['pagination'] = $this->pagination->create_links();
+    
     
     if( $this->input->is_ajax_request() )
 		{
 		  //$this->output->cache(44640);
+		  $this->_data['isAjax'] = true;
 		  $this->load->view("social_stream/index",$this->_data);
 		}else{
 		  //$this->output->cache(44640);
+		  $this->_data['isAjax'] = false;
 		  $this->view->set('_uni_title', 'FALSE')->render($this->_data);
 		}
   }

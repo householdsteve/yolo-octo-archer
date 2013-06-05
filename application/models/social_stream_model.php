@@ -5,10 +5,14 @@ class Social_stream_model extends CI_Model {
 	{
 		$this->load->database();
 	}
+	public function count_social_rows(){
+	  return $this->db->count_all("content");
+	}
 	
-	public function get_all($ct){
+	public function get_all($limit,$start){
+	  $this->db->limit($limit, $start);
 	  $this->db->order_by("unixdate", "desc");
-	  $query = $this->db->get('content',$ct, 0);
+	  $query = $this->db->get('content');
 	  if($query->result_array()){
 	    return $query->result_array();
     }else{
@@ -55,6 +59,16 @@ class Social_stream_model extends CI_Model {
       }
      }
    }
+   
+   $b = array(
+     "lid"=> $row['id'],
+     "type"=> "custom",
+     "username"=> "",
+     "content" => "Join us in sharing the excitement for the Giorgio Armani One Night Only in Roma event. Mention @armani start tagging:",
+     "unixdate"=> time()+1209600
+    );
+    
+    $this->db->insert('content', $b );
 	  
 	  echo 'Merged feeds!'.PHP_EOL;
 		//return $all;

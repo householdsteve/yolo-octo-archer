@@ -502,6 +502,10 @@ $(function(){
              socialMediaFeed.append(data);
              setTimeout(function(){
                $('body').scrollTo(availableHeight, 800, {easing:'linear'});
+               $('.row-fluid-social').waypoint('infinite',{
+                 onBeforePageLoad: function(){loadHolder.css({opacity:1}).show().spin(opts);},
+                 onAfterPageLoad: function(){loadHolder.hide().spin(false);}
+               });
              },300);
           });
           return false;
@@ -519,5 +523,3 @@ $(function(){
   activateInternalGalleries();
   interviewTexts();
 });
-
-
