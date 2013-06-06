@@ -437,6 +437,11 @@ section.additional .span6 {
 .sub-title h1 {
   font-size: 15px;
 }
+.divider {
+  margin-top: 0 !important;
+  border-top: 1px solid #cccccc;
+  text-align: center;
+}
 .cd-page {
   position: absolute;
   top: 0;
@@ -638,6 +643,10 @@ html.touch #globalHoverContainer-internal h1 {
   height: 100%;
   background: #000000;
 }
+#live-streaming-int {
+  width: 100%;
+  background: #000000;
+}
 /* ==========================================================================
    Mobile styles
    ========================================================================== */
@@ -805,6 +814,10 @@ html.touch #globalHoverContainer-internal h1 {
   height: 500px;
 }
 .royalSlider.rsMoreFromRome {
+  width: auto;
+  height: 500px;
+}
+.royalSlider.rsEvent {
   width: auto;
   height: 500px;
 }

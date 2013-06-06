@@ -452,6 +452,12 @@ section.additional .span6{
   }
 }
 
+.divider{
+  margin-top:0 !important;
+  border-top:1px solid @med_grey;
+  text-align:center;
+}
+
 
 .cd-page {
   position:absolute;
@@ -689,6 +695,10 @@ html.touch {
   height:100%;
   background:@black;
 }
+#live-streaming-int{
+  width:100%;
+  background:@black;
+}
 
 
 /* ==========================================================================
@@ -859,12 +869,17 @@ html.touch {
   }
 }
 
-.royalSlider.rsDefault {
-  width:auto;
-  height:500px;
-}
-
-.royalSlider.rsMoreFromRome {
-  width:auto;
-  height:500px;
+.royalSlider {
+  &.rsDefault {
+    width:auto;
+    height:500px;  
+  }
+  &.rsMoreFromRome {
+    width:auto;
+    height:500px;  
+  }
+  &.rsEvent {
+    width:auto;
+    height:500px;  
+  }
 }

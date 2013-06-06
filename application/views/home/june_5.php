@@ -4,6 +4,9 @@
       <div class="sub-title">
         <h1>MR. ARMANI ARRIVES IN ROME</h1>
       </div>
+      <?php if(!$isAjax):?>
+      <a class="cd-close fixed" href="<?php echo base_url();?>">X</a>
+      <?php endif; ?>
       </div>
 </div>
 
