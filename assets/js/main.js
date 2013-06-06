@@ -522,7 +522,7 @@ $(function(){
           countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
           callCountdownScripts(this);
           loadHolder.hide().spin(false);
-          //zoomViewport.hide();
+          zoomViewport.hide();
        });
    }
    
