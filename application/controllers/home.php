@@ -80,23 +80,22 @@ class Home extends CI_Controller{
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,5,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/ga-arrivo-roma.jpg",
-                                      "link"=>"",
+                                      "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "classes"=>"event",
-                                      "custom-date"=>"LIVE",
-                                      "title"=>"MR. ARMANI IS COMING",
-                                      "subtitle"=>"WATCH THE STREAM",
-                                      "override"=>"true",                                      
+                                      "custom-date"=>"THE EVENT",
+                                      "title"=>"ARMANI ARRIVES IN ROME",
+                                      "subtitle"=>"CLICK TO WATCH",                                     
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,6,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
                                       "link"=>"home/countdown",
-                                      "enabled"=>"false",
-                                      "available"=>"false",
-                                      "title"=>"CONTENT COMING:",
-                                      "subtitle"=>"6.6.2013",
+                                      "enabled"=>"true",
+                                      "available"=>"true",
+                                      "title"=>"WATCH THE ON DEMAND",
+                                      "subtitle"=>"EXCLUSIVE PHOTO GALLERY",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,7,2013),
@@ -170,7 +169,7 @@ class Home extends CI_Controller{
                                       "title"=>"CONTENT COMING:",
                                       "subtitle"=>"14.6.2013",
                                       "type"=>"");
-    $this->output->cache(44640);
+    //$this->output->cache(44640);
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   
