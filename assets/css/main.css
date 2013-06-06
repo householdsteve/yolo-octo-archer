@@ -14,6 +14,7 @@
 }
 html {
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 html,
 body {
@@ -50,6 +51,9 @@ a.active:focus {
 }
 a::-moz-focus-inner {
   border: 0;
+}
+.nero {
+  background: black;
 }
 .full_width_height {
   width: 100%;
@@ -162,7 +166,9 @@ nav h1 {
   font-size: 21px;
   margin: 0 auto 6px auto;
   text-align: center;
-  display: none;
+}
+nav h1 a {
+  color: black;
 }
 nav #main_countdown .countdown {
   width: 170px;
@@ -246,7 +252,7 @@ section.additional {
   width: auto;
 }
 #loader {
-  position: absolute;
+  position: fixed;
   width: 100px;
   height: 100px;
   left: 50%;
@@ -317,12 +323,17 @@ html.lt-ie9 .grid-row .door {
   border-top-right-radius: 100px;
   margin: 0 auto;
   background: no-repeat;
+  background-image: none;
   position: relative;
   -webkit-backface-visibility: hidden;
   -webkit-box-shadow: inset rgba(56, 56, 56, 0.5) 4.5px 2px 0px;
   box-shadow: inset rgba(56, 56, 56, 0.5) 4.5px 2px 0px;
   overflow: hidden;
   behavior: url(PIE.htc);
+}
+.grid-row .item-holder .door.loading {
+  background-image: url('../img/loader.gif');
+  background-position: center center;
 }
 .grid-row .item-holder .door .controller {
   z-index: 999999;
@@ -409,8 +420,9 @@ html.lt-ie9 .grid-row .door {
   line-height: 60px;
 }
 .more-rome {
-  margin: 0 !important;
   width: 50% !important;
+  margin: 0 !important;
+  border: 1px solid #cccccc !important;
 }
 section.additional .span6 {
   margin: 0 !important;
@@ -727,20 +739,20 @@ html.touch #globalHoverContainer-internal h1 {
   color: white;
 }
 .row-fluid-social .span12:nth-child(even) .span3:nth-child(even) {
-  background: black;
-  color: white;
+  background: #eeeeee;
+  color: black;
 }
 .row-fluid-social .span12:nth-child(even) .span3:nth-child(odd) {
-  background: #eeeeee;
-  color: black;
-}
-.row-fluid-social .span12:nth-child(odd) .span3:nth-child(odd) {
   background: black;
   color: white;
 }
-.row-fluid-social .span12:nth-child(odd) .span3:nth-child(even) {
+.row-fluid-social .span12:nth-child(odd) .span3:nth-child(odd) {
   background: #eeeeee;
   color: black;
+}
+.row-fluid-social .span12:nth-child(odd) .span3:nth-child(even) {
+  background: black;
+  color: white;
 }
 .social.content {
   height: 100%;
@@ -763,8 +775,8 @@ html.touch #globalHoverContainer-internal h1 {
 .social.content .above h2 {
   bottom: 2%;
   position: absolute;
-  line-height: 15px;
-  font-size: 15px;
+  line-height: 13px;
+  font-size: 13px;
 }
 .social.content.instagram .above {
   position: absolute;
@@ -773,6 +785,8 @@ html.touch #globalHoverContainer-internal h1 {
 }
 .social.content.instagram h2 {
   color: white !important;
+  text-shadow: 1px 1px 0px #000000;
+  filter: dropshadow(color=#000000, offx=0, offy=0);
 }
 .social.content.custom {
   background: black !important;
@@ -787,6 +801,10 @@ html.touch #globalHoverContainer-internal h1 {
   top: 20%;
 }
 .royalSlider.rsDefault {
+  width: auto;
+  height: 500px;
+}
+.royalSlider.rsMoreFromRome {
   width: auto;
   height: 500px;
 }

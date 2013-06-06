@@ -13,7 +13,7 @@
 
 @menuwidth: 250px;
 @socialheight: 60px;
-html {overflow-y: scroll;}
+html {overflow-y: scroll; overflow-x: hidden;}
 html, body {
   width:100%;
   height:100%;
@@ -39,6 +39,9 @@ section {position:relative;}
 a:focus, a.active:focus {outline:none;}
 a::-moz-focus-inner {border:0;}
 
+.nero{
+  background:black;
+}
 
 .full_width_height {
   width:100%;
@@ -148,7 +151,9 @@ nav {
     font-size:21px;
     margin:0 auto 6px auto;
     text-align:center;
-    display:none;
+    a {
+      color:black;
+    }
   }
   
   #main_countdown {
@@ -244,7 +249,7 @@ section.additional {
 }
 
 #loader {
-  position:absolute;
+  position:fixed;
   width:100px;
   height:100px;
   left:50%;
@@ -322,12 +327,18 @@ html.lt-ie9 .grid-row {
      border-top-right-radius: 100px;
      margin:0 auto;
      background: no-repeat;
+     background-image:none;
      position:relative;
      -webkit-backface-visibility: hidden;
      -webkit-box-shadow: inset rgba(56,56,56,0.5) 4.5px 2px 0px;
      box-shadow: inset rgba(56,56,56,0.5) 4.5px 2px 0px;
      overflow:hidden;
      behavior: url(PIE.htc);
+     
+     &.loading {
+       background-image:url('../img/loader.gif');
+       background-position:center center;
+     }
      
      .controller {
       z-index:999999;
@@ -421,8 +432,9 @@ html.lt-ie9 .grid-row {
 }
 
 .more-rome{
-  margin:0 !important; 
   width:50% !important;
+  margin:0 !important; 
+  border:1px solid @med_grey !important;
 }
 
 section.additional .span6{
@@ -785,18 +797,18 @@ html.touch {
   }
   &:nth-child(even){
     .span3:nth-child(even) {
-      .set-black;
+      .set-white;
     }
     .span3:nth-child(odd) {
-      .set-white;
+      .set-black;
     }
   }
   &:nth-child(odd){
     .span3:nth-child(odd) {
-      .set-black;
+      .set-white;
     }
     .span3:nth-child(even) {
-      .set-white; 
+      .set-black; 
     }
   }
 }
@@ -820,8 +832,8 @@ html.touch {
     h2 {
       bottom:2%;
       position:absolute;
-      line-height:15px;
-      font-size:15px;
+      line-height:13px;
+      font-size:13px;
     }
   }
   &.twitter{
@@ -834,7 +846,9 @@ html.touch {
         top:auto;
       }
       h2 {
-       color:white !important; 
+       color:white !important;
+       text-shadow: 1px 1px 0px #000000;
+       filter: dropshadow(color=#000000, offx=0, offy=0);
       }
   }
   &.custom {
@@ -846,6 +860,11 @@ html.touch {
 }
 
 .royalSlider.rsDefault {
+  width:auto;
+  height:500px;
+}
+
+.royalSlider.rsMoreFromRome {
   width:auto;
   height:500px;
 }

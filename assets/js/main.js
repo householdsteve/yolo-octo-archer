@@ -160,6 +160,33 @@ function activateInternalGalleries(){
            		pauseOnHover: true
        }
     });
+    
+  $(".royalSlider.rsMoreFromRome").royalSlider({
+       loop:true,
+       imageAlignCenter:true,
+       imageScaleMode: 'fit',
+       autoScaleSlider: true,
+       arrowsNavHideOnTouch: false,
+       arrowsNavAutoHide:true,
+       arrowsNav:true,
+       width:'100%',height:'100%',
+       autoScaleSlider:true,autoScaleSliderWidth:1200,
+       autoScaleSliderHeight:500,slidesSpacing:0,
+       imgHeight:570,
+       autoPlay: {
+           		// autoplay options go gere
+           		enabled: true,
+           		pauseOnHover: true
+       },
+       visibleNearby: {
+                   enabled: true,
+                   centerArea: 0.5,
+                   center: false,
+                   breakpoint: availableWidth/2,
+                   breakpointCenterArea: 0.64,
+                   navigateByCenterClick: true
+               }
+    });
 }
 
 function callCountdownScripts(e){
@@ -169,6 +196,9 @@ function callCountdownScripts(e){
     switch(compare){
       case "june-4":
         interviewTexts();
+      break;
+      case "june-6":
+        WIN.trigger('resize');
       break;
   }
 }
@@ -182,7 +212,7 @@ function interviewTexts(){
 }
 
 function internalCountdown(){
-  $("nav h1").css({"opacity":0}).show().transition({"opacity":1},300);
+  //$("nav h1").css({"opacity":0}).show().transition({"opacity":1},300);
   $(".countdown").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'HMS'});
   $(".countdown-internal").countdown({until: new Date(2013, 6 - 1, 5, 21,0,0), serverSync: serverTime, format:'dHMS'});
   $("#countdown-holder h1").fitText(0.8);
@@ -196,6 +226,7 @@ function loadAdditionalContent(e){
        mfr.always(function(data){
           additionalContent.html(data);
           var b = $("#back-to-count a").click(removeAdditional);
+          activateInternalGalleries();
           moveBodyContent();
        });
      }else{
@@ -205,8 +236,11 @@ function loadAdditionalContent(e){
 }
 
 function moveBodyContent(){
+  //$('html').css({"overflow-x":"hidden"});
   additionalContent.show();
-  sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){});
+  sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){
+    //$('html').css({"overflow-x":"auto"});
+  });
 }
 
 function removeAdditional(){
@@ -219,7 +253,7 @@ function removeAdditional(){
 function windowListenerEvents(){
   var currentHeight = WIN.height(), currentWidth = WIN.width();
 
-  if($("#frame1").length > 0) $("#frame1").height(currentHeight);
+  $("#frame1").height(currentHeight);
 }
 
 function windowScrollEvents(){
@@ -273,20 +307,19 @@ $(function(){
     }
   }
   
-  // if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
-  //     advise = $("<div/>",{"class":"tellexplorer"})
-  //     .append($("<div/>",{"class":"advice"}).html(
-  //       "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
-  //       ));
-  //     advise.appendTo($('body'));
-  //     advise.click(function(){
-  //       $(this).remove();
-  //     });
-  //     
-  //     $.cookie('_saw_ie_message_', true, { expires: 7 });
-  //   }
+  if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
+        advise = $("<div/>",{"class":"tellexplorer"})
+        .append($("<div/>",{"class":"advice"}).html(
+          "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
+          ));
+        advise.appendTo($('body'));
+        advise.click(function(){
+          $(this).remove();
+        });
+        
+        $.cookie('_saw_ie_message_', true, { expires: 7 });
+      }
     
-  $(".social.content h3").fitText(1.5);
   
   $('body').mousemove(function(event) {
 
@@ -388,7 +421,7 @@ $(function(){
 
    $( ":data(content-enabled)", palace).each(function() {
     var _dbgimg = $( this ).data('bgImage');
-    if($.inArray(_dbgimg,bgImagesPreload) == -1)  bgImagesPreload.push(_dbgimg);
+    //if($.inArray(_dbgimg,bgImagesPreload) == -1)  bgImagesPreload.push(_dbgimg);
    });
   
    
@@ -472,26 +505,50 @@ $(function(){
          c.css({"position":"fixed",top:c.offset().top, left:c.offset().left,"z-index":9999})
          smf.always(function(data){
              socialMediaFeed.append(data);
+             $(".social.content p").fitText(1.85);
              setTimeout(function(){
                $('body').scrollTo(availableHeight, 800, {easing:'linear'});
                $('.row-fluid-social').waypoint('infinite',{
-                 onBeforePageLoad: function(){loadHolder.css({opacity:1}).show().spin(opts);},
-                 onAfterPageLoad: function(){loadHolder.hide().spin(false);}
+                 onBeforePageLoad: function(){
+                   $.extend(true,opts,{"shadow":true,"color":"#fff"});
+                   loadHolder.css({opacity:1}).show().spin(opts);
+                 },
+                 onAfterPageLoad: function(){
+                   $.extend(true,opts,{"shadow":false,"color":"#000"});
+                   loadHolder.hide().spin(false); $(".social.content p").fitText(1.85);
+                 }
                });
+               $(".social.content h3").fitText(1.5);
+               $(".social.content p").fitText(1.5);
              },300);
           });
           return false;
        });
     }else{
       var special = $(".row-fluid-social");
-      $('.span12:even').find('.span3:even').addClass('black');
-      $('.span12:even').find('.span3:odd').addClass('white')
-      $('.span12:odd').find('.span3:odd').addClass('black');
-      $('.span12:odd').find('.span3:even').addClass('white');
+      $('.span12:even').find('.span3:even').addClass('white');
+      $('.span12:even').find('.span3:odd').addClass('black')
+      $('.span12:odd').find('.span3:odd').addClass('white');
+      $('.span12:odd').find('.span3:even').addClass('black');
     }
     
   setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
   
   activateInternalGalleries();
   interviewTexts();
+  
+  if($('.row-fluid-social').length > 0){
+  $(".social.content h3").fitText(1.5);
+  $(".social.content p").fitText(1.85);
+  $('.row-fluid-social').waypoint('infinite',{
+     onBeforePageLoad: function(){
+        $.extend(true,opts,{"shadow":true,"color":"#fff"});
+        loadHolder.css({opacity:1}).show().spin(opts);
+      },
+      onAfterPageLoad: function(){
+        $.extend(true,opts,{"shadow":false,"color":"#000"});
+        loadHolder.hide().spin(false); $(".social.content p").fitText(1.85);
+      }
+   });
+ }
 });
