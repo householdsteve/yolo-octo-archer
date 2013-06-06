@@ -201,11 +201,17 @@
             
             function removeLoader(ele){
               var _s = $(ele.currentTarget), _c = $('.cover',_s);
+              _c.transition({opacity:0},500,function(){
+                
+              });
               _c.removeClass('loading');
             }
             
             function setLoader(ele){
               var _s = $(ele.currentTarget), _c = $('.cover',_s);
+              _c.transition({opacity:1},500,function(){
+                
+              });
               _c.addClass('loading');
             }
             
