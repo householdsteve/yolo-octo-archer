@@ -85,12 +85,12 @@ class Home extends CI_Controller{
                                       "available"=>"true",
                                       "classes"=>"event",
                                       "custom-date"=>"THE EVENT",
-                                      "title"=>"ARMANI ARRIVES IN ROME",
-                                      "subtitle"=>"CLICK TO WATCH",                                     
+                                      "title"=>"ARRIVING IN ROME",
+                                      "subtitle"=>"& PRE SHOW FITTING",                                     
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,6,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/sfilata-ono.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/ga-sfilata-ono.jpg",
                                       "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
