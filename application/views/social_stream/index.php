@@ -1,6 +1,5 @@
 <div class="row-fluid-social">
-  <?php echo $pagination; ?>
-    <?php
+<?php echo $pagination; ?><?php
     $count = 0;
       foreach($data as $key => $row):?>
       <?php if ($count % 4 == 0):?>

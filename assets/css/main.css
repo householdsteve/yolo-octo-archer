@@ -739,20 +739,20 @@ html.touch #globalHoverContainer-internal h1 {
   color: white;
 }
 .row-fluid-social .span12:nth-child(even) .span3:nth-child(even) {
-  background: black;
-  color: white;
+  background: #eeeeee;
+  color: black;
 }
 .row-fluid-social .span12:nth-child(even) .span3:nth-child(odd) {
-  background: #eeeeee;
-  color: black;
-}
-.row-fluid-social .span12:nth-child(odd) .span3:nth-child(odd) {
   background: black;
   color: white;
 }
-.row-fluid-social .span12:nth-child(odd) .span3:nth-child(even) {
+.row-fluid-social .span12:nth-child(odd) .span3:nth-child(odd) {
   background: #eeeeee;
   color: black;
+}
+.row-fluid-social .span12:nth-child(odd) .span3:nth-child(even) {
+  background: black;
+  color: white;
 }
 .social.content {
   height: 100%;

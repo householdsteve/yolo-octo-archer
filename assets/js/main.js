@@ -307,20 +307,19 @@ $(function(){
     }
   }
   
-  // if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
-  //     advise = $("<div/>",{"class":"tellexplorer"})
-  //     .append($("<div/>",{"class":"advice"}).html(
-  //       "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
-  //       ));
-  //     advise.appendTo($('body'));
-  //     advise.click(function(){
-  //       $(this).remove();
-  //     });
-  //     
-  //     $.cookie('_saw_ie_message_', true, { expires: 7 });
-  //   }
+  if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
+        advise = $("<div/>",{"class":"tellexplorer"})
+        .append($("<div/>",{"class":"advice"}).html(
+          "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
+          ));
+        advise.appendTo($('body'));
+        advise.click(function(){
+          $(this).remove();
+        });
+        
+        $.cookie('_saw_ie_message_', true, { expires: 7 });
+      }
     
-  $(".social.content h3").fitText(1.5);
   
   $('body').mousemove(function(event) {
 
@@ -422,7 +421,7 @@ $(function(){
 
    $( ":data(content-enabled)", palace).each(function() {
     var _dbgimg = $( this ).data('bgImage');
-    if($.inArray(_dbgimg,bgImagesPreload) == -1)  bgImagesPreload.push(_dbgimg);
+    //if($.inArray(_dbgimg,bgImagesPreload) == -1)  bgImagesPreload.push(_dbgimg);
    });
   
    
@@ -510,9 +509,16 @@ $(function(){
              setTimeout(function(){
                $('body').scrollTo(availableHeight, 800, {easing:'linear'});
                $('.row-fluid-social').waypoint('infinite',{
-                 onBeforePageLoad: function(){loadHolder.css({opacity:1}).show().spin(opts);},
-                 onAfterPageLoad: function(){loadHolder.hide().spin(false); $(".social.content p").fitText(1.85);}
+                 onBeforePageLoad: function(){
+                   $.extend(true,opts,{"shadow":true,"color":"#fff"});
+                   loadHolder.css({opacity:1}).show().spin(opts);
+                 },
+                 onAfterPageLoad: function(){
+                   $.extend(true,opts,{"shadow":false,"color":"#000"});
+                   loadHolder.hide().spin(false); $(".social.content p").fitText(1.85);
+                 }
                });
+               $(".social.content h3").fitText(1.5);
                $(".social.content p").fitText(1.5);
              },300);
           });
@@ -520,10 +526,10 @@ $(function(){
        });
     }else{
       var special = $(".row-fluid-social");
-      $('.span12:even').find('.span3:even').addClass('black');
-      $('.span12:even').find('.span3:odd').addClass('white')
-      $('.span12:odd').find('.span3:odd').addClass('black');
-      $('.span12:odd').find('.span3:even').addClass('white');
+      $('.span12:even').find('.span3:even').addClass('white');
+      $('.span12:even').find('.span3:odd').addClass('black')
+      $('.span12:odd').find('.span3:odd').addClass('white');
+      $('.span12:odd').find('.span3:even').addClass('black');
     }
     
   setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
@@ -532,10 +538,17 @@ $(function(){
   interviewTexts();
   
   if($('.row-fluid-social').length > 0){
-    $(".social.content p").fitText(1.85);
+  $(".social.content h3").fitText(1.5);
+  $(".social.content p").fitText(1.85);
   $('.row-fluid-social').waypoint('infinite',{
-     onBeforePageLoad: function(){loadHolder.css({opacity:1}).show().spin(opts);},
-     onAfterPageLoad: function(){loadHolder.hide().spin(false); $(".social.content p").fitText(1.85);}
+     onBeforePageLoad: function(){
+        $.extend(true,opts,{"shadow":true,"color":"#fff"});
+        loadHolder.css({opacity:1}).show().spin(opts);
+      },
+      onAfterPageLoad: function(){
+        $.extend(true,opts,{"shadow":false,"color":"#000"});
+        loadHolder.hide().spin(false); $(".social.content p").fitText(1.85);
+      }
    });
  }
 });

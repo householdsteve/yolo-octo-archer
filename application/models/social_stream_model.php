@@ -64,7 +64,7 @@ class Social_stream_model extends CI_Model {
      "lid"=> $row['id'],
      "type"=> "custom",
      "username"=> "",
-     "content" => "Join us in sharing the excitement for the Giorgio Armani One Night Only in Roma event. Mention @armani start tagging:",
+     "content" => "Thanks for sharing in the excitement of the Giorgio Armani One Night Only in Roma event. Share your stories, mention @armani and keep tagging:",
      "unixdate"=> time()+1209600
     );
     

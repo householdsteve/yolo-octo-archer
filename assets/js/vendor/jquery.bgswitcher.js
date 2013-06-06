@@ -85,7 +85,7 @@
               if(!_s.data('bgcached')){
                 $.imgpreload(_s.data('bgImage'),function()
                  {
-                     
+                     items.trigger('setLoader');
                      _s.data({'bgdimens':$(this).data('attrs'), "bgcached":true}).trigger('bgcomplete');
                  });
               }else{
@@ -144,7 +144,8 @@
             }
             
             function setCurrentBackground(ele,activeObject){
-              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.parent().offset();                            
+              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.parent().offset();
+              items.trigger('removeLoader');                           
               _s.css({
                 "background-image":"url("+_d.bgImage+")",
                 "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
@@ -197,6 +198,17 @@
               });
              
             }
+            
+            function removeLoader(ele){
+              var _s = $(ele.currentTarget), _c = $('.cover',_s);
+              _c.removeClass('loading');
+            }
+            
+            function setLoader(ele){
+              var _s = $(ele.currentTarget), _c = $('.cover',_s);
+              _c.addClass('loading');
+            }
+            
             // start all calls here !!!
 
             items.each(function(i,v){
@@ -221,6 +233,8 @@
               _s.on("bgcomplete", calculateBackground);
               _s.on("bgset", setCurrentBackground);
               _s.on("resetDate", changeDateMessageBack);
+              _s.on("setLoader", setLoader);
+              _s.on("removeLoader", removeLoader);
             
               // add mouse click
             });
