@@ -499,7 +499,7 @@ $(function(){
      if(countdownDiv.length < 1){
          countdownDiv = $("<div/>",{"class":"cd-page"}).width(availableWidth).height(WINH).hide();
          countdownContent = $("<div/>",{"class":"cd-content"});
-         countdownClose = $("<div/>",{"class":"cd-close"}).text('X').css({"opacity":0.5});
+         countdownClose = $("<div/>",{"class":"cd-close fixed"}).text('X').css({"opacity":0.5});
          countdownClose.on("click",function(e){
             countdownDiv.transition({opacity:0},300,function(){countdownDiv.hide()});
             countdownContent.empty();
