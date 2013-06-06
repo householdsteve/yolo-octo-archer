@@ -187,6 +187,34 @@ function activateInternalGalleries(){
                    navigateByCenterClick: true
                }
     });
+    
+    $(".royalSlider.rsEvent").royalSlider({
+         loop:true,
+         imageAlignCenter:true,
+         imageScaleMode: 'fit',
+         autoScaleSlider: true,
+         arrowsNavHideOnTouch: false,
+         arrowsNavAutoHide:true,
+         arrowsNav:true,
+         width:'100%',height:'100%',
+         autoScaleSlider:true,autoScaleSliderWidth:1200,
+         autoScaleSliderHeight:500,slidesSpacing:0,
+         imgHeight:570,
+         autoPlay: {
+             		// autoplay options go gere
+             		enabled: true,
+             		pauseOnHover: true
+         },
+         visibleNearby: {
+                     enabled: true,
+                     centerArea: 0.5,
+                     center: false,
+                     breakpoint: availableWidth/2,
+                     breakpointCenterArea: 0.64,
+                     navigateByCenterClick: true
+                 }
+      });
+    
 }
 
 function callCountdownScripts(e){

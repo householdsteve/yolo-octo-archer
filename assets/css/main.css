@@ -802,3 +802,7 @@ html.touch #globalHoverContainer-internal h1 {
   width: auto;
   height: 500px;
 }
+.royalSlider.rsEvent {
+  width: auto;
+  height: 500px;
+}
