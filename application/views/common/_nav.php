@@ -35,7 +35,7 @@
     </li>
   </ul>
   <div id="main_countdown">
-    <h1><a href="<?php echo base_url();?>">WATCH IT ON DEMAND</a></h1>
+    <h1><a href="<?php echo site_url('events/rome');?>">WATCH IT ON DEMAND</a></h1>
   </div>
   <a id="visitarmani" href="http://armani.com" title="visit ARMANI.com">visit ARMANI.com</a>
 </nav>

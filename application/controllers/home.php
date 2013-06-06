@@ -90,12 +90,12 @@ class Home extends CI_Controller{
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,6,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/sfilata-ono.jpg",
                                       "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
-                                      "title"=>"WATCH THE ON DEMAND",
-                                      "subtitle"=>"EXCLUSIVE PHOTO GALLERY",
+                                      "title"=>"WATCH THE SHOW",
+                                      "subtitle"=>"ON DEMAND",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,7,2013),
@@ -169,7 +169,7 @@ class Home extends CI_Controller{
                                       "title"=>"CONTENT COMING:",
                                       "subtitle"=>"14.6.2013",
                                       "type"=>"");
-    //$this->output->cache(44640);
+    $this->output->cache(44640);
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
   

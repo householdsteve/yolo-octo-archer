@@ -197,6 +197,9 @@ function callCountdownScripts(e){
       case "june-4":
         interviewTexts();
       break;
+      case "june-6":
+        WIN.trigger('resize');
+      break;
   }
 }
 
@@ -233,8 +236,11 @@ function loadAdditionalContent(e){
 }
 
 function moveBodyContent(){
+  //$('html').css({"overflow-x":"hidden"});
   additionalContent.show();
-  sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){});
+  sectionMain.css({'left':sectionMain.offset().left}).transition({"left":-availableWidth},800,function(){
+    //$('html').css({"overflow-x":"auto"});
+  });
 }
 
 function removeAdditional(){
@@ -247,7 +253,7 @@ function removeAdditional(){
 function windowListenerEvents(){
   var currentHeight = WIN.height(), currentWidth = WIN.width();
 
-  if($("#frame1").length > 0) $("#frame1").height(currentHeight);
+  $("#frame1").height(currentHeight);
 }
 
 function windowScrollEvents(){

@@ -14,6 +14,7 @@
 }
 html {
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 html,
 body {
@@ -322,12 +323,17 @@ html.lt-ie9 .grid-row .door {
   border-top-right-radius: 100px;
   margin: 0 auto;
   background: no-repeat;
+  background-image: none;
   position: relative;
   -webkit-backface-visibility: hidden;
   -webkit-box-shadow: inset rgba(56, 56, 56, 0.5) 4.5px 2px 0px;
   box-shadow: inset rgba(56, 56, 56, 0.5) 4.5px 2px 0px;
   overflow: hidden;
   behavior: url(PIE.htc);
+}
+.grid-row .item-holder .door.loading {
+  background-image: url('../img/loader.gif');
+  background-position: center center;
 }
 .grid-row .item-holder .door .controller {
   z-index: 999999;
