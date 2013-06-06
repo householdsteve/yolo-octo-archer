@@ -83,9 +83,9 @@
               activeItem = _s;
               
               if(!_s.data('bgcached')){
+                items.trigger('setLoader');
                 $.imgpreload(_s.data('bgImage'),function()
                  {
-                     items.trigger('setLoader');
                      _s.data({'bgdimens':$(this).data('attrs'), "bgcached":true}).trigger('bgcomplete');
                  });
               }else{
@@ -111,18 +111,18 @@
               
             isOver = false;
             setTimeout(function(){
-                              if(!testTime()){
-                                 items.trigger('bghide');
-                                 globalHoverContainer.delay(0).transition({opacity:0},500,function(){
-                                   globalHoverContainer.hide();
-                                   globalHoverShowing = false;
-                                 });
-           
-                                 if(activeHoverChild.length > 0) activeHoverChild.hide();
-                                 if(lastHoverChild.length > 0) lastHoverChild.hide();
-                                 lastHoverChild = [];
-                                 activeHoverChild = [];
-                              }
+                if(!testTime()){
+                   items.trigger('bghide');
+                   globalHoverContainer.delay(0).transition({opacity:0},500,function(){
+                     globalHoverContainer.hide();
+                     globalHoverShowing = false;
+                   });
+
+                   if(activeHoverChild.length > 0) activeHoverChild.hide();
+                   if(lastHoverChild.length > 0) lastHoverChild.hide();
+                   lastHoverChild = [];
+                   activeHoverChild = [];
+                }
               },300);
             }
             
@@ -144,25 +144,23 @@
             }
             
             function setCurrentBackground(ele,activeObject){
-              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.parent().offset();
-              items.trigger('removeLoader');                           
+              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.parent().offset();                  
               _s.css({
                 "background-image":"url("+_d.bgImage+")",
                 "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
                 "background-position": (scope.offset().left - offset.left) + "px "+ (-offset.top) +"px"
               });
 
-
-
               var _c = $('.cover',_s);
               if(_c.is(":visible")){
-                _c.transition({opacity:0},500,function(){});
+                //_c.transition({opacity:0},500,function(){});
               }
 
               _s.data('dateEle').hide();
               if(items.index(_s) == itemCount-1){
                 // last animation
                 // bbroadcast even listener here
+                items.trigger('removeLoader'); 
                 changeDateMessage(_d,activeObject);
               }        
             }
@@ -191,7 +189,7 @@
                 items.trigger('resetDate');
               }
               
-              _c.transition({opacity:1},500,function(){
+              _c.css({opacity:_c.attr('opacity')}).transition({opacity:1},500,function(){
                  _s.css({
                             "background-image":"none"
                         });
@@ -201,7 +199,7 @@
             
             function removeLoader(ele){
               var _s = $(ele.currentTarget), _c = $('.cover',_s);
-              _c.transition({opacity:0},500,function(){
+              _c.css({opacity:_c.attr('opacity')}).transition({opacity:0},500,function(){
                 
               });
               _c.removeClass('loading');
@@ -209,7 +207,7 @@
             
             function setLoader(ele){
               var _s = $(ele.currentTarget), _c = $('.cover',_s);
-              _c.transition({opacity:1},500,function(){
+              _c.css({opacity:_c.attr('opacity')}).transition({opacity:1},500,function(){
                 
               });
               _c.addClass('loading');
