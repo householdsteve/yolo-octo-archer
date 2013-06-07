@@ -249,7 +249,7 @@ function internalCountdown(){
 function loadAdditionalContent(e){
   if(additionalContent.length < 1){
     additionalContent = $('<section/>',{"class":"additional",id:"additional-content"});
-    additionalContent.width(availableWidth).css({"left":WINW,"top":-WINH}).appendTo(sectionMain);
+    additionalContent.width(availableWidth).css({"left":WINW,"top":-sectionPrincipal.height()}).appendTo(sectionMain);
     var mfr = $.ajax({url: e.currentTarget.href});
        mfr.always(function(data){
           additionalContent.html(data);

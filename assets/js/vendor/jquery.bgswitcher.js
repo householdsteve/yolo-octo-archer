@@ -83,12 +83,11 @@
               activeItem = _s;
               
               if(!_s.data('bgcached')){
-                items.trigger('setLoader');
-                
+               items.trigger('setLoader');
+ 
                var img = $("<img/>",{"src":_s.data('bgImage')});
                var imgLoad = imagesLoaded( img[0] );
                imgLoad.on( 'progress', function( instance, image ) {
-                 console.log('actiev loaded')
                 _s.data({'bgdimens':{width:image.img.width,height:image.img.height}, "bgcached":true}).trigger('bgcomplete');
                });
                 
@@ -143,14 +142,12 @@
               _s.data({"bgprop":bgprop,"bgwidth":bgwidth,"bgorigin":bgorigin});
               
               // call animation of bg image and load for all
-              console.log('bg calculated')
               items.trigger('bgset',[_s]);
             
             }
             
             function setCurrentBackground(ele,activeObject){
               var _s = $(ele.currentTarget), _d = (activeItem != activeObject) ? activeItem.data() : activeObject.data(), offset = _s.parent().offset();
-              console.log(_d)
               _s.css({
                 "background-image":"url("+_d.bgImage+")",
                 "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
@@ -159,7 +156,7 @@
 
               var _c = $('.cover',_s);
               if(_c.is(":visible")){
-                //_c.transition({opacity:0},500,function(){});
+                _c.css({opacity:_c.attr('opacity')}).transition({opacity:0},500,function(){});
               }
 
               _s.data('dateEle').hide();
@@ -205,9 +202,9 @@
             
             function removeLoader(ele){
               var _s = $(ele.currentTarget), _c = $('.cover',_s);
-              _c.css({opacity:_c.attr('opacity')}).transition({opacity:0},500,function(){
-                
-              });
+              // _c.css({opacity:_c.attr('opacity')}).transition({opacity:0},500,function(){
+              //                
+              //              });
               _c.removeClass('loading');
             }
             
