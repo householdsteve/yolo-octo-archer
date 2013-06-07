@@ -15,6 +15,7 @@ class Preview extends CI_Controller{
   
   public function index($id){
       $this->_data['id'] = $id;
+      $this->_data['isAjax'] = false;
       $this->_data['data'] = $this->_data;      
       $this->view->set('_uni_title', 'FALSE')->render($this->_data);  
   }
