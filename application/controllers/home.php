@@ -101,10 +101,10 @@ class Home extends CI_Controller{
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,7,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/Eccentrico-Roma_allestimento.jpg",
                                       "link"=>"home/countdown",
-                                      "enabled"=>"false",
-                                      "available"=>"false",
+                                      "enabled"=>"true",
+                                      "available"=>"true",
                                       "title"=>"ECCENTRICO",
-                                      "subtitle"=>"COMING THIS AFTERNOON",
+                                      "subtitle"=>"EXHIBITION & COCKTAIL PARTY",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,8,2013),

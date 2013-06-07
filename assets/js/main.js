@@ -374,7 +374,7 @@ $(function(){
   });
    
   // SET UP DIFFERENT PAGE HEIGHTS
-   //sectionMain.css("min-height",WINH).height(WINH);
+   sectionMain.css("min-height",WINH).height(WINH);
  
    if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu){
      sectionPrincipal.height(WINH).width(availableWidth);
@@ -561,7 +561,7 @@ $(function(){
       $('.span12:odd').find('.span3:even').addClass('black');
     }
     
-  //setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
+  setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
   
   activateInternalGalleries();
   interviewTexts();
