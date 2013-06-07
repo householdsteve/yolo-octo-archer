@@ -1,11 +1,9 @@
 <div class="row-fluid">    
   <div class="span12 nero">
-    <div id="live-streaming-int" class="container">
-      <iframe id="frame2" src="http://live.armani.com/live.aspx?e=armani-one-night-only" width="100%" height="500" align="left" scrolling="no" frameborder="0"></iframe>
+       <iframe src="http://youtube.com/embed/uDOKLIbOgN4?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=500" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
       <?php if(!$isAjax):?>
       <a class="cd-close fixed" href="<?php echo base_url();?>">X</a>
       <?php endif; ?>
-    </div>
   </div>
 </div>
 

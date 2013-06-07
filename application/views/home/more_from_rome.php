@@ -6,14 +6,14 @@
    </div>
    <div class="span12">
      <div class="span6 more-rome">
-        <iframe src="http://youtube.com/embed/wtrpWEZFTeU?rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+        <iframe src="http://youtube.com/embed/wtrpWEZFTeU?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
         <div class="sub-title">
           <h1>FITTING BEFORE THE EVENT</h1>
         </div>
       </div>
        
      <div class="span6 more-rome nero">
-     <iframe src="http://youtube.com/embed/YDIh8mfeq2Q?rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+     <iframe src="http://youtube.com/embed/YDIh8mfeq2Q?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
       <div class="sub-title">
         <h1>MR. ARMANI ARRIVES IN ROME</h1>
       </div>
