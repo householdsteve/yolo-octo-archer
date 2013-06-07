@@ -12,3 +12,7 @@ common:
 # configs for each action
 index:
   title: Giorgio Armani | One night only Social Stream
+  
+  
+  og:
+    index og:image: assets/img/og/socia.jpg
