@@ -452,6 +452,9 @@ section.additional .span6 {
   background: black;
   z-index: 1000;
 }
+.cd-page .row-fluid {
+  background: #000000;
+}
 .cd-close {
   cursor: pointer;
   background: url('../img/icon-back.png') no-repeat top left;

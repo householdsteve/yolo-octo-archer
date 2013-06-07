@@ -374,7 +374,7 @@ $(function(){
   });
    
   // SET UP DIFFERENT PAGE HEIGHTS
-   sectionMain.css("min-height",WINH).height(WINH);
+   //sectionMain.css("min-height",WINH).height(WINH);
  
    if(PageAttr.ShowBottomMenu != undefined && !PageAttr.ShowBottomMenu){
      sectionPrincipal.height(WINH).width(availableWidth);
@@ -497,7 +497,7 @@ $(function(){
    function loadPage(html){
      
      if(countdownDiv.length < 1){
-         countdownDiv = $("<div/>",{"class":"cd-page"}).width(availableWidth).height(WINH).hide();
+         countdownDiv = $("<div/>",{"class":"cd-page"}).width(availableWidth).hide();
          countdownContent = $("<div/>",{"class":"cd-content"});
          countdownClose = $("<div/>",{"class":"cd-close fixed"}).text('X').css({"opacity":0.5});
          countdownClose.on("click",function(e){
@@ -514,12 +514,13 @@ $(function(){
          countdownDiv.append(countdownContent,countdownClose).appendTo(sectionPrincipal);
        }else{
          countdownContent.empty();
-         countdownDiv.width(availableWidth).height(WINH).hide();
+         countdownDiv.width(availableWidth).hide();
        }
 
        pageCall.always(function(data){
           countdownContent.html(data.html);
           countdownDiv.delay(200).css({opacity:0}).show().transition({opacity:1},500);
+          countdownDiv.height(countdownContent.outerHeight());
           callCountdownScripts(this);
           loadHolder.hide().spin(false);
           zoomViewport.hide();
@@ -560,7 +561,7 @@ $(function(){
       $('.span12:odd').find('.span3:even').addClass('black');
     }
     
-  setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
+  //setTimeout(function() { $(".cd-content",sectionMain).height(WINH) },200);
   
   activateInternalGalleries();
   interviewTexts();

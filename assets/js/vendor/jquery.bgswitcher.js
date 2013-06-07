@@ -84,10 +84,14 @@
               
               if(!_s.data('bgcached')){
                 items.trigger('setLoader');
-                $.imgpreload(_s.data('bgImage'),function()
-                 {
-                     _s.data({'bgdimens':$(this).data('attrs'), "bgcached":true}).trigger('bgcomplete');
-                 });
+                
+               var img = $("<img/>",{"src":_s.data('bgImage')});
+               var imgLoad = imagesLoaded( img[0] );
+               imgLoad.on( 'progress', function( instance, image ) {
+                 console.log('actiev loaded')
+                _s.data({'bgdimens':{width:image.img.width,height:image.img.height}, "bgcached":true}).trigger('bgcomplete');
+               });
+                
               }else{
                 // call animation of bg image and load for all
                 items.trigger('bgset',[_s]);
@@ -139,12 +143,14 @@
               _s.data({"bgprop":bgprop,"bgwidth":bgwidth,"bgorigin":bgorigin});
               
               // call animation of bg image and load for all
-              if(!testAnimating()) items.trigger('bgset',[_s]);
+              console.log('bg calculated')
+              items.trigger('bgset',[_s]);
             
             }
             
             function setCurrentBackground(ele,activeObject){
-              var _s = $(ele.currentTarget), _d = activeObject.data(), offset = _s.parent().offset();                  
+              var _s = $(ele.currentTarget), _d = (activeItem != activeObject) ? activeItem.data() : activeObject.data(), offset = _s.parent().offset();
+              console.log(_d)
               _s.css({
                 "background-image":"url("+_d.bgImage+")",
                 "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",
