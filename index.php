@@ -31,7 +31,7 @@
      	define('ENVIRONMENT', 'production');
     break;
     default:
-      define('ENVIRONMENT', 'production');
+      define('ENVIRONMENT', 'development');
     break;
  }
 

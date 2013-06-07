@@ -72,3 +72,31 @@ if ( ! function_exists('meta_property'))
         return $str;
     }
 }
+
+
+if ( ! function_exists('remove_auto_link'))
+{
+	function remove_auto_link($str, $type = 'both', $popup = FALSE)
+	{
+		if ($type != 'email')
+		{
+			if (preg_match_all("#(^|\s|\()((http(s?)://)|(www\.))(\w+[^\s\)\<]+)#i", $str, $matches))
+			{
+				$pop = ($popup == TRUE) ? " target=\"_blank\" " : "";
+
+				for ($i = 0; $i < count($matches['0']); $i++)
+				{
+					$period = '';
+					if (preg_match("|\.$|", $matches['6'][$i]))
+					{
+						$period = '.';
+						$matches['6'][$i] = substr($matches['6'][$i], 0, -1);
+					}
+
+					$str = str_replace($matches['0'][$i], " ", $str);
+				}
+			}
+		}
+		return $str;
+	}
+}

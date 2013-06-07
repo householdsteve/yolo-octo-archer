@@ -34,6 +34,7 @@ class Social_stream_model extends CI_Model {
   	       "lid"=> $row['id'],
   	       "type"=> "twitter",
   	       "username"=> $data['from_user'],
+  	       //"content" => remove_auto_link($row['body'],'url'),
   	       "content" => $row['body'],
   	       "unixdate"=> strtotime($row['date'])
   	      );
