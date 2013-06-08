@@ -1,7 +1,10 @@
-<div class="row-fluid">
+<?php if(!$isAjax):?>
+<a class="cd-close fixed" href="<?php echo base_url();?>">X</a>
+<?php endif; ?>
+<div class="row-fluid-social">
   <div class="span12">
     <div class="span3">
-      <img src="<?php echo base_url();?>assets/img/catwalk/PRIVE/one_night_only-PRIVE_1.jpg" width="450" height="676" alt="One Night Only PRIVE 1">
+      <img src="<?php echo base_url();?>assets/img/catwalk/giorgio-armani_prive.png" width="450" height="676" alt="Giorgio Armani Prive">
     </div>
     <div class="span3">
       <img src="<?php echo base_url();?>assets/img/catwalk/PRIVE/one_night_only-PRIVE_2.jpg" width="450" height="676" alt="One Night Only PRIVE 2">
@@ -27,10 +30,10 @@
       <img src="<?php echo base_url();?>assets/img/catwalk/PRIVE/one_night_only-PRIVE_8.jpg" width="450" height="676" alt="One Night Only PRIVE 8">
     </div>
   </div>
-<div class="row-fluid">  
+<div class="row-fluid-social">  
   <div class="span12">
     <div class="span3">
-      <img src="<?php echo base_url();?>assets/img/catwalk/GA/one_night_only-GA_1.jpg" width="450" height="676" alt="One Night Only GA 1">
+      <img src="<?php echo base_url();?>assets/img/catwalk/giorgio-armani.png" width="450" height="676" alt="Giorgio Armani">
     </div>
     <div class="span3">
       <img src="<?php echo base_url();?>assets/img/catwalk/GA/one_night_only-GA_2.jpg" width="450" height="676" alt="One Night Only GA 2">
@@ -57,10 +60,10 @@
     </div>
   </div>
 </div>
-<div class="row-fluid">
+<div class="row-fluid-social">
   <div class="span12">
     <div class="span3">
-      <img src="<?php echo base_url();?>assets/img/catwalk/EA/one_night_only-EA_1.jpg" width="450" height="676" alt="One Night Only EA 1">
+      <img src="<?php echo base_url();?>assets/img/catwalk/emporio-armani.png" width="450" height="676" alt="Emporio Armani">
     </div>
     <div class="span3">
       <img src="<?php echo base_url();?>assets/img/catwalk/EA/one_night_only-EA_2.jpg" width="450" height="676" alt="One Night Only EA 2">
