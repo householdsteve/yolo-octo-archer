@@ -126,12 +126,12 @@ class Home extends CI_Controller{
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,10,2013),
-                                      "image"=>"assets/img/muti_interview.jpg",
+                                      "image"=>base_url()."assets/img/muti_interview.jpg",
                                       "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
-                                      "title"=>"EXCLUSIVE INTERVIEWS",
-                                      "subtitle"=>"ITALIAN PERSONALITIES",
+                                      "title"=>"ITALIAN CELEBRITY",
+                                      "subtitle"=>"EXCLUSIVE INTERVIEWS",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,11,2013),
