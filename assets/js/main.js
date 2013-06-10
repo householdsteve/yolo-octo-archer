@@ -126,6 +126,9 @@ function loadMapMain() {
 
 window.onload = loadMapMain;
 
+function ajaxifyGoogleAnalytics(url){
+  _gaq.push(['_trackPageview', url]);
+}
 
 function delegateSubActions(atag){
   var parts = atag.href.split("/");
@@ -141,6 +144,21 @@ function delegateSubActions(atag){
       activateInternalGalleries();
     break;
   }
+  ajaxifyGoogleAnalytics('/'+compare);
+}
+
+function callCountdownScripts(e){
+  var parts = e.url.split("/");
+    var compare = parts[parts.length-1].split('?')[0];
+    switch(compare){
+      case "june-4":
+        interviewTexts();
+      break;
+      case "june-6":
+        activateInternalGalleries();
+      break;
+  }
+    ajaxifyGoogleAnalytics('/'+parts[parts.length-2]+"/"+parts[parts.length-1]);
 }
 
 function activateInternalGalleries(){
@@ -217,20 +235,6 @@ function activateInternalGalleries(){
     
 }
 
-function callCountdownScripts(e){
-  var parts = e.url.split("/");
-    var compare = parts[parts.length-1].split('?')[0];
-    
-    switch(compare){
-      case "june-4":
-        interviewTexts();
-      break;
-      case "june-6":
-        activateInternalGalleries();
-      break;
-  }
-}
-
 function interviewTexts(){
   $(".question-content a",sectionPrincipal).on("click",function(e){
     $(".question-content",sectionPrincipal).hide();
@@ -252,6 +256,7 @@ function loadAdditionalContent(e){
     additionalContent.width(availableWidth).css({"left":WINW,"top":-sectionPrincipal.height()}).appendTo(sectionMain);
     var mfr = $.ajax({url: e.currentTarget.href});
        mfr.always(function(data){
+          delegateSubActions({href:e.currentTarget.href});
           additionalContent.html(data);
           var b = $("#back-to-count a").click(removeAdditional);
           activateInternalGalleries();
@@ -529,10 +534,13 @@ $(function(){
    
    if(!checkInternetExplorer()){
        socialMediaFeed.find('a').click(function(e){
-         var smf = $.ajax({url: this.href});
+         var smf = $.ajax({url: this.href}), lhref = this.href;
          var c = $('span',$(this));
          c.css({"position":"fixed",top:c.offset().top, left:c.offset().left,"z-index":9999})
          smf.always(function(data){
+             var parts = lhref.split("/");
+             ajaxifyGoogleAnalytics("/"+parts[parts.length-1]);
+             
              socialMediaFeed.append(data);
              $(".social.content p").fitText(1.85);
              setTimeout(function(){
