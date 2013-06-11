@@ -157,6 +157,9 @@ function callCountdownScripts(e){
       case "june-6":
         activateInternalGalleries();
       break;
+      case "june-11":
+        activateInternalGalleries();
+      break;
   }
     ajaxifyGoogleAnalytics('/'+parts[parts.length-2]+"/"+parts[parts.length-1]);
 }
