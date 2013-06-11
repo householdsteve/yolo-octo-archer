@@ -73,8 +73,8 @@ class Home extends CI_Controller{
                                       "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
-                                      "title"=>"INTERVIEW MR. ARMANI",
-                                      "subtitle"=>"READ THE Q&A",
+                                      "title"=>"Q&A WITH MR. ARMANI",
+                                      "subtitle"=>"READ THE INTERVIEW",
                                       "override"=>"true",
                                       "type"=>"");
                                       
@@ -85,7 +85,7 @@ class Home extends CI_Controller{
                                       "available"=>"true",
                                       "classes"=>"event",
                                       "custom-date"=>"THE EVENT",
-                                      "title"=>"ARRIVING IN ROME",
+                                      "title"=>"ARRIVAL IN ROME",
                                       "subtitle"=>"& PRE SHOW FITTING",                                     
                                       "type"=>"");
                                       
@@ -130,18 +130,18 @@ class Home extends CI_Controller{
                                       "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
-                                      "title"=>"ITALIAN CELEBRITY",
+                                      "title"=>"ITALIAN CELEBRITIES",
                                       "subtitle"=>"EXCLUSIVE INTERVIEWS",
                                       "type"=>"");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,11,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/Giorgio_Armani_boutique_via_Condotti.jpg",
                                       "link"=>"home/countdown",
-                                      "enabled"=>"false",
-                                      "available"=>"false",
-                                      "title"=>"CONTENT COMING:",
-                                      "subtitle"=>"11.6.2013",
-                                      "type"=>"");
+                                      "enabled"=>"true",
+                                      "available"=>"true",
+                                      "title"=>"THE NEW STORE",
+                                      "subtitle"=>"TAKE A LOOK INSIDE",
+                                      "type"=>"CLICK TO SEE");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,12,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
