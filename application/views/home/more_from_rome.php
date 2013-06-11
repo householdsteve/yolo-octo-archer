@@ -42,11 +42,16 @@
      </div>
    </div>
    
-   <div class="span6 more-rome">
-     <iframe src="http://youtube.com/embed/videoseries?list=PL6z523f3aWECZVBD7CDDbnkYLruHGTaYC" width="100%" height="300" frameborder="0" allowfullscreen=""></iframe>
-     <div class="sub-title">
-        <h1>FIORELLO special from iPhone</h1>
+      <div class="span6 more-rome nero">
+         <div class="royalSlider rsMoreFromRomeFerrari">
+              <?php for($i=1; $i < 5; $i++):?>   
+              <a class="rsImg" href="<?php echo base_url()?>assets/img/ferrari/IsabellaFerraribyValerioSpada_<?php echo $i;?>.jpg"> </a>
+              <?php endfor;?>
+          </div>
+        <div class="sub-title">
+           <h1>ISABELLA FERRARI IN GIORGIO ARMANI</h1>
+           <p>SHOT IN ROME BY VALERIO SPADA</p>
+         </div>
       </div>
+     </div>
    </div>
-  </div>
-</div>
