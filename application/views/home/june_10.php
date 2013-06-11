@@ -94,9 +94,9 @@
 <div class="row-fluid">    
   <div class="span12">
     <div class="span6 more-rome">
-       <iframe src="http://youtube.com/embed/cxbdm7xmquk?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen=""></iframe>
+       <iframe src="http://youtube.com/embed/Z6el_dp5Di4?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen=""></iframe>
        <div class="sub-title">
-         <h1>Paolo Sorrentino</h1>
+         <h1>Federica Pellegrini</h1>
        </div>
      </div>
    
@@ -137,9 +137,9 @@
      </div>
    
      <div class="span6 more-rome">
-        <iframe src="http://youtube.com/embed/Z6el_dp5Di4?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen=""></iframe>
+        <iframe src="http://youtube.com/embed/x50fa66lzFU?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen=""></iframe>
         <div class="sub-title">
-          <h1>Federica Pellegrini</h1>
+          <h1>Carolina Crescentini</h1>
         </div>
     </div>
   </div>
@@ -153,12 +153,4 @@
          <h1>Eva Riccobono</h1>
        </div>
      </div>
-   
-     <div class="span6 more-rome">
-        <iframe src="http://youtube.com/embed/x50fa66lzFU?wmode=transparent&rel=0&showinfo=0&modestbranding&autohide=1;width=100%&amp;height=480" width="100%" height="300" frameborder="0" allowfullscreen=""></iframe>
-        <div class="sub-title">
-          <h1>Carolina Crescentini</h1>
-        </div>
-    </div>
-  </div>
 </div>
