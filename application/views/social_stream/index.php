@@ -1,4 +1,4 @@
-<div class="row-fluid-social">
+<div class="row-fluid-social feed">
 <?php echo $pagination; ?><?php
     $count = 0;
       foreach($data as $key => $row):?>

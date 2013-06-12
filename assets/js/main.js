@@ -158,6 +158,9 @@ function callCountdownScripts(e){
       case "june-4":
         interviewTexts();
       break;
+      case "june-8":
+        addthis.button('.addthis_button_pinterest_pinit');
+      break;
       case "june-6":
         activateInternalGalleries();
       break;
@@ -635,7 +638,7 @@ $(function(){
   activateInternalGalleries();
   interviewTexts();
   
-  if($('.row-fluid-social').length > 0){
+  if($('.row-fluid-social.feed').length > 0){
   $(".social.content h3").fitText(1.5);
   $(".social.content p").fitText(1.85);
   $('.row-fluid-social').waypoint('infinite',{
