@@ -407,7 +407,7 @@ $(function(){
   if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
         advise = $("<div/>",{"class":"tellexplorer"})
         .append($("<div/>",{"class":"advice"}).html(
-          "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
+          "<h1>Your browser is out of date.</h1><p>Some of the features found on this site are incompatible with this version of Internet Explorer. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
           ));
         advise.appendTo($('body'));
         advise.click(function(){
