@@ -140,17 +140,17 @@ class Home extends CI_Controller{
                                       "enabled"=>"true",
                                       "available"=>"true",
                                       "title"=>"THE NEW STORE",
-                                      "subtitle"=>"TAKE A LOOK INSIDE",
+                                      "subtitle"=>"SEE THE PICTURES",
                                       "type"=>"CLICK TO SEE");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,12,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/store.jpg",
                                       "link"=>"home/countdown",
-                                      "enabled"=>"false",
-                                      "available"=>"false",
-                                      "title"=>"CONTENT COMING:",
-                                      "subtitle"=>"12.6.2013",
-                                      "type"=>"");
+                                      "enabled"=>"true",
+                                      "available"=>"true",
+                                      "title"=>"THE NEW STORE",
+                                      "subtitle"=>"WATCH THE VIDEO",
+                                      "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,13,2013),
                                       "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
