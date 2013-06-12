@@ -149,7 +149,7 @@ class Home extends CI_Controller{
                                       "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
-                                      "title"=>"A VIDEO WALKTHROUGH",
+                                      "title"=>"STORE WALKTHROUGH",
                                       "subtitle"=>"IN VIA CONDOTTI 77/79",
                                       "classes"=>"white",
                                       "type"=>"CLICK TO WATCH");
