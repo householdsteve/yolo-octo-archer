@@ -141,6 +141,7 @@ class Home extends CI_Controller{
                                       "available"=>"true",
                                       "title"=>"THE NEW STORE",
                                       "subtitle"=>"SEE THE PICTURES",
+                                      "classes"=>"white",
                                       "type"=>"CLICK TO SEE");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,12,2013),
@@ -148,8 +149,9 @@ class Home extends CI_Controller{
                                       "link"=>"home/countdown",
                                       "enabled"=>"true",
                                       "available"=>"true",
-                                      "title"=>"THE NEW STORE",
-                                      "subtitle"=>"WATCH THE VIDEO",
+                                      "title"=>"A VIDEO WALKTHROUGH",
+                                      "subtitle"=>"IN VIA CONDOTTI 77/79",
+                                      "classes"=>"white",
                                       "type"=>"CLICK TO WATCH");
                                       
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,13,2013),

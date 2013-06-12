@@ -339,6 +339,9 @@ html.lt-ie9 .grid-row .door {
   overflow: hidden;
   behavior: url(PIE.htc);
 }
+.grid-row .item-holder .door.white .date.active {
+  color: white;
+}
 .grid-row .item-holder .door.loading {
   background-image: url('../img/loader.gif');
   background-position: center center;
