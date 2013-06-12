@@ -56,6 +56,10 @@ function checkOffsetTime(){
   return offsetTime;
 }
 
+function getPathFromUrl(url) {
+  return url.split("?")[0];
+}
+
 function timeOffset() { 
     var call = $.ajax({url: PageAttr.baseUrl+'home/timer', dataType:"json"});
     call.always(function(data,textStatus,errorThrown){
@@ -127,7 +131,7 @@ function loadMapMain() {
 window.onload = loadMapMain;
 
 function ajaxifyGoogleAnalytics(url){
-  _gaq.push(['_trackPageview', url]);
+  _gaq.push(['_trackPageview', getPathFromUrl(url)]);
 }
 
 function delegateSubActions(atag){
