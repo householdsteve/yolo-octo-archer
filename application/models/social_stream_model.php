@@ -87,11 +87,12 @@ class Social_stream_model extends CI_Model {
 			'date'      => $data->created_time
 		);
 
-		// Insert record
-		$this->curl->simple_get($data->images->standard_resolution->url);
-    $tot = count($this->curl->info);
+		
     
 		if(!$this->match($data->id)){
+		  // Insert record
+  		$this->curl->simple_get($data->images->standard_resolution->url);
+      $tot = count($this->curl->info);
 		  if($tot < 1){
 		    $insert_array['deleted'] = 1;
 		  }
