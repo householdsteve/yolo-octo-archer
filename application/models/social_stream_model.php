@@ -92,10 +92,11 @@ class Social_stream_model extends CI_Model {
     $tot = count($this->curl->info);
     
 		if(!$this->match($data->id)){
-		  if($tot > 0){
+		  if($tot < 1){
+		    $insert_array['deleted'] = 1;
+		  }
 		    $this->db->insert('instagram', $insert_array );
 		    echo 'Saved a photo!'.PHP_EOL;
-	    }
 		}
 
   }
