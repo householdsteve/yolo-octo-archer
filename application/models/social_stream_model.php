@@ -77,6 +77,7 @@ class Social_stream_model extends CI_Model {
 	
 	public function insert($data = FALSE)
   {
+	  $this->load->library('curl');
   	// Create insert array for registration record
 		$insert_array = array(
 			'ig_id'         => $data->id,
@@ -87,9 +88,14 @@ class Social_stream_model extends CI_Model {
 		);
 
 		// Insert record
+		$this->curl->simple_get($data->images->standard_resolution->url);
+    $tot = count($this->curl->info);
+    
 		if(!$this->match($data->id)){
-		  $this->db->insert('instagram', $insert_array );
-		  echo 'Saved a photo!'.PHP_EOL;
+		  if($tot > 0){
+		    $this->db->insert('instagram', $insert_array );
+		    echo 'Saved a photo!'.PHP_EOL;
+	    }
 		}
 
   }
