@@ -5,7 +5,7 @@
 <?php
     $datalocal = array();
     $datalocal[] = array( "type"=>"custom",
-                          "content"=>"Best Instagram photos of",
+                          "content"=>"We've hand picked some of our favorite shots posted by users from Instagram. Thanks for participating!",
                           "unixdate"=>"",
                           "username"=>"");
     $datalocal[] = array( "type"=>"instagram-new",
