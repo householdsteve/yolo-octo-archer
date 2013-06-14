@@ -161,17 +161,18 @@ class Home extends CI_Controller{
                                       "available"=>"true",
                                       "title"=>"THE BEST OF INSTAGRAM",
                                       "subtitle"=>"#ONENIGHTONLYROMA",
+                                      "classes"=>"white",
                                       "type"=>"CLICK TO EXPLORE");
 
     $this->_data['events'][] = array( "date"=>mktime(0,0,0,6,14,2013),
-                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/05/waiting.jpg",
+                                      "image"=>"http://cdn3.yoox.biz/armani/wp-content/uploads/2013/06/makeup.jpg",
                                       "link"=>"home/countdown",
-                                      "enabled"=>"false",
-                                      "available"=>"false",
-                                      "title"=>"CONTENT COMING:",
-                                      "subtitle"=>"14.6.2013",
+                                      "enabled"=>"true",
+                                      "available"=>"true",
+                                      "title"=>"ART BEHIND BEAUTY",
+                                      "subtitle"=>"WATCH OUR MAKEUP ARTISTS AT WORK",
                                       "classes"=>"white",
-                                      "type"=>"");
+                                      "type"=>"CLICK TO WATCH");
     $this->output->cache(44640);
     $this->view->set('_uni_title', 'FALSE')->render($this->_data);
   }
