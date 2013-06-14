@@ -9,9 +9,9 @@
                           "unixdate"=>"",
                           "username"=>"");
     $datalocal[] = array( "type"=>"instagram-new",
-                          "content"=>"http://distilleryimage8.ak.instagram.com/57e51fe8cee411e2971f22000a1f8c25_7.jpg",
+                          "content"=>"http://distilleryimage0.ak.instagram.com/75dc6674ce8e11e2a50222000a1fb870_7.jpg",
                           "unixdate"=>"",
-                          "username"=>"Armani");
+                          "username"=>"paolozollo");
     $datalocal[] = array( "type"=>"instagram-new",
                           "content"=>"http://distilleryimage4.ak.instagram.com/7ae3e72cd00b11e2877122000a1fbc4f_7.jpg",
                           "unixdate"=>"",
@@ -37,21 +37,21 @@
                           "unixdate"=>"",
                           "username"=>"danielafalcao1");    
     $datalocal[] = array( "type"=>"instagram-new",
-                          "content"=>"http://distilleryimage4.ak.instagram.com/3e4c8678cf7711e2918122000a9f4d8a_7.jpg",
+                          "content"=>"http://distilleryimage3.ak.instagram.com/b1bf364ccebd11e2af0122000a1fbc9e_7.jpg",
                           "unixdate"=>"",
-                          "username"=>"Armani"); 
+                          "username"=>"francesco_puc"); 
     $datalocal[] = array( "type"=>"instagram-new",
-                          "content"=>"http://distilleryimage3.ak.instagram.com/330c850ecec011e2b1c622000aa8000f_7.jpg",
+                          "content"=>"http://distilleryimage11.ak.instagram.com/ab1a7d74ce2c11e2a5cd22000a1fb0b0_7.jpg",
                           "unixdate"=>"",
-                          "username"=>"Armani");    
+                          "username"=>"margheritautzeri");    
     $datalocal[] = array( "type"=>"instagram-new",
-                          "content"=>"http://distilleryimage8.s3.amazonaws.com/fa7b742ecdee11e29ad222000a1f97a2_7.jpg",
+                          "content"=>"http://distilleryimage7.ak.instagram.com/216ea4a6cdfa11e2b8f122000a1f9345_7.jpg",
                           "unixdate"=>"",
-                          "username"=>"Armani");
+                          "username"=>"marciadocarmo");
     $datalocal[] = array( "type"=>"instagram-new",
-                          "content"=>"http://distilleryimage10.s3.amazonaws.com/407179aacbb611e2962d22000a1f9aa0_7.jpg",
+                          "content"=>"http://distilleryimage4.ak.instagram.com/48e0495ccedd11e287d022000a1fc4f9_7.jpg",
                           "unixdate"=>"",
-                          "username"=>"Armani");                
+                          "username"=>"this_ismystyle");                
     $count = 0;
       foreach($datalocal as $key => $row):?>
       <?php if ($count % 4 == 0):?>
