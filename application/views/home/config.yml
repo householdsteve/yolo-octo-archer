@@ -10,7 +10,7 @@ common:
       
 # configs for each action
 index:
-  title: Giorgio Armani | One night only roma
+  title: Giorgio Armani | One night only Roma
 
   metas:
     name:
@@ -19,6 +19,17 @@ index:
       robots: index, follow
     property:
       og:image: assets/img/og/ono-roma.jpg
+
+more_from_rome:
+  title: More from Rome | One night only Roma
+
+  metas:
+    name:
+      keywords: One, Night, Only, Armani, Giorgio, Emporio, Fashion, Show, Rome, Roma
+      description: Giorgio Armani One night only Roma. The event of the year.
+      robots: index, follow
+    property:
+      og:image: asset/img/og/more_from_rome.jpg
 
 countdown:
   title: Giorgio Armani | One night only - Counting down
@@ -40,4 +51,3 @@ countdown:
     june-12 og:image: assets/img/og/june-12.jpg
     june-13 og:image: assets/img/og/june-13.jpg
     june-14 og:image: assets/img/og/june-14.jpg
-    more_from_rome og:image: asset/img/og/more_from_rome.jpg
