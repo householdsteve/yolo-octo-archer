@@ -29,7 +29,7 @@ more_from_rome:
       description: Giorgio Armani One night only Roma. The event of the year.
       robots: index, follow
     property:
-      og:image: asset/img/og/more_from_rome.jpg
+      og:image: assets/img/og/more_from_rome.jpg
 
 countdown:
   title: Giorgio Armani | One night only - Counting down
@@ -50,4 +50,4 @@ countdown:
     june-11 og:image: assets/img/og/june-11.jpg
     june-12 og:image: assets/img/og/june-12.jpg
     june-13 og:image: assets/img/og/june-13.jpg
-    june-14 og:image: assets/img/og/june-14.jpg
+    june-14 og:image: assets/img/og/june-14.jpg 
