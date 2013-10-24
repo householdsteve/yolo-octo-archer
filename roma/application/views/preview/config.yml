@@ -1,8 +1,0 @@
-# actions
-# common settings for all actions in this controller
-common:
-  title: Giorgio Armani | One night only roma
-
-  metas:
-    name:
-      robots: noindex, nofollow
