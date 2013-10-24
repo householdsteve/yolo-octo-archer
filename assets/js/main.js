@@ -56,6 +56,10 @@ function checkOffsetTime(){
   return offsetTime;
 }
 
+function getPathFromUrl(url) {
+  return url.split("?")[0];
+}
+
 function timeOffset() { 
     var call = $.ajax({url: PageAttr.baseUrl+'home/timer', dataType:"json"});
     call.always(function(data,textStatus,errorThrown){
@@ -126,6 +130,9 @@ function loadMapMain() {
 
 window.onload = loadMapMain;
 
+function ajaxifyGoogleAnalytics(url){
+  _gaq.push(['_trackPageview', getPathFromUrl(url)]);
+}
 
 function delegateSubActions(atag){
   var parts = atag.href.split("/");
@@ -141,6 +148,27 @@ function delegateSubActions(atag){
       activateInternalGalleries();
     break;
   }
+  ajaxifyGoogleAnalytics('/'+compare);
+}
+
+function callCountdownScripts(e){
+  var parts = e.url.split("/");
+    var compare = parts[parts.length-1].split('?')[0];
+    switch(compare){
+      case "june-4":
+        interviewTexts();
+      break;
+      case "june-8":
+        addthis.button('.addthis_button_pinterest_pinit');
+      break;
+      case "june-6":
+        activateInternalGalleries();
+      break;
+      case "june-11":
+        activateInternalGalleries();
+      break;
+  }
+    ajaxifyGoogleAnalytics('/'+parts[parts.length-2]+"/"+parts[parts.length-1]);
 }
 
 function activateInternalGalleries(){
@@ -188,6 +216,60 @@ function activateInternalGalleries(){
                }
     });
     
+    $(".royalSlider.rsMoreFromRomeFerrari").royalSlider({
+         loop:true,
+         imageAlignCenter:true,
+         imageScaleMode: 'fit',
+         autoScaleSlider: true,
+         arrowsNavHideOnTouch: false,
+         arrowsNavAutoHide:true,
+         arrowsNav:true,
+         width:'100%',height:'100%',
+         autoScaleSlider:true,autoScaleSliderWidth:1200,
+         autoScaleSliderHeight:550,slidesSpacing:0,
+         imgHeight:600,
+         autoPlay: {
+             		// autoplay options go gere
+             		enabled: true,
+             		pauseOnHover: true
+         },
+         visibleNearby: {
+                     enabled: true,
+                     centerArea: 0.5,
+                     center: false,
+                     breakpoint: availableWidth/2,
+                     breakpointCenterArea: 0.64,
+                     navigateByCenterClick: true
+                 }
+      });
+    
+    $(".royalSlider.rsMoreBoutique").royalSlider({
+         loop:true,
+         imageAlignCenter:true,
+         imageScaleMode: 'fit',
+         autoScaleSlider: true,
+         arrowsNavHideOnTouch: false,
+         arrowsNavAutoHide:true,
+         arrowsNav:true,
+         width:'100%',height:'100%',
+         autoScaleSlider:true,autoScaleSliderWidth:1200,
+         autoScaleSliderHeight:800,slidesSpacing:0,
+         imgHeight:770,
+         autoPlay: {
+             		// autoplay options go gere
+             		enabled: true,
+             		pauseOnHover: true
+         },
+         visibleNearby: {
+                     enabled: true,
+                     centerArea: 0.8,
+                     center: false,
+                     breakpoint: availableWidth/2,
+                     breakpointCenterArea: 0.64,
+                     navigateByCenterClick: true
+                 }
+      });
+    
     $(".royalSlider.rsEvent").royalSlider({
          loop:true,
          imageAlignCenter:true,
@@ -217,20 +299,6 @@ function activateInternalGalleries(){
     
 }
 
-function callCountdownScripts(e){
-  var parts = e.url.split("/");
-    var compare = parts[parts.length-1].split('?')[0];
-    
-    switch(compare){
-      case "june-4":
-        interviewTexts();
-      break;
-      case "june-6":
-        activateInternalGalleries();
-      break;
-  }
-}
-
 function interviewTexts(){
   $(".question-content a",sectionPrincipal).on("click",function(e){
     $(".question-content",sectionPrincipal).hide();
@@ -252,6 +320,7 @@ function loadAdditionalContent(e){
     additionalContent.width(availableWidth).css({"left":WINW,"top":-sectionPrincipal.height()}).appendTo(sectionMain);
     var mfr = $.ajax({url: e.currentTarget.href});
        mfr.always(function(data){
+          delegateSubActions({href:e.currentTarget.href});
           additionalContent.html(data);
           var b = $("#back-to-count a").click(removeAdditional);
           activateInternalGalleries();
@@ -338,7 +407,7 @@ $(function(){
   if(checkInternetExplorer() && !$.cookie('_saw_ie_message_')){
         advise = $("<div/>",{"class":"tellexplorer"})
         .append($("<div/>",{"class":"advice"}).html(
-          "<h1>You're browser is out of date.</h1><p>Some of the functionality is incompatible with this version. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
+          "<h1>Your browser is out of date.</h1><p>Some of the features found on this site are incompatible with this version of Internet Explorer. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\""+PageAttr.baseUrl+"assets/img/browser-icons.jpg\"></a></p> <button class='btn'>Proceed Anyway</button>"
           ));
         advise.appendTo($('body'));
         advise.click(function(){
@@ -529,10 +598,13 @@ $(function(){
    
    if(!checkInternetExplorer()){
        socialMediaFeed.find('a').click(function(e){
-         var smf = $.ajax({url: this.href});
+         var smf = $.ajax({url: this.href}), lhref = this.href;
          var c = $('span',$(this));
          c.css({"position":"fixed",top:c.offset().top, left:c.offset().left,"z-index":9999})
          smf.always(function(data){
+             var parts = lhref.split("/");
+             ajaxifyGoogleAnalytics("/"+parts[parts.length-1]);
+             
              socialMediaFeed.append(data);
              $(".social.content p").fitText(1.85);
              setTimeout(function(){
@@ -566,7 +638,7 @@ $(function(){
   activateInternalGalleries();
   interviewTexts();
   
-  if($('.row-fluid-social').length > 0){
+  if($('.row-fluid-social.feed').length > 0){
   $(".social.content h3").fitText(1.5);
   $(".social.content p").fitText(1.85);
   $('.row-fluid-social').waypoint('infinite',{

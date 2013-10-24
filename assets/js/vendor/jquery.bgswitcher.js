@@ -147,7 +147,7 @@
             }
             
             function setCurrentBackground(ele,activeObject){
-              var _s = $(ele.currentTarget), _d = (activeItem != activeObject) ? activeItem.data() : activeObject.data(), offset = _s.parent().offset();
+              var _s = $(ele.currentTarget), _d = ((activeItem.length > 0) && (activeItem != activeObject)) ? activeItem.data() : activeObject.data(), offset = _s.parent().offset();
               _s.css({
                 "background-image":"url("+_d.bgImage+")",
                 "background-size": _d.bgwidth+"px "+ scopeData.containerHeight +"px",

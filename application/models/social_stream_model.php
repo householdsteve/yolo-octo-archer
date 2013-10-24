@@ -77,6 +77,7 @@ class Social_stream_model extends CI_Model {
 	
 	public function insert($data = FALSE)
   {
+	  $this->load->library('curl');
   	// Create insert array for registration record
 		$insert_array = array(
 			'ig_id'         => $data->id,
@@ -86,10 +87,17 @@ class Social_stream_model extends CI_Model {
 			'date'      => $data->created_time
 		);
 
-		// Insert record
+		
+    
 		if(!$this->match($data->id)){
-		  $this->db->insert('instagram', $insert_array );
-		  echo 'Saved a photo!'.PHP_EOL;
+		  // Insert record
+  		$this->curl->simple_get($data->images->standard_resolution->url);
+      $tot = count($this->curl->info);
+		  if($tot < 1){
+		    $insert_array['deleted'] = 1;
+		  }
+		    $this->db->insert('instagram', $insert_array );
+		    echo 'Saved a photo!'.PHP_EOL;
 		}
 
   }

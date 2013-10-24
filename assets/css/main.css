@@ -339,6 +339,9 @@ html.lt-ie9 .grid-row .door {
   overflow: hidden;
   behavior: url(PIE.htc);
 }
+.grid-row .item-holder .door.white .date.active {
+  color: white;
+}
 .grid-row .item-holder .door.loading {
   background-image: url('../img/loader.gif');
   background-position: center center;
@@ -831,4 +834,17 @@ html.touch #globalHoverContainer-internal h1 {
 .royalSlider.rsEvent {
   width: auto;
   height: 500px;
+}
+.royalSlider.rsMoreBoutique {
+  width: auto;
+  height: 800px;
+}
+.addthis_toolbox {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: 0;
+}
+.row-fluid-social.looks .span3:hover .addthis_toolbox {
+  opacity: 1;
 }

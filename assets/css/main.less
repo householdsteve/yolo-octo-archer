@@ -348,6 +348,14 @@ html.lt-ie9 .grid-row {
      overflow:hidden;
      behavior: url(PIE.htc);
      
+     &.white {
+       .date.active {
+         color:white;
+        }
+     }
+     
+     
+     
      &.loading {
        background-image:url('../img/loader.gif');
        background-position:center center;
@@ -898,4 +906,18 @@ html.touch {
     width:auto;
     height:500px;  
   }
+  &.rsMoreBoutique {
+    width:auto;
+    height:800px;  
+  }
+}
+
+.addthis_toolbox {
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  opacity:0;
+}
+.row-fluid-social.looks .span3:hover .addthis_toolbox {
+  opacity:1;
 }
