@@ -4,7 +4,7 @@ layout:
   default
 
 default:
-  title: Giorgio Armani | One Night Only in Roma
+  title: Giorgio Armani | One Night Only in NYC
 
   metas:
     https:
@@ -12,8 +12,8 @@ default:
       content-language: en-US
 
     name:
-      keywords: Giorgio, Armani, One Night Only, Fashion, Festa, Show, Rome, Live, Event
-      description: The source for the biggest event of the year. See all of the One night only content here.
+      keywords: Giorgio, Armani, One Night Only, Fashion, Festa, Show, NYC, Live, Event
+      description: The source for the biggest event of the year.
       robots: index, follow
 
   css:

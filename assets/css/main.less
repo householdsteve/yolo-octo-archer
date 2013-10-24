@@ -59,7 +59,7 @@ a::-moz-focus-inner {border:0;}
 
 body {
   background:@base_grey;
-  font-family:'one_night_onlymedium';
+  font-family:'HeraBig-Regular';
   font-size:14px;
   color:#000;
   a {
@@ -223,13 +223,19 @@ blockquote:after {
 }
 
 
-#logo a {
-  background: url('../img/logo.png') no-repeat scroll top left;
-  width: 128px;
-  height: 172px;
+a#logo {
+  background: url('../img/logo.jpg') no-repeat scroll top left;
+  width: 246px;
+  height: 56px;
   text-indent:-9999em;
-  margin:20px auto 0 auto;
+  margin:0 auto;
   display:block;
+}
+
+header#lead {
+  height:auto;
+  padding:69px 0px;
+  background:black;
 }
 
 .wrapper {
@@ -242,11 +248,9 @@ blockquote:after {
 }
 
 section.principal {
-  margin:0 0 0 @menuwidth;
+  margin:0;
   h1 {font-size:140%;}
   h2 {font-size:110%;}
-  //background: url(http://www.ibiblio.org/wm/paint/auth/kandinsky/kandinsky.comp-8.jpg) no-repeat;
-  background:no-repeat;
   height:100%;
 }
 
@@ -717,9 +721,9 @@ html.touch {
    Mobile styles
    ========================================================================== */
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  #logo a {
-    background-image: url('../img/logo@2x.png');
-    background-size: 128px 172px;
+  a#logo {
+    background-image: url('../img/logo@2x.jpg');
+    background-size: 246px 56px;
   }
 }
 
@@ -789,7 +793,7 @@ html.touch {
 #mapDiv img, #map-canvas img { max-width: none; }
 
 .row-fluid .span12, .row-fluid-social .span12 {
-  max-width:1280px;
+  max-width:1600px;
   margin:0;
   word-wrap: break-word;
 }

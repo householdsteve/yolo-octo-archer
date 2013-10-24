@@ -26,9 +26,9 @@
   <body>
 
     <div class="wrapper">
-      <?php $this->view->partial('common/_nav'); ?>
-
+      
       <section id="main">
+        <header id="lead"><a id="logo" href="#">Armani Live</a></header>
         <section class="principal">
         <?php echo $yield; ?>
         </section>

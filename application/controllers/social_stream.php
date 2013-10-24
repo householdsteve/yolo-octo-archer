@@ -73,7 +73,7 @@ class Social_stream extends CI_Controller{
   
   public function instagram(){
     $this->load->library('instagram_api');
-    $tags_search_data = $this->instagram_api->tagsRecent('onenightonlyroma');
+    $tags_search_data = $this->instagram_api->tagsRecent('onenightonlynyc');
 		
 		$this->load->model('Social_stream_model');
 		
