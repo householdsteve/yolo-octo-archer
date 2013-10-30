@@ -1,4 +1,5 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require_once('TwitterAPIExchange.php');
 /**
  * Codeigniter-Twitter-Search-Library
  *
@@ -117,7 +118,7 @@ class Twitterlib {
 	* mySQL but this was made for people who absolutely have to use PHP.
 	*
 	*/
-	public function search($cachetime=null)
+	public function search($cachetime=null,$mid=null)
 	{
 		// if the number of minutes to cache has been set
 		if($cachetime != null)
@@ -129,14 +130,41 @@ class Twitterlib {
 		if( $cachetime == null || ! $content = $this->CI->cache->get('twitter-api-search') )
 		{
 			$query=implode('+OR+',$this->terms);
-			$query_data = array('q' => $query, 'result_type' => 'recent', 'include_entities' => 'true','rpp' => 100,'result_type'=>'mixed');
-			$url = 'http://search.twitter.com/search.json?'.http_build_query($query_data);
-			$ch = curl_init();
-			curl_setopt ($ch, CURLOPT_URL, $url);
-			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-			$content = curl_exec($ch);
-			curl_close($ch);
-			$content = json_decode($content,true);
+			$query_data = array('q' => $query, 'result_type' => 'recent', 'include_entities' => 'true','count' => 100,'result_type'=>'mixed');
+			if($mid != "" && $mid != null){
+			  $query_data['max_id'] = $mid;
+			}
+			//$url = 'http://search.twitter.com/search.json?'.http_build_query($query_data);
+			
+			
+			$settings_twitter = array(
+          'oauth_access_token' => "632791891-VVMZNEGr6hSLvOy8jrzXIfYI1VBCErjBrQzHkNi8",
+          'oauth_access_token_secret' => "FtAXef7DaHIUfVnPCQvqMWA9tGv3ESkPmLcjA4jXlc",
+          'consumer_key' => "TgvCDKsPvYijRBbesuLA",
+          'consumer_secret' => "Ir4zRc2ns1VJHBZ2DIn7zWmRugNX6LbN3rgJEvQ"
+      );
+			
+			$url = 'https://api.twitter.com/1.1/search/tweets.json';
+      $getfield = '?'.http_build_query($query_data);
+      $requestMethod = 'GET';
+      $twitter = new TwitterAPIExchange($settings_twitter);
+      $content = json_decode($twitter->setGetfield($getfield)
+                   ->buildOauth($url, $requestMethod)
+                   ->performRequest(),true);
+      
+                 // header('Content-type: text/json');
+                 //                 header('Content-type: application/json');            
+                 //                   print_r($content);
+                   
+      //                    
+      //                    
+      //                    
+      // $ch = curl_init();
+      // curl_setopt ($ch, CURLOPT_URL, $url);
+      // curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+      // $content = curl_exec($ch);
+      // curl_close($ch);
+			//$content = json_decode($content,true);
 			// if we want to cache for an amount of time
 			if($cachetime != null)
 			{
@@ -155,11 +183,11 @@ class Twitterlib {
 			{
 				echo 'ERROR: '.$content['error'].PHP_EOL;
 			}
-			else if(isset($content['results']))
+			else if(isset($content['statuses']))
 			{ // and if there were no errors
-				if(count($content['results'])>0)
+				if(count($content['statuses'])>0)
 				{
-					foreach ($content['results'] as $result)
+					foreach ($content['statuses'] as $result)
 					{
 						// process each tweet one at a time
 						$this->process($result);
@@ -318,7 +346,8 @@ class Twitterlib {
 			if( isset($user_id) )
 			{
 				// set input
-				$input=array( 'tweet_id' =>  $tweet_id, 'user_id' => $user_id);
+				
+				$input=array( 'tweet_id' =>  $tweet_id, 'user_id' => $user_id, 'body' => $data['text'], 'capture' => serialize($data),'date'=> $data['created_at']);
 				// save tweet in db
 				$result=$this->CI->db->insert('tweets',$input);
 			}
