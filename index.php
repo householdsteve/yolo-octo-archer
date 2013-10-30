@@ -18,7 +18,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
- 
+ $_SERVER["APPENV"] = "local";
  switch($_SERVER["APPENV"])
  {
    case 'local':

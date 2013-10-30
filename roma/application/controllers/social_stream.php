@@ -68,7 +68,7 @@ class Social_stream extends CI_Controller{
   }
   
   public function find($cachetime=null){
-    $this->twitterlib->search($cachetime);
+    $this->twitterlib->search();
   }
   
   public function instagram(){
