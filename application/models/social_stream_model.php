@@ -33,7 +33,7 @@ class Social_stream_model extends CI_Model {
   	      $d = array(
   	       "lid"=> $row['id'],
   	       "type"=> "twitter",
-  	       "username"=> $data['from_user'],
+  	       "username"=> $data['user']['screen_name'],
   	       "content" => auto_link($row['body'],'url',TRUE),
   	       "unixdate"=> strtotime($row['date'])
   	      );

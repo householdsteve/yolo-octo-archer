@@ -18,7 +18,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
- 
+ //$_SERVER["APPENV"] = "local"; // for testing in local
  switch($_SERVER["APPENV"])
  {
    case 'local':
@@ -31,7 +31,7 @@
      	define('ENVIRONMENT', 'production');
     break;
     default:
-      define('ENVIRONMENT', 'development');
+      define('ENVIRONMENT', 'production');
     break;
  }
 
