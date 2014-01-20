@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <?php $this->view->metas(); ?>
     <?php $this->view->title(); ?>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:900|Montserrat' rel='stylesheet' type='text/css'>
     <?php $this->view->asset('css'); ?>
     <?php echo link_tag( base_url().'assets/img/favicon.ico', 'shortcut icon', 'image/ico'); ?>
     <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.2.min.js"></script>
