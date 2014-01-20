@@ -42,9 +42,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'ono';
-$db['default']['password'] = 'armani13';
-$db['default']['database'] = 'ono_nyc';
+$db['default']['username'] = 'onoparis';
+$db['default']['password'] = 'armani14';
+$db['default']['database'] = 'ono_paris';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
