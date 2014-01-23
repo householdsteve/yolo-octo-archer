@@ -46,7 +46,7 @@ class Social_stream_model extends CI_Model {
 	  $ig = $this->db->get('instagram');
    if($ig->result_array()){
      foreach($ig->result_array() as $row){
-       if($row['deleted'] == 0){
+       if($row['deleted'] == 0 && !preg_match("/shockofbeauty/", $row['username'])){
          $d = array(
           "lid"=> $row['id'],
           "type"=> "instagram",
